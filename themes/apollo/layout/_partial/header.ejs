@@ -1,0 +1,19 @@
+<div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<div class="blog-title">
+		<h1>
+			<a href="<%- config.root %>"><%= config.title %></a>
+		</h1>
+		<h2>
+			<%= config.subtitle %>
+		</h2>
+	</div>
+	<nav class="nav">
+		<ul>
+			<% for (var i in theme.menu){ %><li><a href="<%- theme.menu[i] %>"><%= i %></a></li><% } %>
+			<% if (theme.rss){ %><li><a href="<%- theme.rss %>" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li><% } %>
+		</ul>
+    </nav>
+</header>
