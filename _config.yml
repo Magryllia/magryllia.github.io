@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Graphilia
-subtitle: 自称グラフィックスエンジニアのポートフォリオ兼技術メモ
-description: ""
+title: GRAPHILIA
+subtitle:
+description: 自称グラフィックスエンジニアのポートフォリオ兼技術メモ
 keywords:
 author: 大城（Magryllia）
 language: jp
@@ -42,7 +42,7 @@ external_link:
   exclude: ""
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
