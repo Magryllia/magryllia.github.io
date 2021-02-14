@@ -1,5 +1,13 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+tags: 
+categories: 
+cover_index: 
+hidden: 
 ---
+
+## DESCRIPTION
+
+
+## TOOLS USED

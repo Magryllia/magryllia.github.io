@@ -13,4 +13,3 @@ Houdini習作（一作目）
 Houdini
 
 ![hoge](/assets/Temple/01.webp)
----
