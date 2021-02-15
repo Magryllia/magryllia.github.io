@@ -2,8 +2,8 @@
 title: {{ title }}
 date: {{ date }}
 tags: 
-categories: 
-cover_index: 
+categories: works
+cover_index: /assets/{{ title }}/450.webp
 hidden: 
 ---
 
@@ -11,3 +11,5 @@ hidden:
 
 
 ## TOOLS USED
+
+![](/assets/{{ title }}/01.webp)
