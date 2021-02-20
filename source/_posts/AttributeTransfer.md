@@ -1,7 +1,7 @@
 ---
 title: 【Houdini】Attribute Transferで転送した値がボケない時の対処法
 date: 2021-02-20T18:58:38+09:00
-tags: 
+tags: Houdini
 categories: blog
 #cover_index: /assets/AttributeTransfer/450.webp
 hidden: true
