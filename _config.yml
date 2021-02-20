@@ -118,6 +118,15 @@ hide_posts:
   filter: hidden
   # Generators which you want to expose all posts (include hidden ones) to.
   # Common generators: index, tag, category, archive, sitemap, feed, etc.
-  public_generators: [category, tag]
+  public_generators: [tag, category, archive, sitemap]
   # Add "noindex" meta tag to prevent hidden posts from being indexed by search engines
   noindex: false
+
+sitemap:
+  path: sitemap.xml
+
+lazyload:
+  enable: true
+  onlypost: false # optional
+  loadingImg: /assets/loading/02.webp # optional eg ./images/loading.gif
+  isSPA: false # optional

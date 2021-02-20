@@ -1,8 +1,8 @@
 # Header
 menu:
   Home: /
-  About: /about
   Blog: /categories/blog
+  About: /about
   #Archives: /archives
 
 # Default post title
