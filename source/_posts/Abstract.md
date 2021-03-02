@@ -8,7 +8,6 @@ cover_index: /assets/Abstract/01.webp
 
 ## DESCRIPTION
 JSplacementを使ってみた  
-<!-- [GitHub](https://github.com/Magryllia/MegalopolitanAutomaton) -->
 
 ## TOOLS USED
 Blender, JSplacement

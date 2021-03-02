@@ -23,6 +23,8 @@
     <!--Open Graph Title-->
     <% if (page.title){ %>
         <meta property="og:title" content="<%= page.title %>"/>
+    <% } else {%>
+        <meta property="og:title" content="GRAPHILIA" />
     <% } %>
 
     <!--Open Graph Site Name-->
@@ -31,9 +33,16 @@
     <!--Page Cover-->
     <% if(page.cover) { %>
         <meta property="og:image" content="<%= page.cover %>" />
+        <!-- <meta property="og:image" content="favicon.ico" /> -->
     <% } else { %>
         <meta property="og:image" content="<%= theme.cover %>"/>
+        <!-- <meta property="og:image" content="favicon.ico" /> -->
     <% } %>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@magryllia" />
+    <meta property="og:url" content="<%= url %>" />
 
     <!-- Title -->
     <%

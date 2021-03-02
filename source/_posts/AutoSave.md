@@ -1,5 +1,5 @@
 ---
-title: 【Houdini】起動時にオートセーブを有効にする
+title: 【Houdini】起動時に自動でオートセーブを有効にする
 categories: blog
 #cover_index: /assets/AutoSave/450.webp
 date: 2021-02-15 20:44:31
