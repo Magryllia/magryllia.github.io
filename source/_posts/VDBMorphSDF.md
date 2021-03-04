@@ -16,10 +16,12 @@ hidden: true
 
 無性にジオメトリをモーフさせたくなるときってあるよね．  
 冒頭の画像を作るときに初めてVDBMorphSDFを使ったので使い方をメモっておく．  
+あくまでメモなので，もっといい方法があるかも．悪しからず．  
 ↓本記事ではサンプルとしてこれを作る ([サンプルデータ](https://github.com/Magryllia/VDBMorphSDF_Sample))
 ![morph](morph.png)
 
 ## メッシュのVDB化
+トポロジーを無視してモーフするといえど，ある程度形状が似ているオブジェクト同士の方がモーフしてる感 (?) が出る．  
 PigHeadとTemplateHeadを配置してVDBに変換する．今回はVoxel Sizeを0.005とした．  
 TransformとPolyFillはスケールとメッシュを調整するためのもの．~テストジオメトリのスケールぐらい揃えといてくれよ~
 
@@ -36,7 +38,7 @@ Allow Chaching To Diskにチェックを入れておくとシミュレーショ�
 
 ![2021-03-01T221444](2021-03-01T221444.png)
 
-Solver内でVDBMorphSDF ([公式ヘルプ](https://www.sidefx.com/ja/docs/houdini/nodes/sop/vdbmorphsdf)) にPrev_FrameとInput_2を接続する．プロパティは触らない．
+Solver内でVDBMorphSDF ([公式ヘルプ](https://www.sidefx.com/ja/docs/houdini/nodes/sop/vdbmorphsdf)) にPrev_FrameとInput_2を接続する．パラメータは触らない．
 
 ![2021-03-01T220626](2021-03-01T220626.png)
 
@@ -47,8 +49,8 @@ Solverに表示フラグを立てて1からフレームを進めるとモーフ�
 しかし今回はモーフが完了する前にフレームの最後 (240frame) にたどり着いてしまった．この解決法は以下の3つ (他にもあるかも)  
 
 - FENDを伸ばす
-- Solver プロパティのSub Stepsを増やす
-- VDBMorphSDF プロパティのTimeStepを増やす
+- SolverパラメータのSub Stepsを増やす
+- VDBMorphSDFパラメータのTimeStepを増やす
 <br>
 
 どれでもいいけど，今回は2番目の方法で行う．Sub Stepsを3にして再度計算を行う． (当然1フレームあたりの計算量は多くなる)  
@@ -65,7 +67,8 @@ File Chacheを繋いでSave To Diskし，計算結果を保存しておく．今
 
 ![2021-03-01T232729](2021-03-01T232729.png)
 
-保存したらLoad From Diskにチェックを入れておく．
+保存したらLoad From Diskにチェックを入れておく．  
+本来ならシミュレーションとその結果の利用でジオメトリを分けたほうがいいけど今回は省略．
 
 ![2021-03-01T233149](2021-03-01T233149.png)
 
@@ -97,8 +100,6 @@ Controller morphパラメータの値 (0～1) とシミュレーションの初�
 最後にConvert VDBでメッシュ化すれば完成．
 
 ![2021-03-01T235750](2021-03-01T235750.png)
-
-これでモーフは出来るようになった．
 
 
 ## おわりに
