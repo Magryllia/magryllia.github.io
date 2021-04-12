@@ -1,7 +1,7 @@
 ---
 title: 【Houdini】日本語入りのVEXでHoudini Expression Editorを使ってエラーが出たときの対処法
 date: 2021-04-11T16:47:49+09:00
-tags: 
+tags: Houdini
 categories: blog
 # cover_index: /assets/HoudiniExpressionEditor/450.webp
 hidden: true
@@ -39,6 +39,7 @@ Script Errorが発生する．なんでや．
 ## 不具合の原因
 
 Show Detailsは以下のとおり
+
 ```
 Traceback (most recent call last):
   File "<stdin>", line 9, in <module>
