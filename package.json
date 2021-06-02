@@ -27,6 +27,7 @@
     "hexo-renderer-marked": "^3.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
+    "hexo-tag-twitter": "^1.0.2",
     "hexo-toc": "^1.1.0",
     "hexo-uglify": "^2.0.0"
   }
