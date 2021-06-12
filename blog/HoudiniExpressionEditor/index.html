@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<meta name="description" content="目次
+
+
+はじめに
+不具合の原因
+対処法
+
+
+
+はじめにHoudiniのVEXをVSCodeで弄りたくなったので，以下の記事で紹介されていたHoudiniと外部エディタを同期させるアドオンHoudini Expression Editorをインストールしてみた．
+
+Houdini: VEXをカスタマ">
+<meta name="author" content="大城（Magryllia）">
+<meta property="og:title" content="【Houdini】日本語入りのVEXでHoudini Expression Editorを使ってエラーが出たときの対処法">
+<meta property="og:site_name" content="GRAPHILIA">
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@magryllia">
+<meta property="og:url" content="http://www.magryllia.com/blog/HoudiniExpressionEditor/index.html">
+<title>【Houdini】日本語入りのVEXでHoudini Expression Editorを使ってエラーが出たときの対処法 - GRAPHILIA</title>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/main.css">
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
+<script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-189767043-1","auto"),ga("send","pageview")</script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header>
+<div class="logo">
+<a href="/">GRAPHILIA</a>
+</div>
+<div id="menu_icon"></div>
+<nav>
+<ul>
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/categories/blog">Blog</a>
+</li>
+<li>
+<a href="/about">About</a>
+</li>
+</ul>
+</nav>
+<div class="footer clearfix">
+<ul class="social clearfix">
+<li><a href="https://twitter.com/Magryllia" class="twitter" target="_blank" data-title="Twitter"></a></li>
+</ul>
+<div class="rights">
+<p>Copyright © 2021 Magryllia.</p>
+</div>
+</div>
+</header>
+<section class="main clearfix">
+<section class="top" style="background:url('')">
+<div class="wrapper content_header clearfix">
+<div class="work_nav">
+<ul class="btn clearfix">
+<li><a class="previous disabled"></a></li>
+<li><a href="/" class="grid" data-title="Portfolio"></a></li>
+<li><a class="next disabled"></a></li>
+</ul>
+</div>
+<h1 class="title">【Houdini】日本語入りのVEXでHoudini Expression Editorを使ってエラーが出たときの対処法</h1>
+</div>
+</section>
+<section class="wrapper">
+<div class="content">
+<h2><span id="目次">目次</span></h2>
+<ul>
+<li><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</a></li>
+<li><a href="#%E4%B8%8D%E5%85%B7%E5%90%88%E3%81%AE%E5%8E%9F%E5%9B%A0">不具合の原因</a></li>
+<li><a href="#%E5%AF%BE%E5%87%A6%E6%B3%95">対処法</a></li>
+</ul>
+<h2><span id="はじめに">はじめに</span></h2><p>HoudiniのVEXをVSCodeで弄りたくなったので，以下の記事で紹介されていたHoudiniと外部エディタを同期させるアドオン<a target="_blank" rel="noopener" href="http://cgtoolbox.com/houdini-expression-editor/">Houdini Expression Editor</a>をインストールしてみた．</p>
+<blockquote>
+<p>Houdini: VEXをカスタマイズしたVS Codeで書く02 - kick the base<br><a target="_blank" rel="noopener" href="https://www.kickbase.net/entry/vex-programming-with-vscode02">https://www.kickbase.net/entry/vex-programming-with-vscode02</a></p>
+</blockquote>
+<br>
+<p>しかし，外部エディタにVSCodeを登録してHoudini Expression Editorをインストール後，<br>コメントに日本語が入ったVEXをEdit in External Editorすると怒られた． </p>
+<p><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T170224.png" alt="2021-04-11T170224"></p>
+<p>右クリック&gt; Expression&gt; Edit in Extarnal Editor　をクリックすると</p>
+<p><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T170102.png" alt="2021-04-11T170102"></p>
+<p>Script Errorが発生する．なんでや．</p>
+<table>
+<thead>
+<tr>
+<th align="left">環境</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">OS</td>
+<td>Windows 10 Home x64</td>
+</tr>
+<tr>
+<td align="left">Houdini</td>
+<td>18.5.408</td>
+</tr>
+<tr>
+<td align="left">Houdini Expression Editor</td>
+<td>1.4.8</td>
+</tr>
+</tbody></table>
+<h2><span id="不具合の原因">不具合の原因</span></h2><p>Show Detailsは以下のとおり</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 9, in &lt;module&gt;</span><br><span class="line">  File &quot;E:&#x2F;Users&#x2F;****&#x2F;Documents&#x2F;houdini18.5&#x2F;packages&#x2F;..&#x2F;SideFXLabs&#x2F;18.5.408&#x2F;SideFXLabs18.5&#x2F;scripts&#x2F;python\HoudiniExprEditor\ParmWatcher.py&quot;, line 463, in add_watcher</span><br><span class="line">    data &#x3D; str(selection.rawValue())</span><br><span class="line">UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 2-5: ordinal not in range(128)</span><br></pre></td></tr></table></figure>
+<p>このエラーを吐いているParmWatcher.pyはHoudini Expression Editorでインストールしたスクリプトファイルのことなので，該当箇所を見てみる．</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_watcher</span>(<span class="params">selection, type_=<span class="string">&quot;parm&quot;</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; Create a file with the current parameter contents and </span></span><br><span class="line"><span class="string">        create a file watcher, if not already created and found in hou.Session,</span></span><br><span class="line"><span class="string">        add the file to the list of watched files.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Link the file created to a parameter where the tool has been executed from</span></span><br><span class="line"><span class="string">        and when the file changed, edit the parameter contents with text contents.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    file_path = get_file_name(selection, type_=type_)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> type_ == <span class="string">&quot;parm&quot;</span>:</span><br><span class="line">        <span class="comment"># fetch parm content, either raw value or expression if any</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = selection.expression()</span><br><span class="line">        <span class="keyword">except</span> hou.OperationFailed:</span><br><span class="line">            <span class="keyword">if</span> os.environ.get(<span class="string">&quot;EXTERNAL_EDITOR_EVAL_EXPRESSION&quot;</span>) == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">                data = <span class="built_in">str</span>(selection.<span class="built_in">eval</span>())</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                data = <span class="built_in">str</span>(selection.rawValue()) <span class="comment"># ← ここ！</span></span><br><span class="line">    <span class="keyword">elif</span> type_ == <span class="string">&quot;python_node&quot;</span>:</span><br><span class="line">        data = selection.<span class="built_in">type</span>().definition().sections()[</span><br><span class="line">            <span class="string">&quot;PythonCook&quot;</span>].contents()</span><br><span class="line">    ︙</span><br></pre></td></tr></table></figure>
+<p>rawValue関数については<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/hom/hou/Parm.html">公式ヘルプ</a>曰く</p>
+<blockquote>
+<p>rawValue() → str<br>このパラメータのそのままのテキスト値を評価または展開せずに返します。 このパラメータにエクスプレッションが含まれていれば、そのエクスプレッションが返され、そうでない場合は、このパラメータのそのままのテキスト値が返されます。</p>
+</blockquote>
+<br>
+<p>メロスにはpythonがわからぬが，とりあえず同期用ファイル生成時に<code>selection.rawValue()</code>がasciiの文字コードでエラーを吐いているっぽいことはわかった．</p>
+<h2><span id="対処法">対処法</span></h2><p>エラー文でググったらそれっぽいサイトが出てきた．</p>
+<blockquote>
+<p>PythonのUnicodeEncodeErrorを知る<br><a target="_blank" rel="noopener" href="https://lab.hde.co.jp/2008/08/pythonunicodeencodeerror.html">https://lab.hde.co.jp/2008/08/pythonunicodeencodeerror.html</a></p>
+</blockquote>
+<br>
+<p>要するにasciiをutf-8にキャストしてやればいいみたいなので，該当箇所を書き換えたのがこちら</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="built_in">str</span>(selection.rawValue().encode(<span class="string">&#x27;utf_8&#x27;</span>)) <span class="comment"># .encode(&#x27;utf_8&#x27;)を追加</span></span><br></pre></td></tr></table></figure>
+<p>ParmWatcher.pyを書き換えて保存してから再度Edit in External EditorするとちゃんとVSCodeが立ち上がった．<br><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T172112.png" alt="2021-04-11T172112"></p>
+<p>VSCode側でVEXを上書き保存するとHoudiniにも即時反映されるので便利．<br>～おわり～</p>
+<div class="tags">
+<a href="/tags/Houdini/">Houdini</a>
+</div>
+<div>
+</div>
+</div>
+</section>
+</section>
+<script src="/js/jquery.js"></script>
+<script src="/js/main.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://www.magryllia.com/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+
+    <url>
+        <loc>http://www.magryllia.com/works/InteriorMapping/</loc>
+        <lastmod>2021-06-12T10:08:07.943Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/ReactionDiffusion/</loc>
+        <lastmod>2021-06-12T09:50:46.662Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Apart/</loc>
+        <lastmod>2021-06-05T11:14:53.005Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Dither02/</loc>
+        <lastmod>2021-06-02T15:01:24.500Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/OilPainting/</loc>
+        <lastmod>2021-06-02T15:01:21.066Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/CellShading/</loc>
+        <lastmod>2021-06-02T15:01:19.769Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/blog/Moprh_UVLayout/</loc>
+        <lastmod>2021-05-29T12:40:23.630Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/BetterHarderStronger/</loc>
+        <lastmod>2021-05-29T09:25:22.070Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/blog/HoudiniExpressionEditor/</loc>
+        <lastmod>2021-04-12T13:01:07.019Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/blog/VDBMorphSDF/</loc>
+        <lastmod>2021-03-04T14:57:18.538Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/morph/</loc>
+        <lastmod>2021-03-02T14:49:57.715Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Abstract/</loc>
+        <lastmod>2021-02-28T03:26:37.739Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Iris/</loc>
+        <lastmod>2021-02-28T03:24:37.532Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/blog/AutoSave/</loc>
+        <lastmod>2021-02-21T10:00:33.263Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/blog/AttributeTransfer/</loc>
+        <lastmod>2021-02-20T10:25:17.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/UnderConstruction/</loc>
+        <lastmod>2021-02-16T00:02:10.203Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/ObakeHoudini/</loc>
+        <lastmod>2021-02-14T04:14:48.999Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Temple/</loc>
+        <lastmod>2021-02-14T04:08:37.873Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/GlitchNoiseShader/</loc>
+        <lastmod>2021-01-31T04:55:56.551Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/VermicularFrameworks/</loc>
+        <lastmod>2021-01-17T13:38:00.725Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/TypoMotion/</loc>
+        <lastmod>2021-01-10T14:37:27.362Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/CubicSentinel/</loc>
+        <lastmod>2021-01-10T14:28:53.776Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Dither/</loc>
+        <lastmod>2021-01-04T04:54:40.814Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
+        <lastmod>2021-01-04T04:37:16.068Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/LineSphere/</loc>
+        <lastmod>2021-01-04T04:31:43.967Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/CubeCube/</loc>
+        <lastmod>2021-01-04T04:29:17.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
