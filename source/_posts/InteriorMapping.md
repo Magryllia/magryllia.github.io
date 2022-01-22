@@ -11,7 +11,7 @@ hidden:
 各種インテリアマッピングシェーダー
 
 ## TOOLS USED
-Blender / Unity
+Blender, Unity
 
 ![](/assets/InteriorMapping/01.webp)
 ![](/assets/InteriorMapping/02.webp)
