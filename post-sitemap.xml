@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/ZeroGravity/</loc>
+        <lastmod>2022-03-20T06:16:40.508Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/Room/</loc>
         <lastmod>2022-01-22T03:11:47.156Z</lastmod>
         <changefreq>weekly</changefreq>
