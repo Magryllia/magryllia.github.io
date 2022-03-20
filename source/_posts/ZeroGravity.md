@@ -1,5 +1,5 @@
 ---
-title: ZeroGravity
+title: Zero Gravity
 date: 2022-03-20T14:56:41+09:00
 tags: 
 categories: works

@@ -1,5 +1,5 @@
 ---
-title: ReactionDiffusion
+title: Reaction Diffusion
 date: 2021-06-12T18:42:26+09:00
 tags: 
 categories: works
