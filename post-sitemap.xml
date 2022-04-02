@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/PyroFlower/</loc>
+        <lastmod>2022-04-02T14:33:49.066Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/VellumFlower/</loc>
         <lastmod>2022-03-20T07:20:58.867Z</lastmod>
         <changefreq>weekly</changefreq>
