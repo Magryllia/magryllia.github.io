@@ -8,7 +8,7 @@ hidden:
 ---
 
 ## DESCRIPTION
-Vellumシミュレーションテスト
+Vellumシミュレーション結果をループさせてみる
 
 ## TOOLS USED
 Houdini, Davinci Resolve
