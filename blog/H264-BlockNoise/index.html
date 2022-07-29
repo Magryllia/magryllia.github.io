@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<meta name="description" content="はじめに
+動画をH.264形式でエンコードした際にこんなブロックノイズが発生した。
+作業環境
+
+
+環境
+
+
+
+
+OS
+Windows 10 Home x64
+
+
+DaVinci Resolve
+18.0.1
+
+
+結論H.265でエンコードした後、ffmpegでH.264形式に変換するとうまくいった。">
+<meta name="author" content="大城（Magryllia）">
+<meta property="og:title" content="【DaVinci Resolve】H.264エンコードでブロックノイズが出たときの対処法">
+<meta property="og:site_name" content="GRAPHILIA">
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@magryllia">
+<meta property="og:url" content="http://www.magryllia.com/blog/H264-BlockNoise/index.html">
+<title>【DaVinci Resolve】H.264エンコードでブロックノイズが出たときの対処法 - GRAPHILIA</title>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/main.css">
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
+<script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-189767043-1","auto"),ga("send","pageview")</script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header>
+<div class="logo">
+<a href="/">GRAPHILIA</a>
+</div>
+<div id="menu_icon"></div>
+<nav>
+<ul>
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/categories/blog">Blog</a>
+</li>
+<li>
+<a href="/about">About</a>
+</li>
+</ul>
+</nav>
+<div class="footer clearfix">
+<ul class="social clearfix">
+<li><a href="https://twitter.com/Magryllia" class="twitter" target="_blank" data-title="Twitter"></a></li>
+</ul>
+<div class="rights">
+<p>Copyright © 2021 Magryllia.</p>
+</div>
+</div>
+</header>
+<section class="main clearfix">
+<section class="top" style="background:url('')">
+<div class="wrapper content_header clearfix">
+<div class="work_nav">
+<ul class="btn clearfix">
+<li><a class="previous disabled"></a></li>
+<li><a href="/" class="grid" data-title="Portfolio"></a></li>
+<li><a class="next disabled"></a></li>
+</ul>
+</div>
+<h1 class="title">【DaVinci Resolve】H.264エンコードでブロックノイズが出たときの対処法</h1>
+</div>
+</section>
+<section class="wrapper">
+<div class="content">
+<h2><span id="はじめに">はじめに</span></h2><p><img src="/assets/loading/02.webp" data-original="/blog/H264-BlockNoise/2022-07-29T143752.png" alt="2022-07-29T143752"><br><img src="/assets/loading/02.webp" data-original="/blog/H264-BlockNoise/2022-07-29T143922.png" alt="2022-07-29T143922"></p>
+<p>動画をH.264形式でエンコードした際にこんなブロックノイズが発生した。</p>
+<h2><span id="作業環境">作業環境</span></h2><table>
+<thead>
+<tr>
+<th align="left">環境</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">OS</td>
+<td>Windows 10 Home x64</td>
+</tr>
+<tr>
+<td align="left">DaVinci Resolve</td>
+<td>18.0.1</td>
+</tr>
+</tbody></table>
+<h2><span id="結論">結論</span></h2><p>H.265でエンコードした後、ffmpegでH.264形式に変換するとうまくいった。</p>
+<p>10bit H.265 → 10bit H.264の場合<br><code>ffmpeg -i input.mp4 -c:v libx264 -crf 18 -c:a copy output.mp4</code><br>10bit H.265 → 8bit H.264の場合<br><code>ffmpeg -i input.mp4 -c:v libx264 -crf 18 -vf format=yuv420p -c:a copy output.mp4</code></p>
+<h2><span id="経緯">経緯</span></h2><p>調べてみるとどうもH.264の圧縮がうまくいってないときに発生するらしい。</p>
+<blockquote>
+<p>参考1<br>Premiere ProのH.264の書出しでブロックノイズが出る場合があります。<br><a target="_blank" rel="noopener" href="https://community.adobe.com/t5/premiere-pro%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0-discussions/premiere-pro%E3%81%AEh-264%E3%81%AE%E6%9B%B8%E5%87%BA%E3%81%97%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%8E%E3%82%A4%E3%82%BA%E3%81%8C%E5%87%BA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99/td-p/11932822?profile.language=ja">https://community.adobe.com/t5/premiere-pro%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0-discussions/premiere-pro%E3%81%AEh-264%E3%81%AE%E6%9B%B8%E5%87%BA%E3%81%97%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%8E%E3%82%A4%E3%82%BA%E3%81%8C%E5%87%BA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99/td-p/11932822?profile.language=ja</a></p>
+</blockquote>
+<blockquote>
+<p>参考2<br>DaVinci Resolveの書き出し(レンダー)でブロックノイズが出た時の対処法<br><a target="_blank" rel="noopener" href="https://note.com/0cello/n/n250b6675e8db">https://note.com/0cello/n/n250b6675e8db</a></p>
+</blockquote>
+<p>参考2のとおりにH.265で書き出したらブロックノイズは無くなったが、twitterはH.264しか対応していないのでそのままではアップロードができない。<br>対処法として、ffmpegを使ってコーデックをを変換した</p>
+<p>10bit H.265 → 10bit H.264の場合<br><code>ffmpeg -i input.mp4 -c:v libx264 -crf 18 -c:a copy output.mp4</code><br>10bit H.265 → 8bit H.264の場合<br><code>ffmpeg -i input.mp4 -c:v libx264 -crf 18 -vf format=yuv420p -c:a copy output.mp4</code></p>
+<p>ffmpegが何かわからない人は<a target="_blank" rel="noopener" href="https://handbrake.fr/">HandBrake</a>でも同じようなコーデック変換ができるようなのでそっちでもいいかも。</p>
+<p>これが最善かは不明だが、お手軽だし見た感じ劣化も無いようなのでよしとする。</p>
+<div class="tags">
+<a href="/tags/DaVinci-Resolve/">DaVinci Resolve</a>
+</div>
+<div>
+</div>
+</div>
+</section>
+</section>
+<script src="/js/jquery.js"></script>
+<script src="/js/main.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
