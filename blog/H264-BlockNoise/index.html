@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
 <meta name="description" content="はじめに
 動画をH.264形式でエンコードした際にこんなブロックノイズが発生した。
-作業環境
-
-
 環境
+
+
+作業環境
 
 
 
@@ -22,7 +22,23 @@ DaVinci Resolve
 18.0.1
 
 
-結論H.265でエンコードした後、ffmpegでH.264形式に変換するとうまくいった。">
+
+
+
+書き出し設定
+
+
+
+
+Format
+MP4
+
+
+Codec
+H.264
+
+
+Res">
 <meta name="author" content="大城（Magryllia）">
 <meta property="og:title" content="【DaVinci Resolve】H.264エンコードでブロックノイズが出たときの対処法">
 <meta property="og:site_name" content="GRAPHILIA">
@@ -87,10 +103,10 @@ DaVinci Resolve
 <div class="content">
 <h2><span id="はじめに">はじめに</span></h2><p><img src="/assets/loading/02.webp" data-original="/blog/H264-BlockNoise/2022-07-29T143752.png" alt="2022-07-29T143752"><br><img src="/assets/loading/02.webp" data-original="/blog/H264-BlockNoise/2022-07-29T143922.png" alt="2022-07-29T143922"></p>
 <p>動画をH.264形式でエンコードした際にこんなブロックノイズが発生した。</p>
-<h2><span id="作業環境">作業環境</span></h2><table>
+<h2><span id="環境">環境</span></h2><table>
 <thead>
 <tr>
-<th align="left">環境</th>
+<th align="left">作業環境</th>
 <th></th>
 </tr>
 </thead>
@@ -101,6 +117,42 @@ DaVinci Resolve
 <tr>
 <td align="left">DaVinci Resolve</td>
 <td>18.0.1</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>書き出し設定</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Format</td>
+<td>MP4</td>
+</tr>
+<tr>
+<td>Codec</td>
+<td>H.264</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td>1080x1920</td>
+</tr>
+<tr>
+<td>Frame rate</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>Automatic(Best)</td>
+</tr>
+<tr>
+<td>Encoding Profile</td>
+<td>Main</td>
+</tr>
+<tr>
+<td>Key Frames</td>
+<td>Automatic</td>
 </tr>
 </tbody></table>
 <h2><span id="結論">結論</span></h2><p>H.265でエンコードした後、ffmpegでH.264形式に変換するとうまくいった。</p>
