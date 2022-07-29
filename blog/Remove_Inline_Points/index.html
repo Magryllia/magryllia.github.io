@@ -4,14 +4,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<meta name="description" content="やりたいこと下図左のように直線のエッジ上にあるポイントを削除したい。要するにResampleの逆を行いたい。
+
+方法Facetノードを接続し、「Remove Inline Points」を有効にするとエッジ上のポイントが削除される。
+
+ヘルプページの説明：Remove Inline Pointsポイ">
 <meta name="author" content="大城（Magryllia）">
-<meta property="og:title" content="GRAPHILIA">
+<meta property="og:title" content="【Houdini】エッジ上のポイントを削除する(Facetノード)">
 <meta property="og:site_name" content="GRAPHILIA">
 <meta property="og:image" content="">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@magryllia">
-<meta property="og:url" content="http://www.magryllia.com/categories/blog/index.html">
-<title>blog - GRAPHILIA</title>
+<meta property="og:url" content="http://www.magryllia.com/blog/Remove_Inline_Points/index.html">
+<title>【Houdini】エッジ上のポイントを削除する(Facetノード) - GRAPHILIA</title>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/main.css">
 <!--[if lt IE 9]>
@@ -52,32 +57,34 @@
 </div>
 </header>
 <section class="main clearfix">
-<section class="wrapper">
-<div class="content archives">
-<div class="archive-title">blog</div>
-<ul class="archive-list">
-<li>
-<a href="/blog/AttributeTransfer/">【Houdini】Attribute Transferで転送した値がボケない時の対処法</a>
-</li>
-<li>
-<a href="/blog/AutoSave/">【Houdini】起動時に自動でオートセーブを有効にする</a>
-</li>
-<li>
-<a href="/blog/VDBMorphSDF/">【Houdini】VDB Morph SDFでトポロジー無視のモーフィングを行う</a>
-</li>
-<li>
-<a href="/blog/HoudiniExpressionEditor/">【Houdini】日本語入りのVEXでHoudini Expression Editorを使ってエラーが出たときの対処法</a>
-</li>
-<li>
-<a href="/blog/Moprh_UVLayout/">【Houdini】UV Layout SOPでジオメトリを綺麗に敷き詰めてモーフさせる</a>
-</li>
-<li>
-<a href="/blog/H264-BlockNoise/">【DaVinci Resolve】H.264エンコードでブロックノイズが出たときの対処法</a>
-</li>
-<li>
-<a href="/blog/Remove_Inline_Points/">【Houdini】エッジ上のポイントを削除する(Facetノード)</a>
-</li>
+<section class="top" style="background:url('')">
+<div class="wrapper content_header clearfix">
+<div class="work_nav">
+<ul class="btn clearfix">
+<li><a class="previous disabled"></a></li>
+<li><a href="/" class="grid" data-title="Portfolio"></a></li>
+<li><a class="next disabled"></a></li>
 </ul>
+</div>
+<h1 class="title">【Houdini】エッジ上のポイントを削除する(Facetノード)</h1>
+</div>
+</section>
+<section class="wrapper">
+<div class="content">
+<h2><span id="やりたいこと">やりたいこと</span></h2><p>下図左のように直線のエッジ上にあるポイントを削除したい。<br>要するにResampleの逆を行いたい。</p>
+<p><img src="/assets/loading/02.webp" data-original="/blog/Remove_Inline_Points/2022-07-29T190257.png" alt="2022-07-29T190257"></p>
+<h2><span id="方法">方法</span></h2><p><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/facet">Facetノード</a>を接続し、「Remove Inline Points」を有効にするとエッジ上のポイントが削除される。</p>
+<blockquote>
+<p>ヘルプページの説明：<br>Remove Inline Points<br>ポイントが前と次のポイントを結んだ直線上に並んでいた場合に、ポリゴンからそれらのポイントを削除します。</p>
+</blockquote>
+<p><img src="/assets/loading/02.webp" data-original="/blog/Remove_Inline_Points/2022-07-29T190739.png" alt="2022-07-29T190739"></p>
+<p>また、Distanceパラメータを大きくすると直線に並んでいないポイントも削除される。</p>
+<p><img src="/assets/loading/02.webp" data-original="/blog/Remove_Inline_Points/distance.webp"></p>
+<div class="tags">
+<a href="/tags/Houdini/">Houdini</a>
+</div>
+<div>
+</div>
 </div>
 </section>
 </section>
