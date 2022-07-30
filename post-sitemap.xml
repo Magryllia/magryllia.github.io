@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/ScrapAndBuild/</loc>
+        <lastmod>2022-07-30T04:37:02.984Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/blog/Remove_Inline_Points/</loc>
         <lastmod>2022-07-29T10:26:08.378Z</lastmod>
         <changefreq>weekly</changefreq>
