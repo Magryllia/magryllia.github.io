@@ -84,7 +84,9 @@ header nav ul li a{
 
 h1, h2, h3, h4, h5 ,h6{
     color: #4b4848;
-    font-family: "raleway-regular", arial;
+    /* font-family: "raleway-regular", arial; */
+    /* font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     letter-spacing: 1px;
 }
 
@@ -132,7 +134,8 @@ h5, h6          { font-weight: bolder }
     header .logo a, header .logo a:active, header .logo a:visited {
         text-decoration: none;
         text-transform: uppercase;
-        font-family: 'raleway-regular';
+        /* font-family: 'raleway-regular'; */
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         color: #454545;
         font-size: 1.5em;
     }
@@ -157,7 +160,8 @@ h5, h6          { font-weight: bolder }
 
     header nav ul li a{
         color: #454545;
-        font-family: "raleway-regular", arial;
+        /* font-family: "raleway-regular", arial; */
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-size: 14px;
         text-decoration: none;
         letter-spacing: 1px;
@@ -244,14 +248,16 @@ h5, h6          { font-weight: bolder }
 
     header .rights p{
         color: #454545;
-        font-family: "raleway-regular", arial;
+        /* font-family: "raleway-regular", arial; */
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-size: 11px;
         letter-spacing: 1px;
         line-height: 18px;
     }
 
     header .rights a{
-        font-family: "raleway-bold", arial;
+        /* font-family: "raleway-bold", arial; */
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-weight: bold;
         text-decoration: none;
     }
@@ -317,7 +323,9 @@ h5, h6          { font-weight: bolder }
 
 .main .pagination {
     display: inline-block;
-    font-family: "raleway-regular", arial;
+    /* font-family: "raleway-regular", arial; */
+    /* font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     width: auto;
     height: auto;
     letter-spacing: .01em;
@@ -376,7 +384,9 @@ h5, h6          { font-weight: bolder }
     padding: 20px 0;
     z-index: 77;
     color: #454545;
-    font-family: "raleway-regular", arial;
+    /* font-family: "raleway-regular", arial; */
+    /* font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     font-size: 16px;
     letter-spacing: .5px;
     border-bottom: 1px solid #bfbbbb;
@@ -495,7 +505,8 @@ h5, h6          { font-weight: bolder }
 .top .title{
     display: block;
     width: 100%;color: #4b4848;
-    font-family: "raleway-bold", arial;
+    /* font-family: "raleway-bold", arial; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     font-size: 26px;
     font-weight: bold;
     background: rgba(255, 255, 255, .7);
@@ -522,7 +533,8 @@ h5, h6          { font-weight: bolder }
 
 .content{
     color: #4b4848;
-    font-family: "raleway-regular", arial;
+    /* font-family: "raleway-regular", arial; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     font-size: 15px;
     line-height: 22px;
     padding: 60px 30px;
@@ -541,7 +553,8 @@ h5, h6          { font-weight: bolder }
 
 .content p{
     color: #4b4848;
-    font-family: "raleway-regular", arial;
+    /* font-family: "raleway-regular", arial; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     font-size: 15px;
     line-height: 24px;
     margin-bottom: 25px;
@@ -554,7 +567,8 @@ h5, h6          { font-weight: bolder }
 .content h5,
 .content h6{
     color: #4b4848;
-    font-family: "raleway-semibold", arial;
+    /* font-family: "raleway-semibold", arial; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     font-weight: bold;
     line-height: 28px;
     margin-bottom: 20px;
@@ -575,7 +589,8 @@ h5, h6          { font-weight: bolder }
     margin-left: 45px;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: 'raleway-regular';
+    /* font-family: 'raleway-regular'; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     color: #454545;
     font-size: 1.5em;
     margin-bottom: 50px;
@@ -605,7 +620,8 @@ h5, h6          { font-weight: bolder }
     padding: 7px 10px;
     background: #454545;
     color: #fff;
-    font-family: "raleway-regular", arial;
+    /* font-family: "raleway-regular", arial; */
+    font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
     font-size: 12px;
     position: absolute;
     white-space: nowrap;
@@ -649,7 +665,8 @@ h5, h6          { font-weight: bolder }
     header .logo a, header .logo a:active, header .logo a:visited {
         text-decoration: none;
         text-transform: uppercase;
-        font-family: 'raleway-regular';
+        /* font-family: 'raleway-regular'; */
+        font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
         color: #454545;
         font-size: 1.5em;
     }
@@ -688,7 +705,8 @@ h5, h6          { font-weight: bolder }
         padding: 30px 0;
         text-align: center;
         color: #454545;
-        font-family: "raleway-regular", arial;
+        /* font-family: "raleway-regular", arial; */
+        font-family:"YakuHanJPs","-apple-system","BlinkMacSystemFont","Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
         font-size: 14px;
         text-decoration: none;
         border-top: 1px solid #f7f5f5;
@@ -765,7 +783,8 @@ pre > code {
     width: 100%;
     box-sizing: border-box;
     padding: 15px;
-    font-family: Courier New, Courier, monospace;
+    /* font-family: Courier New, Courier, monospace; */
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     border: none;
     margin: 0;
     cursor: text;
@@ -777,7 +796,8 @@ pre > code {
 code {
     font-size: 15px;
     display: inline-block;
-    font-family: "Courier New", Courier, monospace;
+    /* font-family: "Courier New", Courier, monospace; */
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     font-weight: 400;
     background-color: #f7f8f8;
     padding: 0 10px;
@@ -805,7 +825,8 @@ figure.highlight .tag,
 .codeblock .code,
 .codeblock .tag {
     background-color: inherit;
-    font-family: Courier New, Courier, monospace;
+    /* font-family: Courier New, Courier, monospace; */
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     border: none;
     padding: 0;
     margin: 0;
@@ -876,7 +897,8 @@ figure.highlight .line,
 
 .gist .line,
 .gist .line-number {
-    font-family: "Courier New", Courier, monospace;
+    /* font-family: "Courier New", Courier, monospace; */
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     font-size: 1em;
     margin: 0 0 5px 0;
 }

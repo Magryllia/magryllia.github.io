@@ -30,11 +30,20 @@ HoudiniのVEXをVSCodeで弄りたくなったので，以下の記事で紹介�
 
 Script Errorが発生する．なんでや．
 
-|環境||
-|:-|-|
-|OS |Windows 10 Home x64|
-|Houdini|18.5.408 |
-|Houdini Expression Editor |1.4.8|
+| 環境                      |                     |
+| :------------------------ | ------------------- |
+| OS                        | Windows 10 Home x64 |
+| Houdini                   | 18.5.408            |
+| Houdini Expression Editor | 1.4.8               |
+
+## 結論
+
+SideFXLabs18.5/scripts/python\HoudiniExprEditor\ParmWatcher.pyの463行目を次のafterのように書き換える
+
+```python
+# data = str(selection.rawValue()) # before
+data = str(selection.rawValue().encode('utf_8')) # after
+```
 
 ## 不具合の原因
 
@@ -102,4 +111,5 @@ ParmWatcher.pyを書き換えて保存してから再度Edit in External Editor�
 ![2021-04-11T172112](2021-04-11T172112.png)
 
 VSCode側でVEXを上書き保存するとHoudiniにも即時反映されるので便利．  
-～おわり～
+
+<br>
