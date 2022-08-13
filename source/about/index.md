@@ -14,5 +14,6 @@ Main Tools: Houdini, Unreal Engine, Davinci Resolve
 
 # CONTACT
 お仕事お待ちしております。
+
 Email: magryllia☺gmail.com (☺ → @)  
 Twitter: [Magryllia](https://twitter.com/Magryllia)
