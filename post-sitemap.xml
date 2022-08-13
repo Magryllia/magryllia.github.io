@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/blog/convert-webp/</loc>
+        <lastmod>2022-08-13T06:07:33.158Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/blog/HoudiniExpressionEditor/</loc>
+        <lastmod>2022-08-13T05:52:33.748Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/blog/H264-BlockNoise/</loc>
+        <lastmod>2022-08-13T05:52:03.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/ScrapAndBuild/</loc>
         <lastmod>2022-07-30T04:37:02.984Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,14 +43,6 @@
     <url>
         <loc>http://www.magryllia.com/blog/Remove_Inline_Points/</loc>
         <lastmod>2022-07-29T10:26:08.378Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/blog/H264-BlockNoise/</loc>
-        <lastmod>2022-07-29T06:12:57.532Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -139,14 +155,6 @@
     <url>
         <loc>http://www.magryllia.com/works/BetterHarderStronger/</loc>
         <lastmod>2021-05-29T09:25:22.070Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/blog/HoudiniExpressionEditor/</loc>
-        <lastmod>2021-04-12T13:01:07.019Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

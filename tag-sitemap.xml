@@ -3,15 +3,29 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/tags/Linux/</loc>
+        <lastmod>2022-08-13T06:07:33.158Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/</loc>
+        <lastmod>2022-08-13T06:07:33.158Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/tags/Houdini/</loc>
-        <lastmod>2022-07-29T10:26:08.378Z</lastmod>
+        <lastmod>2022-08-13T05:52:33.748Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.magryllia.com/tags/DaVinci-Resolve/</loc>
-        <lastmod>2022-07-29T06:12:57.532Z</lastmod>
+        <lastmod>2022-08-13T05:52:03.775Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

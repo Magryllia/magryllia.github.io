@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<meta name="description" content="目次
+
+
+はじめに
+動作確認環境
+前提条件
+ソースコード
+使い方
+おわりに
+参考
+
+
+
+はじめにこのブログに掲載する画像はwebp形式を使っているが、homeのサムネと作品詳細ページの画像とで2種類のサイズのwebp画像を用意する必要がある。わざわざ2種類のサイズの連番画像をDavinci Reso">
+<meta name="author" content="大城（Magryllia）">
+<meta property="og:title" content="連番画像からWebpへの変換とリサイズを行うシェルスクリプトを作った">
+<meta property="og:site_name" content="GRAPHILIA">
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@magryllia">
+<meta property="og:url" content="http://www.magryllia.com/blog/convert-webp/index.html">
+<title>連番画像からWebpへの変換とリサイズを行うシェルスクリプトを作った - GRAPHILIA</title>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/main.css">
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
+<script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-189767043-1","auto"),ga("send","pageview")</script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header>
+<div class="logo">
+<a href="/">GRAPHILIA</a>
+</div>
+<div id="menu_icon"></div>
+<nav>
+<ul>
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/categories/blog">Blog</a>
+</li>
+<li>
+<a href="/about">About</a>
+</li>
+</ul>
+</nav>
+<div class="footer clearfix">
+<ul class="social clearfix">
+<li><a href="https://twitter.com/Magryllia" class="twitter" target="_blank" data-title="Twitter"></a></li>
+</ul>
+<div class="rights">
+<p>Copyright © 2021 Magryllia.</p>
+</div>
+</div>
+</header>
+<section class="main clearfix">
+<section class="top" style="background:url('')">
+<div class="wrapper content_header clearfix">
+<div class="work_nav">
+<ul class="btn clearfix">
+<li><a class="previous disabled"></a></li>
+<li><a href="/" class="grid" data-title="Portfolio"></a></li>
+<li><a class="next disabled"></a></li>
+</ul>
+</div>
+<h1 class="title">連番画像からWebpへの変換とリサイズを行うシェルスクリプトを作った</h1>
+</div>
+</section>
+<section class="wrapper">
+<div class="content">
+<h2><span id="目次">目次</span></h2>
+<ul>
+<li><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</a></li>
+<li><a href="#%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E7%92%B0%E5%A2%83">動作確認環境</a></li>
+<li><a href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6">前提条件</a></li>
+<li><a href="#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">ソースコード</a></li>
+<li><a href="#%E4%BD%BF%E3%81%84%E6%96%B9">使い方</a></li>
+<li><a href="#%E3%81%8A%E3%82%8F%E3%82%8A%E3%81%AB">おわりに</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+<h2><span id="はじめに">はじめに</span></h2><p>このブログに掲載する画像はwebp形式を使っているが、homeのサムネと作品詳細ページの画像とで2種類のサイズのwebp画像を用意する必要がある。<br>わざわざ2種類のサイズの連番画像をDavinci Resolveから書き出して、webp変換ツール（これまでは<a target="_blank" rel="noopener" href="https://apps.microsoft.com/store/detail/%E3%82%A2%E3%83%8B%E3%83%A1%E7%94%BB%E5%83%8F%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E5%90%9B/9N36KVC52ST9?hl=ja-jp&gl=JP">アニメ画像に変換する君</a>を使っていた）を立ち上げてポチポチして…<br>っていうのが面倒だったので、連番画像からWebpへの変換と同時にリサイズもしてくれるシェルスクリプトを書いてみた。</p>
+<p>シェルスクリプトだからWindowsだとWSLを使う必要があるけどね。</p>
+<h2><span id="動作確認環境">動作確認環境</span></h2><p>WSL Ubuntu(20.02.LTS)とUbuntu 18.04.LTSで動作確認済</p>
+<h2><span id="前提条件">前提条件</span></h2><p>webpとimagemagickをインストールする必要がある</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install webp imagemagick</span><br></pre></td></tr></table></figure>
+<h2><span id="ソースコード">ソースコード</span></h2><p>convert-webp</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">ceil</span></span>()&#123;</span><br><span class="line">    <span class="built_in">echo</span> $(( `echo <span class="variable">$1</span>|cut -f1 -d&quot;.&quot;` + <span class="number">1</span> ))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">usage</span></span>()&#123;</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;e.g.: convert-webp -s450x450 -f30 \&quot;*.tif\&quot; 01.webp&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">CMDNAME=`basename <span class="variable">$0</span>`</span><br><span class="line">TMP=/tmp/<span class="variable">$CMDNAME</span></span><br><span class="line"><span class="keyword">if</span> [ -e <span class="variable">$TMP</span> ]; <span class="keyword">then</span></span><br><span class="line">  rm -r <span class="variable">$TMP</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># オプション引数の処理</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">getopts</span> s:f: OPT</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="keyword">case</span> <span class="variable">$OPT</span> <span class="keyword">in</span></span><br><span class="line">    <span class="string">&quot;s&quot;</span> ) FLG_S=<span class="string">&quot;TRUE&quot;</span> ; VALUE_S=<span class="string">&quot;<span class="variable">$OPTARG</span>&quot;</span> ;;</span><br><span class="line">    <span class="string">&quot;f&quot;</span> ) FLG_F=<span class="string">&quot;TRUE&quot;</span> ; VALUE_F=<span class="string">&quot;<span class="variable">$OPTARG</span>&quot;</span> ;;</span><br><span class="line">  <span class="keyword">esac</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">shift</span> `expr <span class="variable">$OPTIND</span> - 1`</span><br><span class="line"></span><br><span class="line"><span class="comment"># 引数が0ならusageを表示</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">  usage</span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -ne 2 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Invalid argument count.&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># リサイズ処理(オプション)</span></span><br><span class="line">TARGET=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$FLG_S</span>&quot;</span> = <span class="string">&quot;TRUE&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    mkdir <span class="variable">$TMP</span></span><br><span class="line">    cp <span class="variable">$TARGET</span> <span class="variable">$TMP</span></span><br><span class="line">    TARGET=<span class="variable">$TMP</span>/<span class="variable">$TARGET</span></span><br><span class="line">    mogrify -resize <span class="variable">$VALUE_S</span> <span class="variable">$TARGET</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># フレームレートの設定</span></span><br><span class="line">FRAMERATE=24</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$FLG_F</span>&quot;</span> = <span class="string">&quot;TRUE&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    FRAMERATE=<span class="variable">$VALUE_F</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">DURATION=$(ceil 1000/<span class="variable">$FRAMERATE</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 変換</span></span><br><span class="line">img2webp -lossy -o <span class="variable">$2</span> -d <span class="variable">$DURATION</span> <span class="variable">$TARGET</span></span><br></pre></td></tr></table></figure>
+<h2><span id="使い方">使い方</span></h2><p>基本的な使い方は以下。inputファイルの拡張子はPNG, JPEG, TIFFが使用可能。<br><code>$ convert-webp input.png output.webp</code></p>
+<p>入力ファイルのワイルドカードは””で囲むこと<br><code>$ convert-webp &quot;*.tiff&quot; out.webp</code></p>
+<p>オプション引数-sをつけるとサイズが指定できる。指定がないと入力のサイズそのまま。<br><code>$ convert-webp -s450x450 &quot;*.tiff&quot; out.webp</code></p>
+<p>オプション引数-fをつけるとフレームレートが指定できる。指定がないと24fps。<br><code>$ convert-webp -f30 &quot;*.tiff&quot; out.webp</code></p>
+<p>引数がないと使用例を表示する。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ convert-webp</span><br><span class="line">e.g.: convert-webp -s450x450 -f30 &quot;*.tif&quot; 01.webp</span><br></pre></td></tr></table></figure>
+<p>このシェルスクリプトを~/bin/convert-webpとして保存しシェルを再起動すると、<br>どのディレクトリからでもconvert-webpコマンドが使用できる。</p>
+<h2><span id="おわりに">おわりに</span></h2><p>このシェルスクリプトで使っているimg2webpコマンドには圧縮率やループ回数のオプションもあるので、<br>興味のある人は<a href="#%E5%8F%82%E8%80%83">参考</a>の公式ドキュメントを参照のこと。</p>
+<h2><span id="参考">参考</span></h2><blockquote>
+<p>img2webp<br><a target="_blank" rel="noopener" href="https://developers.google.com/speed/webp/docs/img2webp">https://developers.google.com/speed/webp/docs/img2webp</a></p>
+</blockquote>
+<br>
+<div class="tags">
+<a href="/tags/シェルスクリプト/">シェルスクリプト</a> <a href="/tags/Linux/">Linux</a>
+</div>
+<div>
+</div>
+</div>
+</section>
+</section>
+<script src="/js/jquery.js"></script>
+<script src="/js/main.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
