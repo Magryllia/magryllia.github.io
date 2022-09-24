@@ -443,7 +443,7 @@ h5, h6          { font-weight: bolder }
 /*  Inner Page  */
 .top{
     width: 100%;
-    height: 350px;
+    height: 100px;
     overflow: hidden;
     display: block;
     position: relative;
@@ -529,6 +529,7 @@ h5, h6          { font-weight: bolder }
     margin: 0 auto;
     left: 50%;
     margin-left: -46.36363636363637%;
+    max-width: 920px;
 }
 
 .content{
@@ -545,6 +546,7 @@ h5, h6          { font-weight: bolder }
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
+    max-width: 920px;
 }
 
 .content.archives{
@@ -1584,4 +1586,15 @@ figure.highlight.yml .meta,
 figure.highlight.yml .number,
 .codeblock.yml .number {
     color: #0086b3;
+}
+
+iframe {
+    width: 1280px;
+    height: 720px
+}
+
+td {
+    border: 1px solid;
+    border-style: solid none;
+    padding: 10px;
 }
