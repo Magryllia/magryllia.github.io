@@ -22,6 +22,7 @@
     "hexo-generator-tag": "^1.0.0",
     "hexo-hide-posts": "^0.1.1",
     "hexo-html-minifier": "^1.0.0",
+    "hexo-image-caption": "^0.1.1",
     "hexo-lazyload-image": "^1.0.9",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^3.0.0",

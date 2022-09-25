@@ -17,7 +17,7 @@ default_cover_index: "http://placehold.it/450x450"
 default_cover_detail:
 
 # Favicon
-favicon: favicon.ico
+favicon: /favicon.ico
 
 # Comments. Choose one by filling up the information
 comments:
