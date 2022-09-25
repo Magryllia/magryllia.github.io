@@ -95,7 +95,7 @@ Niagaraで読み込んだ破片のアニメーション
 
 <div class="flexbox">
     <div>
-        <img src="/portfolio/images/runes.png" width="200px" height="200px"/>
+        <img src="/portfolio/images/runes.webp" width="200px" height="200px"/>
     </div>
     <div>
         ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。<br>
@@ -196,12 +196,14 @@ Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果�
     </tr>
 </table>
 
-UE5で素早く建物を作成するデジタルアセットを制作しました。
+UE5で素早く建物を作成するツールを制作しました。
 以前にHoudini内でメッシュを生成するものは作ったことがありましたが、UE上で動作しメッシュはUEのアセットをインスタンス化できたほうが実用性があると考え、今回一から作り直しました。
-また、ついでに道路やポールを作成する機能も追加しました。
+建物だけでなく、道路やポールを作成する機能も追加しました。
 実際にゲーム開発で使用することを想定し、汎用性の高い作りを目指しました。
+本ツールはUE5のNaniteメッシュのアセットにも対応しているため、寄りで見ても品質の高い建物のアセットを作成することができます。
 
 ![Building Generator(旧作)](/assets/Apart/450.webp)
+
 
 ### 機能
 
@@ -214,12 +216,42 @@ UE5で素早く建物を作成するデジタルアセットを制作しまし�
 
 #### Road Generator
 
+ガイドボックスを置いていくだけで道路が作成できます。
+ガイドボックスのスケールを変更したり、増やしたりすることもできます。
+歩道と車道のマテリアルや縁石のアセットはUEから差し替えができるようになっています。
+
+![寄りで見た道路](/portfolio/images/index_2022-09-25-17-32-02.jpg)
 
 
 #### Pole Tool
+Unreal Spline Componentsをガイドとし、カーブに沿ってポールを配置することができます。
 
-### 処理の高速化・Nanite対応の工夫
+**図**
 
+### 処理の高速化とNanite対応の工夫
+
+開発者がストレス無く本ツールを使用できるよう、処理の高速化にも注力しました。
+この処理速度で一番ボトルネックとなったのがUE ↔ Houdini Engine間のメッシュデータの転送時間でした。
+また、ソフト間でメッシュデータを転送するうちにNaniteの情報も消えてしまい単なるハイポリゴンとなりメモリの使用量が増大するため、この問題にも対処しました。
+
+![](/portfolio/images/instance-nanite.drawio.webp)
+
+解決策として、入力にはローポリゴンのアセットを指定し、Houdini内でNaniteメッシュアセットのインスタンス情報を持った点群に変換することで大幅な処理速度の改善とNaniteメッシュへの対応が行えました。
+
+![Naniteメッシュアセットへのインスタンスの点群に変換する処理](/portfolio/images/replace-instance.webp)
+
+set_instance_attribノードのVEX：
+```c
+// 入力に指定されたメッシュ名を書き換え、Naniteメッシュのアセットをソースとするインスタンス用アトリビュートを作成
+string srcPath = prim(0, "unreal_input_mesh_name", @primnum);
+s@unreal_instance = re_replace(r"_lod\d_", "_high_", srcPath);
+
+// packed primのtransform行列を分解し、インスタンス用のスケールと回転のアトリビュートを作成
+matrix xform = getpackedtransform(0, @primnum);
+vector pivot = {0,0,0};
+v@scale = cracktransform(0, 0, 2, pivot, xform);
+p@orient = eulertoquaternion(radians(cracktransform(0, 0, 1, pivot, xform)), 0);
+```
 
 ---
 ## KUMALEON Promotion Video
