@@ -130,6 +130,7 @@ lazyload:
   onlypost: false # optional
   loadingImg: /assets/loading/02.webp # optional eg ./images/loading.gif
   isSPA: false # optional
+  preloadRatio: 8 # optional, default is 1
 
 uglify:
   mangle: true

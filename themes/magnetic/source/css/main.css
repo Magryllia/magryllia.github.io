@@ -582,7 +582,7 @@ h5, h6          { font-weight: bolder }
     margin-left: auto;
     margin-right: auto;
     display: block;
-    max-width: none;
+    /* max-width: none; */
 }
 
 .content ol, .content ul{
@@ -1605,6 +1605,7 @@ td {
 .flexbox{
     display: flex;
     gap: 10px 20px;
+    align-items: flex-start;
 }
 figure {
     display: table;
@@ -1614,4 +1615,8 @@ figcaption{
     caption-side: bottom;
     display: table-caption;
     font-size: 0.9em;
+}
+
+a{
+    word-break: break-all;
 }

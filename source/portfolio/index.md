@@ -94,9 +94,7 @@ Niagaraで読み込んだ破片のアニメーション
 **画像**
 
 <div class="flexbox">
-    <div>
-        <img src="/portfolio/images/runes.webp" width="200px" height="200px"/>
-    </div>
+    <img src="/portfolio/images/runes.webp" width="200px" height="200px"/>
     <div>
         ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。<br>
         このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。<br>
@@ -104,7 +102,7 @@ Niagaraで読み込んだ破片のアニメーション
     </div>
 </div>
 
-```bash
+```bash generate-fonts
 #!/bin/bash
 
 # 生成する文字列
@@ -253,8 +251,8 @@ Unreal Spline Componentsをガイドとし、カーブに沿ってアセット�
 
 ![Naniteメッシュアセットへのインスタンスの点群に変換する処理](/portfolio/images/replace-instance.webp)
 
-set_instance_attribノードのVEX：
-```c
+
+```c set_instance_attrノードのVEX
 // 入力に指定されたメッシュ名を書き換え、Naniteメッシュのアセットをソースとするインスタンス用アトリビュートを作成
 string srcPath = prim(0, "unreal_input_mesh_name", @primnum);
 s@unreal_instance = re_replace(r"_lod\d_", "_high_", srcPath);
