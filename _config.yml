@@ -130,7 +130,7 @@ lazyload:
   onlypost: false # optional
   loadingImg: /assets/loading/02.webp # optional eg ./images/loading.gif
   isSPA: false # optional
-  preloadRatio: 8 # optional, default is 1
+  preloadRatio: 99 # optional, default is 1
 
 uglify:
   mangle: true
@@ -171,3 +171,16 @@ html_minifier:
 image_caption:
   enable: true #false to disable
   class_name: #if you wanna customize the style for the caption,you can assign a class name, default is 'image-caption'
+
+twentytwenty:
+  class:
+    - twentytwenty-container
+    - embeded-twentytwenty
+  imgClass:
+    - photo
+    - round
+  embedAsset:
+    - https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css
+    - https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js
+    - https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js
+    - /js/twentytwenty.js

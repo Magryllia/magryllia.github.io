@@ -4,8 +4,8 @@ date: 2022-09-23 20:32:23
 ---
 
 ## VAT & Niagara
-<!-- {% youtube SX_ViT4Ra7k %} -->
-**作品のyoutube**
+<!-- {% youtube mruCBrgPKAM %} -->
+<iframe class="video" src="https://www.youtube.com/embed/mruCBrgPKAM?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### 概要
 <table>
@@ -40,67 +40,99 @@ Niagaraは仕様上、一つのエミッタシステムに破片のような複�
 Niagaraでパーティクルとして破片を表示させるため、VATを用いて同一のメッシュで各破片を表現する手法を取りました。
 フレームごとに1つずつ破片を表示するアニメーションをつけたVATシェーダー付きメッシュを作成し、Niagaraでシェーダーのフレーム番号のパラメータを変更することで各破片を表現しました。
 
-**破片のExploded Viewと各フレームの破片**
+![フレームごとに表示させた破片](/portfolio/images/pieces-anim.webp)
 
-![](/portfolio/images/pieces-niagara.drawio.png)
+![](/portfolio/images/pieces-niagara.drawio.webp)
 
+<figure>
+    <img src="/portfolio/images/niagara-static-off.jpg" class="left" height="300px">
+    <img src="/portfolio/images/niagara-static-on.jpg" class="left" height="300px">
+    <figcaption>
+        NiagaraでVAT用メッシュで天使像を復元した様子<br>（ワイヤフレーム表示のON/OFF）
+    </figcaption>
+</figure>
+<br>
+ワイヤフレーム表示にすると三角ポリゴンが集まったVAT用メッシュであることが分かります。
 
 #### 物理演算
 
 ##### Houdiniでの演算
 
-**図**
-最終的な物理演算結果
+以下に大まかな作成工程を示します。
 
-内側からの力で破片が全方位に均等に飛び散り、降ってくる様子が視界に収まるように力の調整を行いました
+1. 破片の作成
+<!-- ![](/portfolio/images/angel-fracture.png) -->
+<img src="/portfolio/images/angel-fracture.png" height="300px">
+<br style="clear:left;">
+3Dスキャン素材の天使像をRemesh等で最適化したのち、<br>RBD Material Fracture SOPで破片を作成します。
 
-**図**
-速度ベクトルを付加する
+2. 物理演算
+<video muted autoplay loop height="300px">
+    <source src="/portfolio/images/rbdsim.mp4" type="video/webm">
+</video>
+</figure>
+<br style="clear:left;">
+速度ベクトルを付加したり台座下部の破片を動かないように設定したりしたのち、物理演算を行います。<br>
+内側からの力で破片が全方位に均等に飛び散り、降ってくる様子が視界に収まるように速度の調整を行いました。
 
-**図**
-下部の破片を物理演算しないよう設定
-
-**図**
-飛び散らずに台座に残った内側の破片を削除
+3. Export用の点群に変換
+<video muted autoplay loop height="300px">
+    <source src="/portfolio/images/houdini-niagara.mp4" type="video/webm">
+</video>
+<br style="clear:left;">
+Niagaraでパーティクルとして読み込むため、
+元の破片のID（=フレーム番号）や回転情報等を保持した点群に変換します。
 
 ##### Niagaraでの再生
 
-物理演算を行った破片のアニメーションは点群として出力し、Niagaraで読み込んで再生します。
-
-**図**
-Niagaraで読み込んだ破片のアニメーション
-
-点群に元の破片のVATのフレーム番号や回転の情報、初期位置も属性として付加しているため、この情報を元にNiagaraで元の物理演算を復元します。
+<video muted autoplay loop height="300px">
+    <source src="/portfolio/images/niagara-particle.mp4" type="video/webm">
+</video>
+<br style="clear:left;">
+HoudiniでExportした点群をパーティクルとしてNiagaraで読み込みます。
+<br><br>
+<video muted autoplay loop height="300px">
+    <source src="/portfolio/images/niagara-rbd.mp4" type="video/webm">
+</video>
+<br style="clear:left;">
+点群に元の破片のID（=フレーム番号）や回転の情報等をアトリビュートとして付加しているため、<br>この情報を元にNiagaraで物理演算を復元します。
 
 #### 物理演算とパーティクルシステムの組み合わせ
 
-読み込んだ物理演算をすべて再生するのではなく、途中でNigaraによる中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。
+読み込んだ物理演算をすべて再生するのではなく、途中でNigaraで作る中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。
 
-**遷移の説明**
+![](/portfolio/images/niagara-trans.drawio.webp)
+
+下から上へ状態が遷移していく表現を行うため、Houdiniで初期位置を0~1に正規化したアトリビュートを作成し、Export用の点群に付加しました。
+このアトリビュートを使ってNiagaraで状態の遷移をオフセットしています。
+
+<div class="flexbox">
+<video class="nomargin" muted autoplay loop>
+    <source src="/portfolio/images/relbY.mp4" type="video/webm">
+</video>
+<img class="nomargin" src="/portfolio/images/angel-relbY.drawio.png">
+</div>
 
 ### 魔法エフェクト
 
-**魔法エフェクト画像**
+空中で魔法が揺らいでいる様子を表現するため、シェーダーで文字パーティクルのUVやLineの太さにノイズを加えています。
 
-このエフェクトは4種類のエミッタシステムで構成されています。
+<video muted autoplay loop>
+    <source src="/portfolio/images/magic.mp4" type="video/webm">
+</video>
+<br>
 
-1. 線
-**画像**
-2. 最初の火花
-**画像**
-3. 最後の火花
-**画像**
-4. ルーン文字
-**画像**
+ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。
+このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。
+このスクリプトの生成する文字列やフォントの指定を変えるだけで何種類ものFlipbookテクスチャのパターンが作成できるため、素早いプロトタイプの作成が行えました。
 
-<div class="flexbox">
-    <img src="/portfolio/images/runes.webp" width="200px" height="200px"/>
-    <div>
-        ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。<br>
-        このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。<br>
-        このスクリプトの生成する文字列やフォントの指定を変えるだけで何種類ものFlipbookテクスチャのパターンが作成できるため、素早いプロトタイプの作成が行えました。<br>
-    </div>
-</div>
+<figure>
+<img src="/portfolio/images/runes.webp" width="200px" />
+<figcapture>
+生成されたルーン文字のFlipbookテクスチャ
+</figcapture>
+</figure>
+<br style="clear:left;">
 
 ```bash generate-fonts
 #!/bin/bash
@@ -129,31 +161,40 @@ rm ${files[@]}
 ### 爆発エフェクト
 
 **爆発エフェクトの画像**
+このエフェクトは衝撃波と煙の二種類で構成されています。
 
-このエフェクトは3種類のエミッタシステムで構成されています。
+<div class="flexbox">
+    <video class="nomargin" muted autoplay loop>
+        <source src="/portfolio/images/niagara-shockwave.mp4" type="video/webm">
+    </video>
+    <video class="nomargin" muted autoplay loop>
+        <source src="/portfolio/images/niagara-smoke.mp4" type="video/webm">
+    </video>
+</div>
+<br>
 
-1. 衝撃波A
-**図**
-
-2. 衝撃波B
-**図**
-屈折率にノイズを加えたシェーダーの球メッシュを発生させ、空間を歪めています。
-
-3. 煙
-**図**
+衝撃波はシェーダーで屈折率にノイズをかけた球メッシュをスケールさせることで空間を歪めています。
 煙はHoudiniでシミュレーションしたものをFlipbookテクスチャ化して使用しています。
-**シミュレーション**
+
+<figure>
+<video muted autoplay loop>
+    <source src="/portfolio/images/smoke-preview.mp4" type="video/webm">
+</video>
+<figcaption>
+    Houdiniのスモークシミュレーション
+</figcaption>
+</figure>
 
 ### 背景
 
-背景の制作にはHoudini Engine for Unrealを使いました。
-Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果を確認するという方法でモデリング、インスタンスの配置、マテリアルの適用、ライティングを並行して進めました。
-柱のモデルや各種マテリアルはMegascansのアセットを使用しました。
+背景の制作にはHoudini Engine for Unrealを活用しました。
+2ソフト間で背景モデルデータを同期し、Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果を確認するという方法でモデリング、インスタンスの配置、マテリアルの適用、ライティングを並行して進めました。
+柱のモデルや各マテリアルはMegascansのアセットを使用しました。
 
-**Houdiniの画面**
-**UE5の画面**
+![Houdini側の作業画面](/portfolio/images/houdiniengine-houdini.jpg)
+![UE側の作業画面](/portfolio/images/houdiniengine-ue.jpg)
 
-### コンポジット
+### ポストプロセス
 
 ゲームでの演出の想定のため、映像編集ソフトでの後処理は行わずCine Camera ActorのPost Processでシネマティックな空気感になるよう調整を行いました。
 
@@ -165,8 +206,8 @@ Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果�
 | 色温度       | 低め     |
 | 彩度         | 低め     |
 | コントラスト | 低め     |
-
-**Before/After**
+<br>
+{% twtw /portfolio/images/pp-off.webp /portfolio/images/pp-on.webp %}
 
 ---
 ## Building Generator +α
@@ -185,6 +226,7 @@ Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果�
         <td>3週間</td>
     </tr>
 </table>
+<br>
 
 UE5で素早く建物を作成するツールを制作しました。
 以前にHoudini内でメッシュを生成するものは作ったことがありましたが、UE上で動作しメッシュはUEのアセットをインスタンス化できたほうが実用性があると考え、今回一から作り直しました。
@@ -192,8 +234,14 @@ UE5で素早く建物を作成するツールを制作しました。
 実際にゲーム開発で使用することを想定し、汎用性の高い作りを目指しました。
 本ツールはUE5のNaniteメッシュのアセットにも対応しているため、寄りで見ても品質の高い建物のアセットを作成することができます。
 
-![Building Generator(旧作)](/assets/Apart/450.webp)
-
+<figure>
+<video muted autoplay loop>
+    <source src="/portfolio/images/apart1.mp4", type="video/mp4">
+</video>
+<figcaption>
+    Building Generator(旧作)
+</figcaption>
+</figure>
 
 ### 機能
 
@@ -278,7 +326,7 @@ p@orient = eulertoquaternion(radians(cracktransform(0, 0, 1, pivot, xform)), 0);
         <td>1ヶ月</td>
     </tr>
 </table>
-
+<br>
 ジェネレーティブアートを身にまとったクマのキャラクターのNFTプロダクト "KUMALEON" 発表時のプロモーション案件として作成した映像です。
 KUMALEON自身はアニメーションを付けないという制約があったため、カメラや周りのオブジェクトの動きで情報量を調節するよう心がけました。
 まず最初に最低限見せられる映像を作り、余った期間でディティールを足していってブラッシュアップする制作方法を採りました。
@@ -382,7 +430,7 @@ KUMALEON自身はアニメーションを付けないという制約があった
         <td>2ヶ月</td>
     </tr>
 </table>
-
+<br>
 都市の爆破解体をイメージして作りました。
 実際の建物の爆破解体の資料を見ながら煙の動きに説得力が出るようにPyroシミュレーションの試行錯誤を重ねました。
 汎用性を考え、建物ごとに個別にシミュレーションを作らずに済むように処理を一元化しました。
