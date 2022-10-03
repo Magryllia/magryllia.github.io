@@ -21,8 +21,8 @@ date: 2022-09-23 20:32:23
 <br>
 
 古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。
-像の爆発に説得力が増すよう衝撃波や煙の表現の試行錯誤を重ねました。
-エフェクト後半部ではVAT（頂点アニメーションテクスチャ）のシェーダを用いてNiagaraだけではできなかった物理演算と
+エフェクトを含めて映像作品となるように背景・ライティング等の画作りを行いました。
+VAT（頂点アニメーションテクスチャ）のシェーダを用いてNiagaraだけではできなかった物理演算と
 パーティクルシステムの組み合わせの表現を実現しました。
 
 ### 天使像の破片エフェクト
@@ -236,12 +236,12 @@ UE5で素早く建物を作成するツールを制作しました。
 本ツールはNaniteメッシュのアセットにも対応しているためメモリ効率が良く、寄りで見ても品質の高い建物のアセットを作成することができます。
 
 <figure>
-<video muted autoplay loop>
-    <source src="/portfolio/images/apart1.mp4", type="video/mp4">
-</video>
-<figcaption>
-    Building Generator(旧作)
-</figcaption>
+    <video muted autoplay loop>
+        <source src="/portfolio/images/apart1.mp4", type="video/mp4">
+    </video>
+    <figcaption>
+        Building Generator(旧作)
+    </figcaption>
 </figure>
 
 ### 機能
@@ -291,9 +291,16 @@ UE5で素早く建物を作成するツールを制作しました。
     </span>
 </div>
 
-**設定画面の画像**
-**ガイドを調整している図**
-**シード値を変えている図**
+![プロップを配置する設定画面](/portfolio/images/apart-prop-setting.drawio.webp)
+
+<figure>
+    <video muted autoplay loop>
+        <source src="/portfolio/images/apart-generate-prop.mp4", type="video/mp4">
+    </video>
+    <figcaption>
+        プロップを設定している様子
+    </figcaption>
+</figure>
 
 #### Road Generator
 
@@ -301,13 +308,15 @@ UE5で素早く建物を作成するツールを制作しました。
 ガイドボックスのスケールを変更したり、増やしたりすることもできます。
 歩道と車道のマテリアルや縁石のアセットはUEから差し替えができるようになっています。
 
+![ガイドボックスのON/OFF](/portfolio/images/road-onoff.webp)
+
 ![寄りで見た道路](/portfolio/images/road.jpg)
 
 
 #### Curve Tool
 Unreal Spline Componentsをガイドとし、カーブに沿ってアセットを配置することができます。
 
-**図**
+![ポールを配置している様子](/portfolio/images/curve.jpg)
 
 ### 処理の高速化とNanite対応の工夫
 
