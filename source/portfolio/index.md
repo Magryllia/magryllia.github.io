@@ -73,7 +73,7 @@ Niagaraでパーティクルとして破片を表示させるため、VATを用�
 </figure>
 <br style="clear:left;">
 速度ベクトルを付加したり台座下部の破片を動かないように設定したりしたのち、物理演算を行います。<br>
-内側からの力で破片が全方位に均等に飛び散り、降ってくる様子が視界に収まるように速度の調整を行いました。
+内側からの力で破片が全方位に均等に飛び散り、降ってくる様子がプレイヤーの視界に収まるように速度の調整を行いました。
 
 3. Export用の点群に変換
 <video muted autoplay loop height="300px">
@@ -103,7 +103,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 
 ![](/portfolio/images/niagara-trans.drawio.webp)
 
-下から上へ状態が遷移していく表現を行うため、Houdiniで初期位置を0~1に正規化したアトリビュートを作成し、Export用の点群に付加しました。
+下から上へ状態が遷移していく表現を行うため、Houdiniで初期位置のY座標を0~1に正規化したアトリビュートを作成し、Export用の点群に付加しました。
 このアトリビュートを使ってNiagaraで状態の遷移をオフセットしています。
 
 <div class="flexbox">
@@ -202,17 +202,18 @@ rm ${files[@]}
 | 設定項目     |          |
 | ------------ | -------- |
 | 露出         | やや暗め |
-| 被写界深度   | 浅め     |
+| F値          | 4.0      |
 | 色温度       | 低め     |
 | 彩度         | 低め     |
 | コントラスト | 低め     |
+| ビネット     | 弱め     |
 <br>
 {% twtw /portfolio/images/pp-off.webp /portfolio/images/pp-on.webp %}
 
 ---
 ## Building Generator +α
 
-**作品のyoutube**
+<iframe class="video" src="https://www.youtube.com/embed/ClQu16G9cz8?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### 概要
 
@@ -230,9 +231,9 @@ rm ${files[@]}
 
 UE5で素早く建物を作成するツールを制作しました。
 以前にHoudini内でメッシュを生成するものは作ったことがありましたが、UE上で動作しメッシュはUEのアセットをインスタンス化できたほうが実用性があると考え、今回一から作り直しました。
-建物だけでなく、道路やポールを作成する機能も追加しました。
 実際にゲーム開発で使用することを想定し、汎用性の高い作りを目指しました。
-本ツールはUE5のNaniteメッシュのアセットにも対応しているため、寄りで見ても品質の高い建物のアセットを作成することができます。
+建物だけでなく、道路やポールを作成する機能も追加しました。
+本ツールはNaniteメッシュのアセットにも対応しているためメモリ効率が良く、寄りで見ても品質の高い建物のアセットを作成することができます。
 
 <figure>
 <video muted autoplay loop>
@@ -250,16 +251,45 @@ UE5で素早く建物を作成するツールを制作しました。
 指定した壁や柱、屋根のアセットを使い、ガイドボックスの形状に合わせてアパートを生成します。
 壁や柱のパーツは似た形状であれば別のアセットに差し替えることも可能なので、バリエーションを簡単に作成することができます。
 
-**パーツを指定する画面**
-
-**壁を差し替えたバージョン**
+![壁のパーツを差し替えた建物](/portfolio/images/apart-replaced.jpg)
 
 また、任意の建物パーツの付近にプロップを配置できる機能も作成しました。
+カフェメニューやプランターのように、ある範囲内にランダムに配置したい場合はガイドグリッド（赤い縞模様）を可視化して直感的に配置を行うことができます。
 
-**プランター**
-**看板**
-**軒先テント**
-**旗**
+<div class="flexbox">
+    <span>
+        <figure>
+            <img src="/portfolio/images/apart-cafemenu.jpg">
+            <figcaption>
+                カフェメニュー
+            </figcaption>
+        </figure>
+    </span>
+    <span>
+        <figure>
+            <img src="/portfolio/images/apart-tent.jpg">
+            <figcaption>
+                軒先テント
+            </figcaption>
+        </figure>
+    </span>
+    <span>
+        <figure>
+            <img src="/portfolio/images/apart-flag.jpg">
+            <figcaption>
+                旗
+            </figcaption>
+        </figure>
+    </span>
+    <span>
+        <figure>
+            <img src="/portfolio/images/apart-planter.jpg">
+            <figcaption>
+                プランター
+            </figcaption>
+        </figure>
+    </span>
+</div>
 
 **設定画面の画像**
 **ガイドを調整している図**
@@ -271,7 +301,7 @@ UE5で素早く建物を作成するツールを制作しました。
 ガイドボックスのスケールを変更したり、増やしたりすることもできます。
 歩道と車道のマテリアルや縁石のアセットはUEから差し替えができるようになっています。
 
-![寄りで見た道路](/portfolio/images/index_2022-09-25-17-32-02.jpg)
+![寄りで見た道路](/portfolio/images/road.jpg)
 
 
 #### Curve Tool
@@ -287,17 +317,26 @@ Unreal Spline Componentsをガイドとし、カーブに沿ってアセット�
 
 ![](/portfolio/images/instance-nanite.drawio.webp)
 
-解決策として、入力にはローポリゴンのアセットを指定し、Houdini内でNaniteメッシュアセットのインスタンス情報を持った点群に変換することで大幅な処理速度の改善とNaniteメッシュへの対応が行えました。
+解決策として、まずメッシュの代わりにメッシュのバウンディングボックスの情報を持った頂点をHoudini Engineへ転送します。
+次にHoudini Engine側でその頂点の情報からバウンディングボックスを作成し、建物の形状に並べます。
+最後に並べたバウンディングボックスをそれぞれ元のアセットへのインスタンスの点群へ変換し、UEへ転送します。
 
-![Naniteメッシュアセットへのインスタンスの点群に変換する処理](/portfolio/images/replace-instance.webp)
 
+![頂点をバウンディングボックスに変換する処理](/portfolio/images/create-instance-box.jpg)
+
+
+```c add_bbox_pointsノードのVEX
+// バウンディングボックスの情報を取得
+vector max = point(1, "unreal_bbox_max", 0);
+vector min = point(1, "unreal_bbox_min", 0);
+addpoint(0, max);
+addpoint(0, min);
+```
+
+![バウンディングボックスからインスタンスの頂点に変換する処理](/portfolio/images/restore-instance-points.jpg)
 
 ```c set_instance_attrノードのVEX
-// 入力に指定されたメッシュ名を書き換え、Naniteメッシュのアセットをソースとするインスタンス用アトリビュートを作成
-string srcPath = prim(0, "unreal_input_mesh_name", @primnum);
-s@unreal_instance = re_replace(r"_lod\d_", "_high_", srcPath);
-
-// packed primのtransform行列を分解し、インスタンス用のスケールと回転のアトリビュートを作成
+// packed primのpackedfulltransform行列を分解し、インスタンス用のスケールと回転のアトリビュートを作成
 matrix xform = getpackedtransform(0, @primnum);
 vector pivot = {0,0,0};
 v@scale = cracktransform(0, 0, 2, pivot, xform);
@@ -305,7 +344,7 @@ p@orient = eulertoquaternion(radians(cracktransform(0, 0, 1, pivot, xform)), 0);
 ```
 
 ---
-## KUMALEON Promotion Video
+<!-- ## KUMALEON Promotion Video
 
 **ツイート**
 前半2カット（15秒）を担当
@@ -410,7 +449,7 @@ KUMALEON自身はアニメーションを付けないという制約があった
 
 **画像**
 
----
+--- -->
 ## Pyro & RBD
 =======
 

@@ -925,6 +925,7 @@ figure.highlight,
 .codeblock {
     background: #f7f8f8;
     color: #333;
+    width: 100%;
 }
 figure.highlight figcaption,
 .codeblock figcaption {
