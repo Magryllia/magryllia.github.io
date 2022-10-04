@@ -460,7 +460,10 @@ KUMALEON自身はアニメーションを付けないという制約があった
 
 --- -->
 ## Pyro & RBD
-=======
+
+<video muted autoplay loop>
+    <source src="/portfolio/images/pyro.mp4", type="video/mp4">
+</video>
 
 ### 概要
 
