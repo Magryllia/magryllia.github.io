@@ -33,8 +33,8 @@ Houdini: VEXをカ">
     <![endif]-->
 <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
 <script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-189767043-1","auto"),ga("send","pageview")</script>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta name="generator" content="Hexo 5.2.0"></head>
 <body>
 <header>
@@ -94,9 +94,9 @@ Houdini: VEXをカ">
 </blockquote>
 <br>
 <p>しかし，外部エディタにVSCodeを登録してHoudini Expression Editorをインストール後，<br>コメントに日本語が入ったVEXをEdit in External Editorすると怒られた． </p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T170224.png" alt="2021-04-11T170224"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T170224.png" alt="2021-04-11T170224"><figcaption class="image-caption">2021-04-11T170224</figcaption></figure><p></p>
 <p>右クリック&gt; Expression&gt; Edit in Extarnal Editor　をクリックすると</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T170102.png" alt="2021-04-11T170102"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T170102.png" alt="2021-04-11T170102"><figcaption class="image-caption">2021-04-11T170102</figcaption></figure><p></p>
 <p>Script Errorが発生する．なんでや．</p>
 <table>
 <thead>
@@ -137,7 +137,7 @@ Houdini: VEXをカ">
 <br>
 <p>要するにasciiをutf-8にキャストしてやればいいみたいなので，該当箇所を書き換えたのがこちら</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="built_in">str</span>(selection.rawValue().encode(<span class="string">&#x27;utf_8&#x27;</span>)) <span class="comment"># .encode(&#x27;utf_8&#x27;)を追加</span></span><br></pre></td></tr></table></figure>
-<p>ParmWatcher.pyを書き換えて保存してから再度Edit in External EditorするとちゃんとVSCodeが立ち上がった．<br><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T172112.png" alt="2021-04-11T172112"></p>
+<p>ParmWatcher.pyを書き換えて保存してから再度Edit in External EditorするとちゃんとVSCodeが立ち上がった．<br></p><figure><img src="/assets/loading/02.webp" data-original="/blog/HoudiniExpressionEditor/2021-04-11T172112.png" alt="2021-04-11T172112"><figcaption class="image-caption">2021-04-11T172112</figcaption></figure><p></p>
 <p>VSCode側でVEXを上書き保存するとHoudiniにも即時反映されるので便利． </p>
 <br>
 <div class="tags">
@@ -151,5 +151,18 @@ Houdini: VEXをカ">
 <script src="/js/jquery.js"></script>
 <script src="/js/main.js"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-<script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script></body>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 99,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(t){t.imageLazyLoadSetting.processImages=r;var e=t.imageLazyLoadSetting.isSPA,o=(t.imageLazyLoadSetting.preloadRatio,a());function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function r(){e&&(o=a());for(var i=0;i<o.length;i++)!function(){var t,e,a,r,n=o[i];e=function(){o=o.filter(function(t){return n!==t})},(t=n).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,r=t.getAttribute("data-original"),a.onload=function(){t.src=r,t.removeAttribute("data-original"),e&&e()},t.src!==r&&(a.src=r))}()}function n(){clearTimeout(r.tId),r.tId=setTimeout(r,500)}r(),document.addEventListener("scroll",n),t.addEventListener("resize",n),t.addEventListener("orientationchange",n)}(this);</script></body>
 </html>

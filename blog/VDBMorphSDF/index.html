@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-<meta name="description" content="目次
+<meta name="description" content="eyecatch
+目次
 
 
 はじめに
@@ -16,7 +17,7 @@
 
 
 
-はじめに無性にジオメトリをモーフさせたくなるときってあるよね．冒頭の画像を作るときに初めてVDBMorphSDFを使ったので使い方をメモっておく．あくまでメモなので，もっ">
+はじめに無性にジオメトリをモーフさせたくなるときってあるよね．冒頭の画像を作るときに初めてVDBMorphSDFを使ったので使い方をメモっておく．あくま">
 <meta name="author" content="大城（Magryllia）">
 <meta property="og:title" content="【Houdini】VDB Morph SDFでトポロジー無視のモーフィングを行う">
 <meta property="og:site_name" content="GRAPHILIA">
@@ -33,8 +34,8 @@
     <![endif]-->
 <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
 <script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-189767043-1","auto"),ga("send","pageview")</script>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta name="generator" content="Hexo 5.2.0"></head>
 <body>
 <header>
@@ -81,7 +82,7 @@
 </section>
 <section class="wrapper">
 <div class="content">
-<p><img src="/assets/loading/02.webp" data-original="/assets/VDBMorphSDF/01.webp" alt="eyecatch"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/assets/VDBMorphSDF/01.webp" alt="eyecatch"><figcaption class="image-caption">eyecatch</figcaption></figure><p></p>
 <h2><span id="目次">目次</span></h2>
 <ul>
 <li><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</a></li>
@@ -91,17 +92,17 @@
 <li><a href="#%E3%81%8A%E3%82%8F%E3%82%8A%E3%81%AB">おわりに</a></li>
 <li><a href="#%E9%96%A2%E9%80%A3%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">関連・参考文献</a></li>
 </ul>
-<h2><span id="はじめに">はじめに</span></h2><p>無性にジオメトリをモーフさせたくなるときってあるよね．<br>冒頭の画像を作るときに初めてVDBMorphSDFを使ったので使い方をメモっておく．<br>あくまでメモなので，もっといい方法があるかも．悪しからず．<br>↓本記事ではサンプルとしてこれを作る (<a target="_blank" rel="noopener" href="https://github.com/Magryllia/VDBMorphSDF_Sample">サンプルデータ</a>)<br><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph.png" alt="morph"></p>
+<h2><span id="はじめに">はじめに</span></h2><p>無性にジオメトリをモーフさせたくなるときってあるよね．<br>冒頭の画像を作るときに初めてVDBMorphSDFを使ったので使い方をメモっておく．<br>あくまでメモなので，もっといい方法があるかも．悪しからず．<br>↓本記事ではサンプルとしてこれを作る (<a target="_blank" rel="noopener" href="https://github.com/Magryllia/VDBMorphSDF_Sample">サンプルデータ</a>)<br></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph.png" alt="morph"><figcaption class="image-caption">morph</figcaption></figure><p></p>
 <h2><span id="メッシュのvdb化">メッシュのVDB化</span></h2><p>トポロジーを無視してモーフするといえど，ある程度形状が似ているオブジェクト同士の方がモーフしてる感 (?) が出る．<br>PigHeadとTemplateHeadを配置してVDBに変換する．今回はVoxel Sizeを0.005とした．<br>TransformとPolyFillはスケールとメッシュを調整するためのもの．<del>テストジオメトリのスケールぐらい揃えといてくれよ</del></p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T215814.png" alt="2021-03-01T215814"><br><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T215930.png" alt="2021-03-01T215930"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T215814.png" alt="2021-03-01T215814"><figcaption class="image-caption">2021-03-01T215814</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T215930.png" alt="2021-03-01T215930"><figcaption class="image-caption">2021-03-01T215930</figcaption></figure><p></p>
 <h2><span id="モーフのシミュレーション">モーフのシミュレーション</span></h2><p>Solverに2つのVDBを接続する．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T220059.png" alt="2021-03-01T220059"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T220059.png" alt="2021-03-01T220059"><figcaption class="image-caption">2021-03-01T220059</figcaption></figure><p></p>
 <p>Allow Chaching To Diskにチェックを入れておくとシミュレーション結果がメモリの上限値を超えてもディスクに保存してくれる．ここではチェックを入れておく．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T221444.png" alt="2021-03-01T221444"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T221444.png" alt="2021-03-01T221444"><figcaption class="image-caption">2021-03-01T221444</figcaption></figure><p></p>
 <p>Solver内でVDBMorphSDF (<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/vdbmorphsdf">公式ヘルプ</a>) にPrev_FrameとInput_2を接続する．パラメータは触らない．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T220626.png" alt="2021-03-01T220626"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T220626.png" alt="2021-03-01T220626"><figcaption class="image-caption">2021-03-01T220626</figcaption></figure><p></p>
 <p>Solverに表示フラグを立てて1からフレームを進めるとモーフのシミュレーションが計算される．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph01.webp" alt="morph01"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph01.webp" alt="morph01"><figcaption class="image-caption">morph01</figcaption></figure><p></p>
 <p>しかし今回はモーフが完了する前にフレームの最後 (240frame) にたどり着いてしまった．この解決法は以下の3つ (他にもあるかも) </p>
 <ul>
 <li>FENDを伸ばす</li>
@@ -110,26 +111,26 @@
 </li>
 </ul>
 <p>どれでもいいけど，今回は2番目の方法で行う．Sub Stepsを3にして再度計算を行う． (当然1フレームあたりの計算量は多くなる) </p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-02T210704.png" alt="2021-03-02T210704"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-02T210704.png" alt="2021-03-02T210704"><figcaption class="image-caption">2021-03-02T210704</figcaption></figure><p></p>
 <p>これで最後までモーフするようになった．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph02.webp" alt="morph02"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph02.webp" alt="morph02"><figcaption class="image-caption">morph02</figcaption></figure><p></p>
 <p>File Chacheを繋いでSave To Diskし，計算結果を保存しておく．今回はたまたまフレームの最後でモーフが完了したので保存するFrame Rangeはデフォルト値のままだが，もっと早く終わったならそれに応じて保存期間も短くしたほうがディスクを無駄に消費せずに済むと思う．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T232539.png" alt="2021-03-01T232539"></p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T232729.png" alt="2021-03-01T232729"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T232539.png" alt="2021-03-01T232539"><figcaption class="image-caption">2021-03-01T232539</figcaption></figure><p></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T232729.png" alt="2021-03-01T232729"><figcaption class="image-caption">2021-03-01T232729</figcaption></figure><p></p>
 <p>保存したらLoad From Diskにチェックを入れておく．<br>本来ならシミュレーションとその結果の利用でジオメトリを分けたほうがいいけど今回は省略．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T233149.png" alt="2021-03-01T233149"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T233149.png" alt="2021-03-01T233149"><figcaption class="image-caption">2021-03-01T233149</figcaption></figure><p></p>
 <h2><span id="モーフをパラメータから制御する">モーフをパラメータから制御する</span></h2><p>現在はフレームによってモーフィングしているが，これをパラメータから制御できるようにしたい．<br>まず制御用のNullを作成し，morphという名前の0~1のfloatパラメータを追加する．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T233736.png" alt="2021-03-01T233736"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T233736.png" alt="2021-03-01T233736"><figcaption class="image-caption">2021-03-01T233736</figcaption></figure><p></p>
 <p>次にTime Shift (<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/timeshift">公式ヘルプ</a>) を接続する．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T233929.png" alt="2021-03-01T233929"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T233929.png" alt="2021-03-01T233929"><figcaption class="image-caption">2021-03-01T233929</figcaption></figure><p></p>
 <p>これは入力ジオメトリの任意の時間での状態を出力するノード．デフォルトではFrameに<code>$F</code>が入っているため，現在のフレームのジオメトリの状態がそのまま出力される．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T234136.png" alt="2021-03-01T234136"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T234136.png" alt="2021-03-01T234136"><figcaption class="image-caption">2021-03-01T234136</figcaption></figure><p></p>
 <p>このFrameの値を以下に書き換える．</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fit(ch(&quot;..&#x2F;Controller&#x2F;morph&quot;), 0, 1, $FSTART, $FEND)</span><br></pre></td></tr></table></figure>
 <p>Controller morphパラメータの値 (0～1) とシミュレーションの初めから終わり (FSTART～FEND) をfit (<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/vex/functions/fit.html">公式ヘルプ</a>)で対応させているので，morphパラメータに応じてモーフするようになった．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph.png" alt="morph"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/morph.png" alt="morph"><figcaption class="image-caption">morph</figcaption></figure><p></p>
 <p>最後にConvert VDBでメッシュ化すれば完成．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T235750.png" alt="2021-03-01T235750"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/VDBMorphSDF/2021-03-01T235750.png" alt="2021-03-01T235750"><figcaption class="image-caption">2021-03-01T235750</figcaption></figure><p></p>
 <h2><span id="おわりに">おわりに</span></h2><p>厳密に言うとSolverの1フレーム目から既にモーフが始まっているため，morphパラメータを0にしていても若干 (変形シミュレーション1フレーム分) 形が崩れていたりする．<br>これに関してはSolverのStart Frameを2にして<code>$F = 1</code>のときだけswitchで変形元のVDBをキャッシュに出力するとか工夫が要る． </p>
 <p>あとモーフの変化量がステップで等しくないため，初めらへんは急激にモーフして最後らへんはゆっくりめになる． (モーフするジオメトリにもよるが)<br>そのためモーフに緩急をつけたアニメーションを付けたいときとかはこのままだとちょっと面倒かも．<br><code>fit(pow(ch(&quot;../Controller/morph&quot;), 1.5), 0, 1, $FSTART, $FEND)</code> みたいにコントローラの値を補正してやるといいかも．</p>
 <h2><span id="関連参考文献">関連・参考文献</span></h2><ul>
@@ -147,5 +148,18 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/main.js"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-<script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script></body>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 99,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(t){t.imageLazyLoadSetting.processImages=r;var e=t.imageLazyLoadSetting.isSPA,o=(t.imageLazyLoadSetting.preloadRatio,a());function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function r(){e&&(o=a());for(var i=0;i<o.length;i++)!function(){var t,e,a,r,n=o[i];e=function(){o=o.filter(function(t){return n!==t})},(t=n).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,r=t.getAttribute("data-original"),a.onload=function(){t.src=r,t.removeAttribute("data-original"),e&&e()},t.src!==r&&(a.src=r))}()}function n(){clearTimeout(r.tId),r.tId=setTimeout(r,500)}r(),document.addEventListener("scroll",n),t.addEventListener("resize",n),t.addEventListener("orientationchange",n)}(this);</script></body>
 </html>

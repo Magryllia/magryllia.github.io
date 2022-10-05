@@ -31,8 +31,8 @@ Time Shiftで位相を">
     <![endif]-->
 <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
 <script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-189767043-1","auto"),ga("send","pageview")</script>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta name="generator" content="Hexo 5.2.0"></head>
 <body>
 <header>
@@ -94,46 +94,46 @@ Time Shiftで位相を">
 <li><a href="#%E3%81%8A%E3%82%8F%E3%82%8A%E3%81%AB">おわりに</a></li>
 <li><a href="#%E5%8F%82%E8%80%83%E9%96%A2%E9%80%A3%E6%96%87%E7%8C%AE">参考・関連文献</a></li>
 </ul>
-<h2><span id="はじめに">はじめに</span></h2><p>大まかな流れは目次の通り．<br>プロジェクトファイルは<a target="_blank" rel="noopener" href="https://github.com/Magryllia/TypoMorph01">こちら</a><br>細かい説明は割愛するのでファイルを見てね．<strong>なお<a target="_blank" rel="noopener" href="https://www.motionoperators.com/">MOPs</a>を使用しているのでファイルを見たい人は導入してね</strong><br>全体像は以下<br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144430.png" alt="2021-05-29T144430"></p>
+<h2><span id="はじめに">はじめに</span></h2><p>大まかな流れは目次の通り．<br>プロジェクトファイルは<a target="_blank" rel="noopener" href="https://github.com/Magryllia/TypoMorph01">こちら</a><br>細かい説明は割愛するのでファイルを見てね．<strong>なお<a target="_blank" rel="noopener" href="https://www.motionoperators.com/">MOPs</a>を使用しているのでファイルを見たい人は導入してね</strong><br>全体像は以下<br></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144430.png" alt="2021-05-29T144430"><figcaption class="image-caption">2021-05-29T144430</figcaption></figure><p></p>
 <h2><span id="ピースとガイドジオメトリを用意">ピースとガイドジオメトリを用意</span></h2><p>ピースとなるジオメトリをFontで用意する．<br>原点に適当に点を作って<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/attribrandomize.html">Attribute Randomize</a>でpscaleとorientを散らす．<br>できればA～Zを個別に作りたかったけど，方法がわからなかったのでFontのTextにA～Zをそのまま打ち込んだ．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144528.png" alt="2021-05-29T144528"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144528.png" alt="2021-05-29T144528"><figcaption class="image-caption">2021-05-29T144528</figcaption></figure><p></p>
 <p>その後<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/connectivity.html">Connectivity</a>で文字ごとにピースを分け，着色したり<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/assemble">Assemble</a>でピースごとにパックしたりする．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144657.png" alt="2021-05-29T144657"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144657.png" alt="2021-05-29T144657"><figcaption class="image-caption">2021-05-29T144657</figcaption></figure><p></p>
 <p>今回ガイドジオメトリにもFontを使用したが，平たいものなら何でも大丈夫．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144733.png" alt="2021-05-29T144733"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T144733.png" alt="2021-05-29T144733"><figcaption class="image-caption">2021-05-29T144733</figcaption></figure><p></p>
 <h2><span id="uv-layoutでピースを敷き詰める">UV Layoutでピースを敷き詰める</span></h2><p><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/uvlayout.html">UV Layout</a>は本来はその名の通りUVをきれいに敷き詰めるSOPだが，応用すると平たいサーフェスにも敷き詰められる．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T145706.png" alt="2021-05-29T145706"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T145706.png" alt="2021-05-29T145706"><figcaption class="image-caption">2021-05-29T145706</figcaption></figure><p></p>
 <p>設定項目はこんな感じ．ピースジオメトリとガイドジオメトリを接続し，Islands To PackのUV AttributeとTargetsのUV AttributeにPを設定し，Pack IntoをIslands From Second Inputにするとガイドジオメトリの中にピースジオメトリが敷き詰められる．<br>Island Rotation StepやIterarionsなどを変更し望む絵が得られるよう調整する．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T150151.png" alt="2021-05-29T150151"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T150151.png" alt="2021-05-29T150151"><figcaption class="image-caption">2021-05-29T150151</figcaption></figure><p></p>
 <p>本機能について詳しく知りたい人は<a target="_blank" rel="noopener" href="https://youtu.be/U-Y38fwuO38">Entagma氏のチュートリアル</a>を参照．</p>
 <h2><span id="extract-transformでトランスフォーム情報を取得">Extract Transformでトランスフォーム情報を取得</span></h2><p><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/extracttransform">Extract Transform</a>は同じ形状の2つのジオメトリを比較し，どう変形したか（トランスフォーム情報）を返すノード．<br>Connectivityで設定したPiece Attributeを指定するとピースごとにトランスフォーム情報を持ったポイントが得られる．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T151150.png" alt="2021-05-29T151150"><br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T151205.png" alt="2021-05-29T151205"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T151150.png" alt="2021-05-29T151150"><figcaption class="image-caption">2021-05-29T151150</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T151205.png" alt="2021-05-29T151205"><figcaption class="image-caption">2021-05-29T151205</figcaption></figure><p></p>
 <p>ちなみにここで得られたポイントとピースを後に使う<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/xformpieces">Transform Pieces</a>に接続するとUV Layoutで敷き詰めた状態が復元され，正しくポイントにトランスフォーム情報が入っていることがわかる．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T151547.png" alt="2021-05-29T151547"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T151547.png" alt="2021-05-29T151547"><figcaption class="image-caption">2021-05-29T151547</figcaption></figure><p></p>
 <h2><span id="blend-shapesやchopで各状態をモーフ">Blend ShapesやCHOPで各状態をモーフ</span></h2><p>上記工程で得られたBetter Harder Strongerの3つの文字をモーフさせる．<br>先にBlend Shapesについて説明すると，Primitive ID AttributeにConnectivityで設定したclassを指定することで同一ピース文字間のモーフが可能になる．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/blendShapes.apng" alt="blendShapes"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/blendShapes.apng" alt="blendShapes"><figcaption class="image-caption">blendShapes</figcaption></figure><p></p>
 <p>今回は文字の端から遷移していく動きを作るにあたり，無料のSideFX公式(?)ツールの<a target="_blank" rel="noopener" href="https://www.motionoperators.com/">MOPs</a>を用いた．無くても作れそうだけどこれ使ったほうが個人的に楽． </p>
 <p>MOPs Shape Falloffで左から0→1と変化するフォールオフアトリビュートを作成する．<br>PreView Falloffにチェックすると色でフォールオフを確認できる．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T153737.png" alt="2021-05-29T153737"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T153737.png" alt="2021-05-29T153737"><figcaption class="image-caption">2021-05-29T153737</figcaption></figure><p></p>
 <p>その後Transformで各文字をいい感じの位置に移動させる．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T155103.png" alt="2021-05-29T155103"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T155103.png" alt="2021-05-29T155103"><figcaption class="image-caption">2021-05-29T155103</figcaption></figure><p></p>
 <p>これをモーフ後のポイント群として使いたいため，モーフ前のポイント群に<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/attribcopy">Attribute Copy</a>で転送する．<br><strong>このときにMOPs Shape Falloffで生成されるi@idも一緒に転送しておかないと後のMOPs Delayで正常に動作しないので注意．</strong></p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T154301.png" alt="2021-05-29T154301"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T154301.png" alt="2021-05-29T154301"><figcaption class="image-caption">2021-05-29T154301</figcaption></figure><p></p>
 <p>Blend Shapeのblend値にキーフレームを打ってMOPs Dedayを見るとBetter→Harderに左から文字が組み上がっている．<br>これは右側のほうがフォールオフ値が大きく動きが遅延しているため．</p>
 <p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/MopsDelay.apng"></p>
 <p>以上のモーフをBetter→Harder/Harder→Stronger/Stronger→Betterの3つ作る．（といっても残り2つはコピペするだけ）<br>3つのモーフを繋げるためにCHOPsを使用する． </p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T160553.png" alt="2021-05-29T160553"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T160553.png" alt="2021-05-29T160553"><figcaption class="image-caption">2021-05-29T160553</figcaption></figure><p></p>
 <p>ジオメトリの情報をCHOPに持ってくるためには<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/chop/geometry.html">Geometry CHOP</a>を用いる．<br>GeometryでSOP階層のインポート元を指定し，P orient pscaleを持ってくる．<br><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/chop/trim">Trim</a>でそれぞれチャンネルをモーフの始まりから終わりまでに切って<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/chop/sequence">Sequence</a>でその3つのチャンネルを1つに直列に繋げ，Cycleで動きをループさせる．<br>Sequenceについては<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/examples/nodes/chop/sequence/AnimationSequence.html">このサンプル</a>がわかりやすい．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T160439.png" alt="2021-05-29T160439"><br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T160747.png" alt="2021-05-29T160747"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T160439.png" alt="2021-05-29T160439"><figcaption class="image-caption">2021-05-29T160439</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T160747.png" alt="2021-05-29T160747"><figcaption class="image-caption">2021-05-29T160747</figcaption></figure><p></p>
 <p><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/channel">Channel</a>でCHOPのチャンネルをSOPで参照できる．<br>Geometry, Channel共にMethodをAnimatedにしないと動いているチャンネルは正常に処理できないので注意． </p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T161639.png" alt="2021-05-29T161639"></p>
-<h2><span id="transform-piecesでピースを復元">Transform Piecesでピースを復元</span></h2><p><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/xformpieces">Transform Pieces</a>に動かしたいジオメトリ（ここでは小さい文字）とテンプレートポイントを接続し，マッチングさせるアトリビュート（ここではclass）を指定すると，一致するアトリビュートを持ったジオメトリがポイント上にトランスフォームする．<br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163030.png" alt="2021-05-29T163030"><br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/TransformPieces.apng"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T161639.png" alt="2021-05-29T161639"><figcaption class="image-caption">2021-05-29T161639</figcaption></figure><p></p>
+<h2><span id="transform-piecesでピースを復元">Transform Piecesでピースを復元</span></h2><p><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/xformpieces">Transform Pieces</a>に動かしたいジオメトリ（ここでは小さい文字）とテンプレートポイントを接続し，マッチングさせるアトリビュート（ここではclass）を指定すると，一致するアトリビュートを持ったジオメトリがポイント上にトランスフォームする．<br></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163030.png" alt="2021-05-29T163030"><figcaption class="image-caption">2021-05-29T163030</figcaption></figure><br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/TransformPieces.apng"><p></p>
 <p>前述したが，ピース文字はそれぞれ<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/assemble">Assemble</a>でパックしたほうが処理が早い．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163355.png" alt="2021-05-29T163355"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163355.png" alt="2021-05-29T163355"><figcaption class="image-caption">2021-05-29T163355</figcaption></figure><p></p>
 <h2><span id="time-shiftで位相をずらして合成">Time Shiftで位相をずらして合成</span></h2><p><a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/sop/timeshift">TimeShift</a>で適当にモーフィングをオフセットして元とマージすればジオメトリは出来上がり．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163530.png" alt="2021-05-29T163530"><br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163618.png" alt="2021-05-29T163618"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163530.png" alt="2021-05-29T163530"><figcaption class="image-caption">2021-05-29T163530</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163618.png" alt="2021-05-29T163618"><figcaption class="image-caption">2021-05-29T163618</figcaption></figure><p></p>
 <h2><span id="マテリアルとレンダリング">マテリアルとレンダリング</span></h2><p>ライティングの影響を受けないようにするためにConstantマテリアルを背景と文字に割り当てる．<br>プロパティはデフォルトのまま．</p>
-<p><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163906.png" alt="2021-05-29T163906"><br><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T172050.png" alt="2021-05-29T172050"></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T163906.png" alt="2021-05-29T163906"><figcaption class="image-caption">2021-05-29T163906</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/blog/Moprh_UVLayout/2021-05-29T172050.png" alt="2021-05-29T172050"><figcaption class="image-caption">2021-05-29T172050</figcaption></figure><p></p>
 <p>ビューポートの絵面をそのままレンダリングしたいときは<a target="_blank" rel="noopener" href="https://www.sidefx.com/ja/docs/houdini/nodes/out/opengl">OpenGL ROP</a>を使う．<br>レンダリングしてみると色味が変わってしまったときはおそらくACES(OpenColorIO)かガンマ値が悪さしているのでビューやレンダラの設定を見てみると良い． </p>
 <h2><span id="おわりに">おわりに</span></h2><p>UV Layout SOPは色々使えそうで夢が広がるのでよい．</p>
 <h2><span id="参考関連文献">参考・関連文献</span></h2><ul>
@@ -151,5 +151,18 @@ Time Shiftで位相を">
 <script src="/js/jquery.js"></script>
 <script src="/js/main.js"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-<script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})})</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var e=r[a],t=e,n=function(){r=r.filter(function(t){return e!==t})},i=new Image,o=t.getAttribute("data-original");i.onload=function(){t.src=o,n()},i.src=o}()}i(),n.addEventListener("scroll",function(){var t=i,e=n;clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this)</script></body>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 99,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(t){t.imageLazyLoadSetting.processImages=r;var e=t.imageLazyLoadSetting.isSPA,o=(t.imageLazyLoadSetting.preloadRatio,a());function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function r(){e&&(o=a());for(var i=0;i<o.length;i++)!function(){var t,e,a,r,n=o[i];e=function(){o=o.filter(function(t){return n!==t})},(t=n).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,r=t.getAttribute("data-original"),a.onload=function(){t.src=r,t.removeAttribute("data-original"),e&&e()},t.src!==r&&(a.src=r))}()}function n(){clearTimeout(r.tId),r.tId=setTimeout(r,500)}r(),document.addEventListener("scroll",n),t.addEventListener("resize",n),t.addEventListener("orientationchange",n)}(this);</script></body>
 </html>

@@ -1,0 +1,1 @@
+(function(){$(document).ready((function(){t()}));function t(){if($(".twentytwenty-container").twentytwenty){$(".twentytwenty-container").twentytwenty()}else{setTimeout((function(){t()}),250)}}})();

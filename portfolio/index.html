@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<meta name="description" content="VAT &amp;amp; Niagara
+
+
+概要
+
+    使用ソフト
+    Unreal Engine 5Houdini
+
+
+    制作期間
+    2ヶ月
+
+
+
+
+古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。エフェクトを含めて映像作品となるように背景・ライティング等の画作">
+<meta name="author" content="大城（Magryllia）">
+<meta property="og:title" content="Portfolio">
+<meta property="og:site_name" content="GRAPHILIA">
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@magryllia">
+<meta property="og:url" content="http://www.magryllia.com/portfolio/index.html">
+<title>Portfolio - GRAPHILIA</title>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/main.css">
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet">
+<script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-189767043-1","auto"),ga("send","pageview")</script>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header>
+<div class="logo">
+<a href="/">GRAPHILIA</a>
+</div>
+<div id="menu_icon"></div>
+<nav>
+<ul>
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/categories/blog">Blog</a>
+</li>
+<li>
+<a href="/about">About</a>
+</li>
+</ul>
+</nav>
+<div class="footer clearfix">
+<ul class="social clearfix">
+<li>
+<a href="https://twitter.com/Magryllia" class="twitter" target="_blank" data-title="Twitter"></a>
+</li>
+</ul>
+<div class="rights">
+<p>Copyright © 2022 Magryllia.</p>
+</div>
+</div>
+</header>
+<section class="main clearfix">
+<section class="top" style="background:url('')">
+<div class="wrapper content_header clearfix">
+<h1 class="title">Portfolio</h1>
+</div>
+</section>
+<section class="wrapper">
+<div class="content">
+<h2><span id="vat-amp-niagara">VAT &amp; Niagara</span></h2>
+<iframe class="video" src="https://www.youtube.com/embed/mruCBrgPKAM?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3><span id="概要">概要</span></h3><table>
+<tr>
+<td>使用ソフト</td>
+<td>Unreal Engine 5<br>Houdini</td>
+</tr>
+<tr>
+<td>制作期間</td>
+<td>2ヶ月</td>
+</tr>
+</table>
+<br>
+<p>古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。<br>エフェクトを含めて映像作品となるように背景・ライティング等の画作りまで気を配りました。<br>VAT（頂点アニメーションテクスチャ）のシェーダを用いてNiagaraだけではできなかった物理演算と<br>パーティクルシステムの組み合わせの表現を実現しました。</p>
+<h3><span id="天使像の破片エフェクト">天使像の破片エフェクト</span></h3><h4><span id="niagaraの問題点とhoudiniの活用による解決">Niagaraの問題点とHoudiniの活用による解決</span></h4><p>本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。<br>Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。<br>そこで、Houdiniを活用し以下の解決を図りました。</p>
+<ul>
+<li>VATを活用し1つのメッシュで複数の破片を表現する。</li>
+<li>物理演算を事前に計算し、その点群データをNiagaraで読み込む。</li>
+</ul>
+<h4><span id="vatでの破片表現">VATでの破片表現</span></h4><p>Niagaraでパーティクルとして破片を表示させるため、VATを用いて同一のメッシュで各破片を表現する手法を取りました。<br>フレームごとに1つずつ破片を表示するアニメーションをつけたVATシェーダー付きメッシュを作成し、Niagaraでシェーダーのフレーム番号のパラメータを変更することで各破片を表現しました。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/pieces-anim.webp" alt="フレームごとに表示させた破片"><figcaption class="image-caption">フレームごとに表示させた破片</figcaption></figure><p></p>
+<p><img src="/assets/loading/02.webp" data-original="/portfolio/images/pieces-niagara.drawio.webp"></p>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/niagara-static-off.jpg" class="left" height="300px">
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/niagara-static-on.jpg" class="left" height="300px">
+<figcaption>
+NiagaraでVAT用メッシュで天使像を復元した様子<br>（ワイヤフレーム表示のON/OFF）
+</figcaption>
+</figure>
+<br>
+ワイヤフレーム表示にすると三角ポリゴンが集まったVAT用メッシュであることが分かります。
+<h4><span id="物理演算">物理演算</span></h4><h5><span id="houdiniでの演算">Houdiniでの演算</span></h5><p>以下に大まかな作成工程を示します。</p>
+<ol>
+<li><p>メッシュの粉砕</p>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/angel-fracture.png" height="300px">
+<br style="clear:left">
+3Dスキャン素材の天使像をRemesh等で最適化したのち、<br>RBD Material Fracture SOPでメッシュを粉砕します。
+</li>
+<li><p>物理演算</p>
+<video muted autoplay loop height="300px">
+<source src="/portfolio/images/rbdsim.mp4" type="video/webm">
+</video>
+<br style="clear:left">
+速度ベクトルを付加したり台座下部の破片を動かないように設定したりしたのち、物理演算を行います。<br>
+内側からの力で破片が全方位に均等に飛び散り、降ってくる様子がプレイヤーの視界に収まるように速度の調整を行いました。
+</li>
+<li><p>Export用の点群に変換</p>
+<video muted autoplay loop height="300px">
+<source src="/portfolio/images/houdini-niagara.mp4" type="video/webm">
+</video>
+<br style="clear:left">
+Niagaraでパーティクルとして読み込むため、 元の破片のID（=フレーム番号）や回転情報等を保持した点群に変換します。
+</li>
+</ol>
+<h5><span id="niagaraでの再生">Niagaraでの再生</span></h5><video muted autoplay loop height="300px">
+<source src="/portfolio/images/niagara-particle.mp4" type="video/webm">
+</video>
+<br style="clear:left">
+HoudiniでExportした点群をパーティクルとしてNiagaraで読み込みます。
+<br><br>
+<video muted autoplay loop height="300px">
+<source src="/portfolio/images/niagara-rbd.mp4" type="video/webm">
+</video>
+<br style="clear:left">
+点群に元の破片のID（=フレーム番号）や回転の情報等をアトリビュートとして付加しているため、<br>この情報を元にNiagaraで物理演算を復元します。
+<h4><span id="物理演算とパーティクルシステムの組み合わせ">物理演算とパーティクルシステムの組み合わせ</span></h4><p>読み込んだ物理演算をすべて再生するのではなく、途中でNigaraで作る中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。</p>
+<p><img src="/assets/loading/02.webp" data-original="/portfolio/images/niagara-trans.drawio.webp"></p>
+<p>下から上へ状態が遷移していく表現を行うため、Houdiniで初期位置のY座標を0~1に正規化したアトリビュートを作成し、Export用の点群に付加しました。<br>このアトリビュートを使ってNiagaraで状態の遷移をオフセットしています。</p>
+<div class="flexbox">
+<video class="nomargin" muted autoplay loop>
+<source src="/portfolio/images/relbY.mp4" type="video/webm">
+</video>
+<img class="nomargin" src="/assets/loading/02.webp" data-original="/portfolio/images/angel-relbY.drawio.png">
+</div>
+<h3><span id="魔法エフェクト">魔法エフェクト</span></h3><p>空中で魔法が揺らいでいる様子を表現するため、シェーダーで文字パーティクルのUVやLineの太さにノイズを加えています。</p>
+<video muted autoplay loop>
+<source src="/portfolio/images/magic.mp4" type="video/webm">
+</video>
+<br>
+<p>ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。<br>このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。<br>このスクリプトの生成する文字列やフォントの指定を変えるだけで何種類ものFlipbookテクスチャのパターンが作成できるため、素早いプロトタイプの作成が行えました。</p>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/runes.webp" width="200px">
+<figcapture>
+生成されたルーン文字のFlipbookテクスチャ
+</figcapture>
+</figure>
+<br style="clear:left">
+<figure class="highlight bash"><figcaption><span>generate-fonts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成する文字列</span></span><br><span class="line"><span class="built_in">readonly</span> CHARS=$(<span class="built_in">echo</span> &#123;a..z&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成するフォント</span></span><br><span class="line"><span class="built_in">readonly</span> FONT=<span class="string">&quot;MOONRUNE.TTF&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字の画像を生成</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$CHARS</span> | tr <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;\n&#x27;</span>  | xargs -I&#123;&#125; convert -background none -fill white -size 64x64 -gravity center -font /usr/share/fonts/<span class="variable">$FONT</span> label:&#123;&#125; &#123;&#125;.png</span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字のファイル名を配列に格納</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="variable">$CHARS</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    files+=(<span class="variable">$char</span>.png)</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一枚にまとめる</span></span><br><span class="line">montage -quality 100 -geometry +0+0 -label <span class="string">&quot;&quot;</span> -background none  <span class="variable">$&#123;files[@]&#125;</span> runes.png</span><br><span class="line"></span><br><span class="line">rm <span class="variable">$&#123;files[@]&#125;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="爆発エフェクト">爆発エフェクト</span></h3><p><strong>爆発エフェクトの画像</strong><br>このエフェクトは衝撃波と煙の二種類で構成されています。</p>
+<div class="flexbox">
+<video class="nomargin" muted autoplay loop>
+<source src="/portfolio/images/niagara-shockwave.mp4" type="video/webm">
+</video>
+<video class="nomargin" muted autoplay loop>
+<source src="/portfolio/images/niagara-smoke.mp4" type="video/webm">
+</video>
+</div>
+<br>
+<p>衝撃波はシェーダーで屈折率にノイズをかけた球メッシュをスケールさせることで空間を歪めています。<br>煙はHoudiniでシミュレーションしたものをFlipbookテクスチャ化して使用しています。</p>
+<figure>
+<video muted autoplay loop>
+<source src="/portfolio/images/smoke-preview.mp4" type="video/webm">
+</video>
+<figcaption>
+Houdiniのスモークシミュレーション
+</figcaption>
+</figure>
+<h3><span id="背景">背景</span></h3><p>背景の制作にはHoudini Engine for Unrealを活用しました。<br>2ソフト間で背景モデルデータを同期し、Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果を確認するという方法でモデリング、インスタンスの配置、マテリアルの適用、ライティングを並行して進めました。<br>柱のモデルや各マテリアルはMegascansのアセットを使用しました。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/houdiniengine-houdini.jpg" alt="Houdini側の作業画面"><figcaption class="image-caption">Houdini側の作業画面</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/houdiniengine-ue.jpg" alt="UE側の作業画面"><figcaption class="image-caption">UE側の作業画面</figcaption></figure><p></p>
+<h3><span id="ポストプロセス">ポストプロセス</span></h3><p>ゲームでの演出の想定のため、映像編集ソフトでの後処理は行わずCine Camera ActorのPost Processでシネマティックな空気感になるよう調整を行いました。</p>
+<table>
+<thead>
+<tr>
+<th>設定項目</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>露出</td>
+<td>やや暗め</td>
+</tr>
+<tr>
+<td>F値</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>色温度</td>
+<td>低め</td>
+</tr>
+<tr>
+<td>彩度</td>
+<td>低め</td>
+</tr>
+<tr>
+<td>コントラスト</td>
+<td>低め</td>
+</tr>
+<tr>
+<td>ビネット</td>
+<td>弱め</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+</tr>
+</tbody></table>
+<div class="twentytwenty-container embeded-twentytwenty"><img class="photo round" src="/assets/loading/02.webp" data-original="/portfolio/images/pp-off.webp"><img class="photo round" src="/assets/loading/02.webp" data-original="/portfolio/images/pp-on.webp"></div><script>function rcc13(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc13()}void 0===rccCalled&&rcc13();var rccCalled=!0</script>
+<br>
+<br>
+<hr>
+<h2><span id="building-generator-α">Building Generator +α</span></h2><iframe class="video" src="https://www.youtube.com/embed/ClQu16G9cz8?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3><span id="概要">概要</span></h3><table>
+<tr>
+<td>使用ソフト</td>
+<td>Unreal Engine 5<br>Houdini</td>
+</tr>
+<tr>
+<td>制作期間</td>
+<td>3週間</td>
+</tr>
+</table>
+<br>
+<p>UE5で素早く建物を作成するツールを制作しました。<br>以前にHoudini内でメッシュを生成するものは作ったことがありましたが、UE上で動作しメッシュはUEのアセットをインスタンス化できたほうが実用性があると考え、今回一から作り直しました。<br>実際にゲーム開発で使用することを想定し、汎用性の高い作りを目指しました。<br>建物だけでなく、道路やポールを作成する機能も追加しました。<br>本ツールはNaniteメッシュのアセットにも対応しているためメモリ効率が良く、寄りで見ても品質の高い建物のアセットを作成することができます。</p>
+<figure>
+<video muted autoplay loop>
+<source src="/portfolio/images/apart1.mp4" , type="video/mp4">
+</video>
+<figcaption>
+Building Generator(旧作)
+</figcaption>
+</figure>
+<h3><span id="機能">機能</span></h3><h4><span id="building-generator">Building Generator</span></h4><p>指定した壁や柱、屋根のアセットを使い、ガイドボックスの形状に合わせてアパートを生成します。<br>壁や柱のパーツは似た形状であれば別のアセットに差し替えることも可能なので、バリエーションを簡単に作成することができます。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/apart-replaced.jpg" alt="壁のパーツを差し替えた建物"><figcaption class="image-caption">壁のパーツを差し替えた建物</figcaption></figure><p></p>
+<p>また、任意の建物パーツの付近にプロップを配置できる機能も作成しました。<br>カフェメニューやプランターのように、ある範囲内にランダムに配置したい場合はガイドグリッド（赤い縞模様）を可視化して直感的に配置を行うことができます。</p>
+<div class="flexbox">
+<span>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/apart-cafemenu.jpg">
+<figcaption>
+カフェメニュー
+</figcaption>
+</figure>
+</span>
+<span>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/apart-tent.jpg">
+<figcaption>
+軒先テント
+</figcaption>
+</figure>
+</span>
+<span>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/apart-flag.jpg">
+<figcaption>
+旗
+</figcaption>
+</figure>
+</span>
+<span>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/apart-planter.jpg">
+<figcaption>
+プランター
+</figcaption>
+</figure>
+</span>
+</div>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/apart-prop-setting.drawio.webp" alt="プロップを配置する設定画面"><figcaption class="image-caption">プロップを配置する設定画面</figcaption></figure><p></p>
+<figure>
+<video muted autoplay loop>
+<source src="/portfolio/images/apart-generate-prop.mp4" , type="video/mp4">
+</video>
+<figcaption>
+プロップを設定している様子
+</figcaption>
+</figure>
+<h4><span id="road-generator">Road Generator</span></h4><p>ガイドボックスを配置して道路が作成できます。<br>ガイドボックスのスケールを変更したり、増やしたりすることもできます。<br>歩道と車道のマテリアルや縁石のアセットはUEから差し替えができるようになっています。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/road-onoff.webp" alt="ガイドボックスのON/OFF"><figcaption class="image-caption">ガイドボックスのON/OFF</figcaption></figure><p></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/road.jpg" alt="寄りで見た道路"><figcaption class="image-caption">寄りで見た道路</figcaption></figure><p></p>
+<h4><span id="curve-tool">Curve Tool</span></h4><p>Unreal Spline Componentsをガイドとし、カーブに沿ってアセットを配置することができます。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/curve.jpg" alt="ポールを配置している様子"><figcaption class="image-caption">ポールを配置している様子</figcaption></figure><p></p>
+<h3><span id="処理の高速化とnanite対応の工夫">処理の高速化とNanite対応の工夫</span></h3><p>開発者がストレス無く本ツールを使用できるよう、処理の高速化にも注力しました。<br>特に処理時間がかかり問題となっていたのがUE ↔ Houdini Engine間のメッシュデータの転送時間でした。<br>また、ソフト間でメッシュデータを転送するうちにNaniteの情報も消えてしまい単なるハイポリゴンとなりメモリの使用量が増大するため、この問題にも対処しました。</p>
+<p><img src="/assets/loading/02.webp" data-original="/portfolio/images/instance-nanite.drawio.webp"></p>
+<p>解決策として、まずメッシュの代わりにアセットごとにメッシュのバウンディングボックスの情報を持った頂点をHoudini Engineへ転送します。<br>次にHoudini Engine側でその頂点の情報からバウンディングボックスを作成し、建物の形状に並べます。<br>最後に並べたバウンディングボックスをそれぞれ元のアセットへのインスタンスの点群へ変換し、UEへ転送します。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/create-instance-box.jpg" alt="頂点をバウンディングボックスに変換する処理"><figcaption class="image-caption">頂点をバウンディングボックスに変換する処理</figcaption></figure><p></p>
+<figure class="highlight c"><figcaption><span>add_bbox_pointsノードのVEX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// バウンディングボックスの情報を取得</span></span><br><span class="line"><span class="built_in">vector</span> max = point(<span class="number">1</span>, <span class="string">&quot;unreal_bbox_max&quot;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">vector</span> min = point(<span class="number">1</span>, <span class="string">&quot;unreal_bbox_min&quot;</span>, <span class="number">0</span>);</span><br><span class="line">addpoint(<span class="number">0</span>, max);</span><br><span class="line">addpoint(<span class="number">0</span>, min);</span><br></pre></td></tr></table></figure>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/restore-instance-points.jpg" alt="バウンディングボックスからインスタンスの頂点に変換する処理"><figcaption class="image-caption">バウンディングボックスからインスタンスの頂点に変換する処理</figcaption></figure><p></p>
+<figure class="highlight c"><figcaption><span>set_instance_attrノードのVEX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// packed primのpackedfulltransform行列を分解し、インスタンス用のスケールと回転のアトリビュートを作成</span></span><br><span class="line">matrix xform = getpackedtransform(<span class="number">0</span>, @primnum);</span><br><span class="line"><span class="built_in">vector</span> pivot = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">v@scale = cracktransform(<span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, pivot, xform);</span><br><span class="line">p@orient = eulertoquaternion(radians(cracktransform(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, pivot, xform)), <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<hr>
+<h2><span id="pyro-amp-rbd">Pyro &amp; RBD</span></h2><video muted autoplay loop>
+<source src="/portfolio/images/pyro.mp4" , type="video/mp4">
+</video>
+<h3><span id="概要">概要</span></h3><table>
+<tr>
+<td>使用ソフト</td>
+<td>Houdini<br>DaVinci Resolve</td>
+</tr>
+<tr>
+<td>レンダラ</td>
+<td>Karma(Houdini内製レンダラ)</td>
+</tr>
+<tr>
+<td>製作期間</td>
+<td>2ヶ月</td>
+</tr>
+</table>
+<br>
+都市の爆破解体をイメージして作りました。 実際の建物の爆破解体の資料を見ながら煙の動きに説得力が出るようにPyroシミュレーションの試行錯誤を重ねました。 都市の規模が大きくなっても建物ごとに個別にシミュレーションを調整せずに済むよう、シミュレーション周りの処理を一元化しました。
+<h3><span id="破壊する建物の作成とrigid-body-dynamics">破壊する建物の作成とRigid Body Dynamics</span></h3><ol>
+<li>Mapboxから都市データを取得<br>Mapbox(地図情報サービス)から破壊する都市の3Dデータを取得し、必要な建物だけ残します。</li>
+</ol>
+<p><img src="/assets/loading/02.webp" data-original="/portfolio/images/buildings-raw.jpg"></p>
+<ol start="2">
+<li>メッシュのセットアップ<br>トポロジーの最適化・建物内の床の作成・メッシュの粉砕を行います。</li>
+</ol>
+<figure>
+<div class="flexbox">
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/building-wall.jpg">
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/building-floor.jpg">
+</div>
+<figcaption>
+粉砕した建物（左：外壁　右：床）
+</figcaption>
+</figure>
+<br>
+<ol start="5">
+<li>物理演算とコンストレインの調整<br>下から徐々にクラックが伝搬して崩壊していくようにしたかったため、コンストレインの強度を建物の高さによって調整しました。<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/building-constrain.jpg">
+<caption>
+コンストレイン強度の可視化
+</caption>
+</figure>
+</li>
+</ol>
+<figure>
+<div class="flexbox">
+<video muted autoplay loop>
+<source src="/portfolio/images/building-before.mp4" , type="video/mp4">
+</video>
+<video muted autoplay loop>
+<source src="/portfolio/images/building-after.mp4" , type="video/mp4">
+</video>
+</div>
+<figcaption>
+調整前（左）と調整後（右）<br>建物右の点群はクラックの発生を可視化した様子<br>建物上部のクラックの入り方が異なっている。
+</figcaption>
+</figure>
+<h3><span id="煙のシミュレーション">煙のシミュレーション</span></h3><h4><span id="崩壊シーン">崩壊シーン</span></h4><p>建物が崩壊する際の煙は建物下部から吹き出すものと全体から吹き出すものの2種類で構成されています。<br>これらは以下の工程で作成しました。</p>
+<ol>
+<li><p>パーティクルシミュレーションの発生源を作成<br>建物の物理演算結果を元に、クラック上にパーティクルシミュレーションの発生源となるポイントを作成します。</p>
+<figure>
+<video muted autoplay loop>
+<source src="/portfolio/images/buildings-debris.mp4" , type="video/mp4">
+</video>
+<figcaption>
+クラックからポイントが発生している様子
+</figcaption>
+</figure>
+</li>
+<li><p>パーティクルシミュレーション<br>スモークシミュレーションの元となるパーティクルをシミュレーションして作成します。<br>工程1で作成した発生源から建物の外側に吹き出すように速度を与えています。</p>
+<figure>
+<div class="flexbox">
+<video muted autoplay loop>
+<source src="/portfolio/images/particles-lower.mp4" , type="video/mp4">
+</video>
+<video muted autoplay loop>
+<source src="/portfolio/images/particles-upper.mp4" , type="video/mp4">
+</video>
+</div>
+<figcaption>
+パーティクルシミュレーション（左：下部　右：全体）
+</figcaption>
+</figure>
+</li>
+<li><p>スモークシミュレーション<br>構成2のパーティクルを元に煙のシミュレーションを行います。<br>のっぺりしたキノコ雲が発生しないように、かつノイズが多すぎてボソボソにならないようにTurbulenceやDisturbanceの調整を繰り返しました。<br>建物下部のスモークシミュレーションではDisturbanceの値にキーを打ち、最初の方だけノイズが強くかかるようにしています。</p>
+<figure>
+<div class="flexbox">
+<video muted autoplay loop>
+<source src="/portfolio/images/pyro-lower.mp4" , type="video/mp4">
+</video>
+<video muted autoplay loop>
+<source src="/portfolio/images/pyro-upper.mp4" , type="video/mp4">
+</video>
+</div>
+<figcaption>
+スモークシミュレーション（左：下部　右：全体）
+</figcaption>
+</figure>
+</li>
+</ol>
+<h4><span id="生成シーン">生成シーン</span></h4><p>建物が生成されるシーンの煙は建物の床を発生源とし、建物の法線方向にノイズを加えたボリュームを速度フィールドとしてシミュレーションしています。</p>
+<div class="flexbox">
+<span>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/grow-points.jpg">
+<figcaption>
+スモーク発生源のポイント
+</figcaption>
+</figure>
+</span>
+<span>
+<figure>
+<video muted autoplay loop>
+<source src="/portfolio/images/grow-buildings.mp4" , type="video/mp4">
+</video>
+<figcaption>
+シミュレーションに与える速度フィールドの元となる建物
+</figcaption>
+</figure>
+</span>
+</div>
+<br>
+シミュレーションしたままでは発生源のボリュームの矩形が目立ったので、Volume Wrangleでしきい値以下の速度のボリュームを削除して見た目を調整しています。
+<br>
+<br>
+<figure>
+<div class="flexbox">
+<video muted autoplay loop>
+<source src="/portfolio/images/grow-before.mp4" , type="video/mp4">
+</video>
+<video muted autoplay loop>
+<source src="/portfolio/images/grow-after.mp4" , type="video/mp4">
+</video>
+</div>
+<figcapture>
+スモークシミュレーション（左：調整前　右：調整後）
+</figcapture>
+</figure>
+<div>
+</div>
+</div>
+</section>
+</section>
+<script src="/js/jquery.js"></script>
+<script src="/js/main.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 99,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(t){t.imageLazyLoadSetting.processImages=r;var e=t.imageLazyLoadSetting.isSPA,o=(t.imageLazyLoadSetting.preloadRatio,a());function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function r(){e&&(o=a());for(var i=0;i<o.length;i++)!function(){var t,e,a,r,n=o[i];e=function(){o=o.filter(function(t){return n!==t})},(t=n).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,r=t.getAttribute("data-original"),a.onload=function(){t.src=r,t.removeAttribute("data-original"),e&&e()},t.src!==r&&(a.src=r))}()}function n(){clearTimeout(r.tId),r.tId=setTimeout(r,500)}r(),document.addEventListener("scroll",n),t.addEventListener("resize",n),t.addEventListener("orientationchange",n)}(this);</script></body>
+</html>
