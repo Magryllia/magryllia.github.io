@@ -234,7 +234,7 @@ Houdiniのスモークシミュレーション
 <td></td>
 </tr>
 </tbody></table>
-<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp-off.webp"><img no-lazy class="photo round" src="/portfolio/images/pp-on.webp"></div><script>function rcc26(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc26()}void 0===rccCalled&&rcc26();var rccCalled=!0</script>
+<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp-off.webp"><img no-lazy class="photo round" src="/portfolio/images/pp-on.webp"></div><script>function rcc34(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc34()}void 0===rccCalled&&rcc34();var rccCalled=!0</script>
 <br>
 <br>
 <hr>
@@ -362,7 +362,7 @@ Building Generator(旧作)
 </figure>
 <br>
 <ol start="5">
-<li>物理演算とコンストレインの調整<br>下から徐々にクラックが伝搬して崩壊していくようにしたかったため、コンストレインの強度を建物の高さによって調整しました。<figure>
+<li>物理演算とコンストレインの調整<br>下から徐々にクラックが伝搬して崩壊していくようにしたかったため、コンストレインの強度を建物の下部は低く、上部は高くなるよう調整しました。<figure>
 <img src="/assets/loading/02.webp" data-original="/portfolio/images/building-constrain.jpg">
 <caption>
 コンストレイン強度の可視化
@@ -464,11 +464,11 @@ Building Generator(旧作)
 スモークシミュレーション（左：調整前　右：調整後）
 </figcapture>
 </figure>
-<h3><span id="ライティングコンポジット">ライティング・コンポジット</span></h3><p>レンダラーはKarmaのため、LOP階層でマテリアルの作成やライティングを行っています。</p>
+<h3><span id="ライティングコンポジット">ライティング・コンポジット</span></h3><p>レンダラーはKarmaのため、LOP階層でマテリアルの作成やライティングを行っています。<br>建物とスモークで別々に明るさを調節できるようにドームライトを分け、Light Linkerでそれぞれ影響するライトを別に設定しています。</p>
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/node-pyro-stage.drawio.png" alt="LOP階層"><figcaption class="image-caption">LOP階層</figcaption></figure><p></p>
 <p>Houdini側では色味やライティングは最低限とし、DaVinci Resolve側で調整しています。</p>
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/resolve-node.drawio.webp" alt="DaVinci ResolveのColorページ"><figcaption class="image-caption">DaVinci ResolveのColorページ</figcaption></figure><p></p>
-<div class="twentytwenty-container embeded-twentytwenty" style="max-width:1080px"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-before.webp" data-width="1080" data-height="1080"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-after.webp" data-width="1080" data-height="1080"></div><script>function rcc50(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc50()}void 0===rccCalled&&rcc50();var rccCalled=!0</script>
+<div class="twentytwenty-container embeded-twentytwenty" style="max-width:1080px"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-before.webp" data-width="1080" data-height="1080"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-after.webp" data-width="1080" data-height="1080"></div><script>function rcc23(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc23()}void 0===rccCalled&&rcc23();var rccCalled=!0</script>
 <div>
 </div>
 </div>
