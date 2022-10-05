@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-<meta name="description" content="VAT &amp;amp; Niagara
+<meta name="description" content="Explosion
 
 
 概要
@@ -19,7 +19,7 @@
 
 
 
-古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。エフェクトを含めて映像作品となるように背景・ライティング等の画作">
+古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。エフェクトを含めて映像作品となるように背景・ライティング等の画作りまで気を配りま">
 <meta name="author" content="大城（Magryllia）">
 <meta property="og:title" content="Portfolio">
 <meta property="og:site_name" content="GRAPHILIA">
@@ -56,6 +56,9 @@
 <li>
 <a href="/about">About</a>
 </li>
+<li>
+<a href="/portfolio">Portfolio</a>
+</li>
 </ul>
 </nav>
 <div class="footer clearfix">
@@ -77,7 +80,7 @@
 </section>
 <section class="wrapper">
 <div class="content">
-<h2><span id="vat-amp-niagara">VAT &amp; Niagara</span></h2>
+<h2><span id="explosion">Explosion</span></h2>
 <iframe class="video" src="https://www.youtube.com/embed/mruCBrgPKAM?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3><span id="概要">概要</span></h3><table>
 <tr>
@@ -91,13 +94,21 @@
 </table>
 <br>
 <p>古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。<br>エフェクトを含めて映像作品となるように背景・ライティング等の画作りまで気を配りました。<br>VAT（頂点アニメーションテクスチャ）のシェーダを用いてNiagaraだけではできなかった物理演算と<br>パーティクルシステムの組み合わせの表現を実現しました。</p>
-<h3><span id="天使像の破片エフェクト">天使像の破片エフェクト</span></h3><h4><span id="niagaraの問題点とhoudiniの活用による解決">Niagaraの問題点とHoudiniの活用による解決</span></h4><p>本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。<br>Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。<br>そこで、Houdiniを活用し以下の解決を図りました。</p>
+<h3><span id="天使像の破片エフェクト">天使像の破片エフェクト</span></h3><h4><span id="niagaraの問題点とhoudiniの活用による解決">Niagaraの問題点とHoudiniの活用による解決</span></h4><p>本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。<br>Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。<br>そこで、Houdiniを活用し以下の方法で解決しました。</p>
 <ul>
 <li>VATを活用し1つのメッシュで複数の破片を表現する。</li>
-<li>物理演算を事前に計算し、その点群データをNiagaraで読み込む。</li>
+<li>物理演算を事前に計算し、その点群データをNiagaraで読み込み復元する。</li>
 </ul>
 <h4><span id="vatでの破片表現">VATでの破片表現</span></h4><p>Niagaraでパーティクルとして破片を表示させるため、VATを用いて同一のメッシュで各破片を表現する手法を取りました。<br>フレームごとに1つずつ破片を表示するアニメーションをつけたVATシェーダー付きメッシュを作成し、Niagaraでシェーダーのフレーム番号のパラメータを変更することで各破片を表現しました。</p>
-<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/pieces-anim.webp" alt="フレームごとに表示させた破片"><figcaption class="image-caption">フレームごとに表示させた破片</figcaption></figure><p></p>
+<figure>
+<video muted autoplay loop height="300px">
+<source src="/portfolio/images/pieces-anim.mp4" type="video/webm">
+</video>
+<figcaption>
+フレームごとに表示させた破片
+</figcaption>
+</figure>
+<br>
 <p><img src="/assets/loading/02.webp" data-original="/portfolio/images/pieces-niagara.drawio.webp"></p>
 <figure>
 <img src="/assets/loading/02.webp" data-original="/portfolio/images/niagara-static-off.jpg" class="left" height="300px">
@@ -107,7 +118,7 @@ NiagaraでVAT用メッシュで天使像を復元した様子<br>（ワイヤフ
 </figcaption>
 </figure>
 <br>
-ワイヤフレーム表示にすると三角ポリゴンが集まったVAT用メッシュであることが分かります。
+<p>ワイヤフレーム表示にすると三角ポリゴンが集まったVAT用メッシュであることが分かります。</p>
 <h4><span id="物理演算">物理演算</span></h4><h5><span id="houdiniでの演算">Houdiniでの演算</span></h5><p>以下に大まかな作成工程を示します。</p>
 <ol>
 <li><p>メッシュの粉砕</p>
@@ -141,7 +152,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 <source src="/portfolio/images/niagara-rbd.mp4" type="video/webm">
 </video>
 <br style="clear:left">
-点群に元の破片のID（=フレーム番号）や回転の情報等をアトリビュートとして付加しているため、<br>この情報を元にNiagaraで物理演算を復元します。
+<p>先に作成したVATメッシュと組み合わせ、物理演算を復元します。<br>点群に元の破片のID（=フレーム番号）や回転の情報等をアトリビュートとして付加しているため、<br>どのパーティクルにどの破片が割り当てるか等を表現できます。</p>
 <h4><span id="物理演算とパーティクルシステムの組み合わせ">物理演算とパーティクルシステムの組み合わせ</span></h4><p>読み込んだ物理演算をすべて再生するのではなく、途中でNigaraで作る中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。</p>
 <p><img src="/assets/loading/02.webp" data-original="/portfolio/images/niagara-trans.drawio.webp"></p>
 <p>下から上へ状態が遷移していく表現を行うため、Houdiniで初期位置のY座標を0~1に正規化したアトリビュートを作成し、Export用の点群に付加しました。<br>このアトリビュートを使ってNiagaraで状態の遷移をオフセットしています。</p>
@@ -164,7 +175,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 </figcapture>
 </figure>
 <br style="clear:left">
-<figure class="highlight bash"><figcaption><span>generate-fonts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成する文字列</span></span><br><span class="line"><span class="built_in">readonly</span> CHARS=$(<span class="built_in">echo</span> &#123;a..z&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成するフォント</span></span><br><span class="line"><span class="built_in">readonly</span> FONT=<span class="string">&quot;MOONRUNE.TTF&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字の画像を生成</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$CHARS</span> | tr <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;\n&#x27;</span>  | xargs -I&#123;&#125; convert -background none -fill white -size 64x64 -gravity center -font /usr/share/fonts/<span class="variable">$FONT</span> label:&#123;&#125; &#123;&#125;.png</span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字のファイル名を配列に格納</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="variable">$CHARS</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    files+=(<span class="variable">$char</span>.png)</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一枚にまとめる</span></span><br><span class="line">montage -quality 100 -geometry +0+0 -label <span class="string">&quot;&quot;</span> -background none  <span class="variable">$&#123;files[@]&#125;</span> runes.png</span><br><span class="line"></span><br><span class="line">rm <span class="variable">$&#123;files[@]&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>Flipbookテクスチャを生成するシェルスクリプト</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成する文字列</span></span><br><span class="line"><span class="built_in">readonly</span> CHARS=$(<span class="built_in">echo</span> &#123;a..z&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成するフォント</span></span><br><span class="line"><span class="built_in">readonly</span> FONT=<span class="string">&quot;MOONRUNE.TTF&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字の画像を生成</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$CHARS</span> | tr <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;\n&#x27;</span>  | xargs -I&#123;&#125; convert -background none -fill white -size 64x64 -gravity center -font /usr/share/fonts/<span class="variable">$FONT</span> label:&#123;&#125; &#123;&#125;.png</span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字のファイル名を配列に格納</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="variable">$CHARS</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    files+=(<span class="variable">$char</span>.png)</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一枚にまとめる</span></span><br><span class="line">montage -quality 100 -geometry +0+0 -label <span class="string">&quot;&quot;</span> -background none  <span class="variable">$&#123;files[@]&#125;</span> runes.png</span><br><span class="line"></span><br><span class="line">rm <span class="variable">$&#123;files[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3><span id="爆発エフェクト">爆発エフェクト</span></h3><p><strong>爆発エフェクトの画像</strong><br>このエフェクトは衝撃波と煙の二種類で構成されています。</p>
 <div class="flexbox">
 <video class="nomargin" muted autoplay loop>
@@ -223,7 +234,7 @@ Houdiniのスモークシミュレーション
 <td></td>
 </tr>
 </tbody></table>
-<div class="twentytwenty-container embeded-twentytwenty"><img class="photo round" src="/assets/loading/02.webp" data-original="/portfolio/images/pp-off.webp"><img class="photo round" src="/assets/loading/02.webp" data-original="/portfolio/images/pp-on.webp"></div><script>function rcc13(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc13()}void 0===rccCalled&&rcc13();var rccCalled=!0</script>
+<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp-off.webp"><img no-lazy class="photo round" src="/portfolio/images/pp-on.webp"></div><script>function rcc26(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc26()}void 0===rccCalled&&rcc26();var rccCalled=!0</script>
 <br>
 <br>
 <hr>
@@ -239,7 +250,7 @@ Houdiniのスモークシミュレーション
 </tr>
 </table>
 <br>
-<p>UE5で素早く建物を作成するツールを制作しました。<br>以前にHoudini内でメッシュを生成するものは作ったことがありましたが、UE上で動作しメッシュはUEのアセットをインスタンス化できたほうが実用性があると考え、今回一から作り直しました。<br>実際にゲーム開発で使用することを想定し、汎用性の高い作りを目指しました。<br>建物だけでなく、道路やポールを作成する機能も追加しました。<br>本ツールはNaniteメッシュのアセットにも対応しているためメモリ効率が良く、寄りで見ても品質の高い建物のアセットを作成することができます。</p>
+<p>UE5で素早く建物を作成するツールを制作しました。<br>以前にHoudini内でメッシュを生成するものは作ったことがありましたが、UE上で動作しメッシュはUEのアセットをインスタンス化できたほうが実用性があると考え、今回一から作り直しました。<br>実際にゲーム開発で使用することを想定し、汎用性の高い作りを目指しました。<br>本ツールはNaniteメッシュのアセットにも対応しているためメモリ効率が良く、寄りで見ても品質の高い建物のアセットを作成することができます。</p>
 <figure>
 <video muted autoplay loop>
 <source src="/portfolio/images/apart1.mp4" , type="video/mp4">
@@ -250,6 +261,10 @@ Building Generator(旧作)
 </figure>
 <h3><span id="機能">機能</span></h3><h4><span id="building-generator">Building Generator</span></h4><p>指定した壁や柱、屋根のアセットを使い、ガイドボックスの形状に合わせてアパートを生成します。<br>壁や柱のパーツは似た形状であれば別のアセットに差し替えることも可能なので、バリエーションを簡単に作成することができます。</p>
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/apart-replaced.jpg" alt="壁のパーツを差し替えた建物"><figcaption class="image-caption">壁のパーツを差し替えた建物</figcaption></figure><p></p>
+<p>屋根以外のパーツはLabs Building Generatorを使用してガイドボックスに従った建物を作成しています。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/building-generator.drawio.webp" alt="壁面の生成処理"><figcaption class="image-caption">壁面の生成処理</figcaption></figure><p></p>
+<p>屋根はLabs Building Generatorで生成できないため、Chain SOPを使ってパーツを屋根のカーブ上に並べています。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/roof-generator.drawio.webp" alt="屋根の生成処理"><figcaption class="image-caption">屋根の生成処理</figcaption></figure><p></p>
 <p>また、任意の建物パーツの付近にプロップを配置できる機能も作成しました。<br>カフェメニューやプランターのように、ある範囲内にランダムに配置したい場合はガイドグリッド（赤い縞模様）を可視化して直感的に配置を行うことができます。</p>
 <div class="flexbox">
 <span>
@@ -294,6 +309,7 @@ Building Generator(旧作)
 プロップを設定している様子
 </figcaption>
 </figure>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/node-create-prop.drawio.webp" alt="プロップを配置する処理"><figcaption class="image-caption">プロップを配置する処理</figcaption></figure><p></p>
 <h4><span id="road-generator">Road Generator</span></h4><p>ガイドボックスを配置して道路が作成できます。<br>ガイドボックスのスケールを変更したり、増やしたりすることもできます。<br>歩道と車道のマテリアルや縁石のアセットはUEから差し替えができるようになっています。</p>
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/road-onoff.webp" alt="ガイドボックスのON/OFF"><figcaption class="image-caption">ガイドボックスのON/OFF</figcaption></figure><p></p>
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/road.jpg" alt="寄りで見た道路"><figcaption class="image-caption">寄りで見た道路</figcaption></figure><p></p>
@@ -309,7 +325,7 @@ Building Generator(旧作)
 <br>
 <br>
 <hr>
-<h2><span id="pyro-amp-rbd">Pyro &amp; RBD</span></h2><video muted autoplay loop>
+<h2><span id="scrap-amp-build">Scrap &amp; Build</span></h2><video muted autoplay loop>
 <source src="/portfolio/images/pyro.mp4" , type="video/mp4">
 </video>
 <h3><span id="概要">概要</span></h3><table>
@@ -327,8 +343,8 @@ Building Generator(旧作)
 </tr>
 </table>
 <br>
-都市の爆破解体をイメージして作りました。 実際の建物の爆破解体の資料を見ながら煙の動きに説得力が出るようにPyroシミュレーションの試行錯誤を重ねました。 都市の規模が大きくなっても建物ごとに個別にシミュレーションを調整せずに済むよう、シミュレーション周りの処理を一元化しました。
-<h3><span id="破壊する建物の作成とrigid-body-dynamics">破壊する建物の作成とRigid Body Dynamics</span></h3><ol>
+<p>都市の爆破解体をイメージして作りました。<br>実際の建物の爆破解体の資料を見ながら煙の動きに説得力が出るようにPyroシミュレーションの試行錯誤を重ねました。<br>都市の規模が大きくなっても建物ごとに個別にシミュレーションを調整せずに済むよう、シミュレーション周りの処理を一元化しました。</p>
+<h3><span id="破壊する建物の作成と剛体シミュレーション">破壊する建物の作成と剛体シミュレーション</span></h3><ol>
 <li>Mapboxから都市データを取得<br>Mapbox(地図情報サービス)から破壊する都市の3Dデータを取得し、必要な建物だけ残します。</li>
 </ol>
 <p><img src="/assets/loading/02.webp" data-original="/portfolio/images/buildings-raw.jpg"></p>
@@ -394,7 +410,7 @@ Building Generator(旧作)
 </figcaption>
 </figure>
 </li>
-<li><p>スモークシミュレーション<br>構成2のパーティクルを元に煙のシミュレーションを行います。<br>のっぺりしたキノコ雲が発生しないように、かつノイズが多すぎてボソボソにならないようにTurbulenceやDisturbanceの調整を繰り返しました。<br>建物下部のスモークシミュレーションではDisturbanceの値にキーを打ち、最初の方だけノイズが強くかかるようにしています。</p>
+<li><p>スモークシミュレーション<br>工程2のパーティクルを元に煙のシミュレーションを行います。<br>のっぺりしたキノコ雲が発生しないように、かつノイズが多すぎてボソボソにならないようにTurbulenceやDisturbanceの調整を繰り返しました。<br>建物下部のスモークシミュレーションではDisturbanceの値にキーを打ち、最初の方だけノイズが強くかかるようにしています。</p>
 <figure>
 <div class="flexbox">
 <video muted autoplay loop>
@@ -448,6 +464,11 @@ Building Generator(旧作)
 スモークシミュレーション（左：調整前　右：調整後）
 </figcapture>
 </figure>
+<h3><span id="ライティングコンポジット">ライティング・コンポジット</span></h3><p>レンダラーはKarmaのため、LOP階層でマテリアルの作成やライティングを行っています。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/node-pyro-stage.drawio.png" alt="LOP階層"><figcaption class="image-caption">LOP階層</figcaption></figure><p></p>
+<p>Houdini側では色味やライティングは最低限とし、DaVinci Resolve側で調整しています。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/resolve-node.drawio.webp" alt="DaVinci ResolveのColorページ"><figcaption class="image-caption">DaVinci ResolveのColorページ</figcaption></figure><p></p>
+<div class="twentytwenty-container embeded-twentytwenty" style="max-width:1080px"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-before.webp" data-width="1080" data-height="1080"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-after.webp" data-width="1080" data-height="1080"></div><script>function rcc50(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc50()}void 0===rccCalled&&rcc50();var rccCalled=!0</script>
 <div>
 </div>
 </div>
