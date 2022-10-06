@@ -3,7 +3,7 @@ title: Portfolio
 date: 2022-09-23 20:32:23
 ---
 
-## VAT & Niagara
+## Explosion
 <!-- {% youtube mruCBrgPKAM %} -->
 <iframe class="video" src="https://www.youtube.com/embed/mruCBrgPKAM?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -31,16 +31,25 @@ VAT（頂点アニメーションテクスチャ）のシェーダを用いてNi
 
 本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。
 Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。
-そこで、Houdiniを活用し以下の解決を図りました。
+そこで、Houdiniを活用し以下の方法で解決しました。
 - VATを活用し1つのメッシュで複数の破片を表現する。
-- 物理演算を事前に計算し、その点群データをNiagaraで読み込む。
+- 物理演算を事前に計算し、その点群データをNiagaraで読み込み復元する。
 
 #### VATでの破片表現
 
 Niagaraでパーティクルとして破片を表示させるため、VATを用いて同一のメッシュで各破片を表現する手法を取りました。
 フレームごとに1つずつ破片を表示するアニメーションをつけたVATシェーダー付きメッシュを作成し、Niagaraでシェーダーのフレーム番号のパラメータを変更することで各破片を表現しました。
 
-![フレームごとに表示させた破片](/portfolio/images/pieces-anim.webp)
+<figure>
+    <video muted autoplay loop height="300px">
+        <source src="/portfolio/images/pieces-anim.mp4" type="video/webm">
+        <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+    </video>
+    <figcaption>
+        フレームごとに表示させた破片
+    </figcaption>
+</figure>
+<br>
 
 ![](/portfolio/images/pieces-niagara.drawio.webp)
 
@@ -52,6 +61,7 @@ Niagaraでパーティクルとして破片を表示させるため、VATを用�
     </figcaption>
 </figure>
 <br>
+
 ワイヤフレーム表示にすると三角ポリゴンが集まったVAT用メッシュであることが分かります。
 
 #### 物理演算
@@ -69,6 +79,7 @@ Niagaraでパーティクルとして破片を表示させるため、VATを用�
 2. 物理演算
 <video muted autoplay loop height="300px">
     <source src="/portfolio/images/rbdsim.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 </figure>
 <br style="clear:left;">
@@ -78,6 +89,7 @@ Niagaraでパーティクルとして破片を表示させるため、VATを用�
 3. Export用の点群に変換
 <video muted autoplay loop height="300px">
     <source src="/portfolio/images/houdini-niagara.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 <br style="clear:left;">
 Niagaraでパーティクルとして読み込むため、
@@ -87,15 +99,19 @@ Niagaraでパーティクルとして読み込むため、
 
 <video muted autoplay loop height="300px">
     <source src="/portfolio/images/niagara-particle.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 <br style="clear:left;">
 HoudiniでExportした点群をパーティクルとしてNiagaraで読み込みます。
 <br><br>
 <video muted autoplay loop height="300px">
     <source src="/portfolio/images/niagara-rbd.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 <br style="clear:left;">
-点群に元の破片のID（=フレーム番号）や回転の情報等をアトリビュートとして付加しているため、<br>この情報を元にNiagaraで物理演算を復元します。
+
+先に作成したVATメッシュと組み合わせ、物理演算を復元します。
+点群に元の破片のID（=フレーム番号）や回転の情報等をアトリビュートとして付加しているため、<br>どのパーティクルにどの破片が割り当てるか等を表現できます。
 
 #### 物理演算とパーティクルシステムの組み合わせ
 
@@ -109,6 +125,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 <div class="flexbox">
 <video class="nomargin" muted autoplay loop>
     <source src="/portfolio/images/relbY.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 <img class="nomargin" src="/portfolio/images/angel-relbY.drawio.png">
 </div>
@@ -119,6 +136,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 
 <video muted autoplay loop>
     <source src="/portfolio/images/magic.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 <br>
 
@@ -134,7 +152,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 </figure>
 <br style="clear:left;">
 
-```bash generate-fonts
+```bash Flipbookテクスチャを生成するシェルスクリプト
 #!/bin/bash
 
 # 生成する文字列
@@ -166,9 +184,11 @@ rm ${files[@]}
 <div class="flexbox">
     <video class="nomargin" muted autoplay loop>
         <source src="/portfolio/images/niagara-shockwave.mp4" type="video/webm">
+        <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
     </video>
     <video class="nomargin" muted autoplay loop>
         <source src="/portfolio/images/niagara-smoke.mp4" type="video/webm">
+        <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
     </video>
 </div>
 <br>
@@ -179,6 +199,7 @@ rm ${files[@]}
 <figure>
 <video muted autoplay loop>
     <source src="/portfolio/images/smoke-preview.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 <figcaption>
     Houdiniのスモークシミュレーション
@@ -210,6 +231,9 @@ rm ${files[@]}
 <br>
 {% twtw /portfolio/images/pp-off.webp /portfolio/images/pp-on.webp %}
 
+<br>
+<br>
+
 ---
 ## Building Generator +α
 
@@ -232,12 +256,12 @@ rm ${files[@]}
 UE5で素早く建物を作成するツールを制作しました。
 以前にHoudini内でメッシュを生成するものは作ったことがありましたが、UE上で動作しメッシュはUEのアセットをインスタンス化できたほうが実用性があると考え、今回一から作り直しました。
 実際にゲーム開発で使用することを想定し、汎用性の高い作りを目指しました。
-建物だけでなく、道路やポールを作成する機能も追加しました。
 本ツールはNaniteメッシュのアセットにも対応しているためメモリ効率が良く、寄りで見ても品質の高い建物のアセットを作成することができます。
 
 <figure>
     <video muted autoplay loop>
         <source src="/portfolio/images/apart1.mp4", type="video/mp4">
+        <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
     </video>
     <figcaption>
         Building Generator(旧作)
@@ -252,6 +276,14 @@ UE5で素早く建物を作成するツールを制作しました。
 壁や柱のパーツは似た形状であれば別のアセットに差し替えることも可能なので、バリエーションを簡単に作成することができます。
 
 ![壁のパーツを差し替えた建物](/portfolio/images/apart-replaced.jpg)
+
+屋根以外のパーツはLabs Building Generatorを使用してガイドボックスに従った建物を作成しています。
+
+![壁面の生成処理](/portfolio/images/building-generator.drawio.webp)
+
+屋根はLabs Building Generatorで生成できないため、Chain SOPを使ってパーツを屋根のカーブ上に並べています。
+
+![屋根の生成処理](/portfolio/images/roof-generator.drawio.webp)
 
 また、任意の建物パーツの付近にプロップを配置できる機能も作成しました。
 カフェメニューやプランターのように、ある範囲内にランダムに配置したい場合はガイドグリッド（赤い縞模様）を可視化して直感的に配置を行うことができます。
@@ -296,11 +328,14 @@ UE5で素早く建物を作成するツールを制作しました。
 <figure>
     <video muted autoplay loop>
         <source src="/portfolio/images/apart-generate-prop.mp4", type="video/mp4">
+        <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
     </video>
     <figcaption>
         プロップを設定している様子
     </figcaption>
 </figure>
+
+![プロップを配置する処理](/portfolio/images/node-create-prop.drawio.webp)
 
 #### Road Generator
 
@@ -351,6 +386,9 @@ vector pivot = {0,0,0};
 v@scale = cracktransform(0, 0, 2, pivot, xform);
 p@orient = eulertoquaternion(radians(cracktransform(0, 0, 1, pivot, xform)), 0);
 ```
+
+<br>
+<br>
 
 ---
 <!-- ## KUMALEON Promotion Video
@@ -459,10 +497,11 @@ KUMALEON自身はアニメーションを付けないという制約があった
 **画像**
 
 --- -->
-## Pyro & RBD
+## Scrap & Build
 
 <video muted autoplay loop>
     <source src="/portfolio/images/pyro.mp4", type="video/mp4">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 
 ### 概要
@@ -482,40 +521,168 @@ KUMALEON自身はアニメーションを付けないという制約があった
     </tr>
 </table>
 <br>
+
 都市の爆破解体をイメージして作りました。
 実際の建物の爆破解体の資料を見ながら煙の動きに説得力が出るようにPyroシミュレーションの試行錯誤を重ねました。
 都市の規模が大きくなっても建物ごとに個別にシミュレーションを調整せずに済むよう、シミュレーション周りの処理を一元化しました。
 
-### 破壊する建物の作成とRigid Body Dynamics
+### 破壊する建物の作成と剛体シミュレーション
 
 1. Mapboxから都市データを取得
 Mapbox(地図情報サービス)から破壊する都市の3Dデータを取得し、必要な建物だけ残します。
-**都市の画像**
+
+![](/portfolio/images/buildings-raw.jpg)
 
 2. メッシュのセットアップ
 トポロジーの最適化・建物内の床の作成・メッシュの粉砕を行います。
-**都市の画像**
-**ノード**
+
+<figure>
+<div class="flexbox">
+    <img src="/portfolio/images/building-wall.jpg">
+    <img src="/portfolio/images/building-floor.jpg">
+</div>
+    <figcaption>
+        粉砕した建物（左：外壁　右：床）
+    </figcaption>
+</figure>
+<br>
 
 5. 物理演算とコンストレインの調整
-下から徐々に壊れていくようにしたかったため、コンストレインの強度を建物の高さによって調整しました。
-**before/after**
+下から徐々にクラックが伝搬して崩壊していくようにしたかったため、コンストレインの強度を建物の下部は低く、上部は高くなるよう調整しました。
+<figure>
+    <img src="/portfolio/images/building-constrain.jpg">
+    <caption>
+        コンストレイン強度の可視化
+    </caption>
+</figure>
+
+<figure>
+    <div class="flexbox">
+        <video muted autoplay loop>
+            <source src="/portfolio/images/building-before.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+        <video muted autoplay loop>
+            <source src="/portfolio/images/building-after.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+    </div>
+        <figcaption>
+            調整前（左）と調整後（右）<br>建物右の点群はクラックの発生を可視化した様子<br>建物上部のクラックの入り方が異なっている。
+        </figcaption>
+</figure>
 
 ### 煙のシミュレーション
 #### 崩壊シーン
-建物が崩壊する際の煙は建物全体から吹き出すものと下部から吹き出すものの2種類で構成されています。
-**画像AB**
+建物が崩壊する際の煙は建物下部から吹き出すものと全体から吹き出すものの2種類で構成されています。
 これらは以下の工程で作成しました。
 1. パーティクルシミュレーションの発生源を作成
 建物の物理演算結果を元に、クラック上にパーティクルシミュレーションの発生源となるポイントを作成します。
-**クラックからポイントが発生している様子**
+<figure>
+    <video muted autoplay loop>
+        <source src="/portfolio/images/buildings-debris.mp4", type="video/mp4">
+        <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+    </video>
+    <figcaption>
+        クラックからポイントが発生している様子
+    </figcaption>
+</figure>
+
 2. パーティクルシミュレーション
-Pyroシミュレーションの元となるパーティクルをシミュレーションして作成します。
+スモークシミュレーションの元となるパーティクルをシミュレーションして作成します。
 工程1で作成した発生源から建物の外側に吹き出すように速度を与えています。
-**パーティクルシミュレーション**
+<figure>
+    <div class="flexbox">
+        <video muted autoplay loop>
+            <source src="/portfolio/images/particles-lower.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+        <video muted autoplay loop>
+            <source src="/portfolio/images/particles-upper.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+    </div>
+    <figcaption>
+        パーティクルシミュレーション（左：下部　右：全体）
+    </figcaption>
+</figure>
+
 3. スモークシミュレーション
-構成2のパーティクルを元に煙のシミュレーションを行います。
+工程2のパーティクルを元に煙のシミュレーションを行います。
 のっぺりしたキノコ雲が発生しないように、かつノイズが多すぎてボソボソにならないようにTurbulenceやDisturbanceの調整を繰り返しました。
-**流体シミュレーション**
+建物下部のスモークシミュレーションではDisturbanceの値にキーを打ち、最初の方だけノイズが強くかかるようにしています。
+<figure>
+    <div class="flexbox">
+        <video muted autoplay loop>
+            <source src="/portfolio/images/pyro-lower.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+        <video muted autoplay loop>
+            <source src="/portfolio/images/pyro-upper.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+    </div>
+    <figcaption>
+        スモークシミュレーション（左：下部　右：全体）
+    </figcaption>
+</figure>
 
 #### 生成シーン
+建物が生成されるシーンの煙は建物の床を発生源とし、建物の法線方向にノイズを加えたボリュームを速度フィールドとしてシミュレーションしています。
+
+
+<div class="flexbox">
+    <span>
+        <figure>
+            <img src="/portfolio/images/grow-points.jpg">
+            <figcaption>
+                スモーク発生源のポイント
+            </figcaption>
+        </figure>
+    </span>
+    <span>
+        <figure>
+            <video muted autoplay loop>
+                <source src="/portfolio/images/grow-buildings.mp4", type="video/mp4">
+                <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+            </video>
+            <figcaption>
+                シミュレーションに与える速度フィールドの元となる建物
+            </figcaption>
+        </figure>
+    </span>
+</div>
+<br>
+
+シミュレーションしたままでは発生源のボリュームの矩形が目立ったので、Volume Wrangleでしきい値以下の速度のボリュームを削除して見た目を調整しています。
+調整後も出現時に若干矩形が見えていますが、建物を重ねると見えないので問題はありませんでした。
+
+<br>
+<figure>
+    <div class="flexbox">
+        <video muted autoplay loop>
+            <source src="/portfolio/images/grow-before.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+        <video muted autoplay loop>
+            <source src="/portfolio/images/grow-after.mp4", type="video/mp4">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+    </div>
+    <figcapture>
+        スモークシミュレーション（左：調整前　右：調整後）
+    </figcapture>
+</figure>
+
+### ライティング・コンポジット
+
+レンダラーはKarmaのため、LOP階層でマテリアルの作成やライティングを行っています。
+建物とスモークで別々に明るさを調節できるようにドームライトを分け、Light Linkerでそれぞれ影響するライトを別に設定しています。
+
+![LOP階層](/portfolio/images/node-pyro-stage.drawio.png)
+
+レンダリングのやり直しは時間が掛るため、Houdini側では最低限の質感設定とライティングのみ行い、色味はDaVinci Resolve側で調整しています。
+
+![DaVinci ResolveのColorページ](/portfolio/images/resolve-node.drawio.webp)
+
+{% twtw /portfolio/images/pyro-comp-before.webp /portfolio/images/pyro-comp-after.webp 1080 1080 %}

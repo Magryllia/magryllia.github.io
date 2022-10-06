@@ -1611,7 +1611,7 @@ td {
 .flexbox{
     display: flex;
     gap: 10px 20px;
-    /* align-items: center; */
+    align-items:baseline;
     justify-content: center;
 }
 figure {
