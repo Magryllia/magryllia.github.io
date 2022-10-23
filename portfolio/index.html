@@ -56,6 +56,9 @@
 <li>
 <a href="/about">About</a>
 </li>
+<li>
+<a href="/portfolio">Portfolio</a>
+</li>
 </ul>
 </nav>
 <div class="footer clearfix">
@@ -78,7 +81,7 @@
 <section class="wrapper">
 <div class="content">
 <h2><span id="explosion">Explosion</span></h2>
-<iframe class="video" src="https://www.youtube.com/embed/mruCBrgPKAM?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/i1r740jeZoE?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3><span id="概要">概要</span></h3><table>
 <tr>
 <td>使用ソフト</td>
@@ -90,8 +93,18 @@
 </tr>
 </table>
 <br>
-<p>古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。<br>エフェクトを含めて映像作品となるように背景・ライティング等の画作りまで気を配りました。<br>VAT（頂点アニメーションテクスチャ）のシェーダを用いてNiagaraだけではできなかった物理演算と<br>パーティクルシステムの組み合わせの表現を実現しました。</p>
-<h3><span id="天使像の破片エフェクト">天使像の破片エフェクト</span></h3><h4><span id="niagaraの問題点とhoudiniの活用による解決">Niagaraの問題点とHoudiniの活用による解決</span></h4><p>本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。<br>Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。<br>そこで、Houdiniを活用し以下の方法で解決しました。</p>
+<p>古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。<br>エフェクトを含めて映像作品となるように背景・ライティング等の画作りまで気を配りました。<br>複数のエフェクトが連続するため、エフェクト間の整合性が取れるよう工夫しました。<br>VAT（頂点アニメーションテクスチャ）のシェーダを用いてUEだけではできなかった物理演算と<br>パーティクルシステムの組み合わせの表現を実現しました。</p>
+<h3><span id="制作過程">制作過程</span></h3><p>本作は以下の順序で制作しました。</p>
+<ol>
+<li><a href="#%E5%A4%A9%E4%BD%BF%E5%83%8F%E3%81%AE%E7%A0%B4%E7%89%87%E3%82%A8%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88">天使像の破片エフェクト</a></li>
+<li><a href="#%E7%88%86%E7%99%BA%E3%82%A8%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88">爆発エフェクト</a></li>
+<li><a href="#%E9%AD%94%E6%B3%95%E3%82%A8%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88">魔法エフェクト</a></li>
+<li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
+<li><a href="#%E4%BA%88%E5%82%99%E5%8B%95%E4%BD%9C">予備動作</a></li>
+<li><a href="#%E3%83%9D%E3%82%B9%E3%83%88%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9">ポストプロセス</a></li>
+</ol>
+<h3><span id="天使像の破片エフェクト">天使像の破片エフェクト</span></h3><p>本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。<br>そのため、まずこのエフェクトの制作から着手しました。</p>
+<h4><span id="niagaraの問題点とhoudiniの活用による解決">Niagaraの問題点とHoudiniの活用による解決</span></h4><p>Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。<br>そこで、Houdiniを活用し以下の方法で解決しました。</p>
 <ul>
 <li>VATを活用し1つのメッシュで複数の破片を表現する。</li>
 <li>物理演算を事前に計算し、その点群データをNiagaraで読み込み復元する。</li>
@@ -155,7 +168,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 </video>
 <br style="clear:left">
 <p>先に作成したVATメッシュと組み合わせ、物理演算を復元します。<br>点群に元の破片のID（=フレーム番号）や回転の情報等をアトリビュートとして付加しているため、<br>どのパーティクルにどの破片が割り当てるか等を表現できます。</p>
-<h4><span id="物理演算とパーティクルシステムの組み合わせ">物理演算とパーティクルシステムの組み合わせ</span></h4><p>読み込んだ物理演算をすべて再生するのではなく、途中でNigaraで作る中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。</p>
+<h4><span id="物理演算とパーティクルシステムの組み合わせ">物理演算とパーティクルシステムの組み合わせ</span></h4><p>読み込んだ物理演算をすべて再生するのではなく、途中でNigaraで作った中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。</p>
 <p><img src="/assets/loading/02.webp" data-original="/portfolio/images/niagara-trans.drawio.webp"></p>
 <p>下から上へ状態が遷移していく表現を行うため、Houdiniで初期位置のY座標を0~1に正規化したアトリビュートを作成し、Export用の点群に付加しました。<br>このアトリビュートを使ってNiagaraで状態の遷移をオフセットしています。</p>
 <div class="flexbox">
@@ -165,22 +178,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 </video>
 <img class="nomargin" src="/assets/loading/02.webp" data-original="/portfolio/images/angel-relbY.drawio.png">
 </div>
-<h3><span id="魔法エフェクト">魔法エフェクト</span></h3><p>空中で魔法が揺らいでいる様子を表現するため、シェーダーで文字パーティクルのUVやLineの太さにノイズを加えています。</p>
-<video muted autoplay loop>
-<source src="/portfolio/images/magic.mp4" type="video/webm">
-<p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
-</video>
-<br>
-<p>ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。<br>このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。<br>このスクリプトの生成する文字列やフォントの指定を変えるだけで何種類ものFlipbookテクスチャのパターンが作成できるため、素早いプロトタイプの作成が行えました。</p>
-<figure>
-<img src="/assets/loading/02.webp" data-original="/portfolio/images/runes.webp" width="200px">
-<figcapture>
-生成されたルーン文字のFlipbookテクスチャ
-</figcapture>
-</figure>
-<br style="clear:left">
-<figure class="highlight bash"><figcaption><span>Flipbookテクスチャを生成するシェルスクリプト</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成する文字列</span></span><br><span class="line"><span class="built_in">readonly</span> CHARS=$(<span class="built_in">echo</span> &#123;a..z&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成するフォント</span></span><br><span class="line"><span class="built_in">readonly</span> FONT=<span class="string">&quot;MOONRUNE.TTF&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字の画像を生成</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$CHARS</span> | tr <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;\n&#x27;</span>  | xargs -I&#123;&#125; convert -background none -fill white -size 64x64 -gravity center -font /usr/share/fonts/<span class="variable">$FONT</span> label:&#123;&#125; &#123;&#125;.png</span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字のファイル名を配列に格納</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="variable">$CHARS</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    files+=(<span class="variable">$char</span>.png)</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一枚にまとめる</span></span><br><span class="line">montage -quality 100 -geometry +0+0 -label <span class="string">&quot;&quot;</span> -background none  <span class="variable">$&#123;files[@]&#125;</span> runes.png</span><br><span class="line"></span><br><span class="line">rm <span class="variable">$&#123;files[@]&#125;</span></span><br></pre></td></tr></table></figure>
-<h3><span id="爆発エフェクト">爆発エフェクト</span></h3><p><strong>爆発エフェクトの画像</strong><br>このエフェクトは衝撃波と煙の二種類で構成されています。</p>
+<h3><span id="爆発エフェクト">爆発エフェクト</span></h3><p>天使像の破片が飛び散る瞬間に出現するエフェクトです。<br>このエフェクトは衝撃波と煙の二種類で構成されています。</p>
 <div class="flexbox">
 <video class="nomargin" muted autoplay loop>
 <source src="/portfolio/images/niagara-shockwave.mp4" type="video/webm">
@@ -202,8 +200,50 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 Houdiniのスモークシミュレーション
 </figcaption>
 </figure>
+<h3><span id="魔法エフェクト">魔法エフェクト</span></h3><p>ルーン文字を生成しながら二重らせん状に動いていくエフェクトです。<br>空中で魔法が揺らいでいる様子を表現するため、シェーダーで文字パーティクルのUVやLineの太さにノイズを加えています。</p>
+<div class="flexbox">
+<figure>
+<video muted autoplay loop>
+<source src="/portfolio/images/magic-turn.mp4" type="video/webm">
+<p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+</video>
+<figcaption>
+魔法エフェクト全体像
+</figcaption>
+</figure>
+<figure>
+<video muted autoplay loop>
+<source src="/portfolio/images/magic.mp4" type="video/webm">
+<p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+</video>
+<figcaption>
+魔法エフェクトが揺らいでいる様子
+</figcaption>
+</figure>
+</div>
+<br>
+<p>ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。<br>このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。<br>このスクリプトの生成する文字列やフォントの指定を変えるだけで何種類ものFlipbookテクスチャのパターンが作成できるため、素早いプロトタイプの作成が行えました。</p>
+<figure>
+<img src="/assets/loading/02.webp" data-original="/portfolio/images/runes.webp" width="200px">
+<figcapture>
+生成されたルーン文字のFlipbookテクスチャ
+</figcapture>
+</figure>
+<br style="clear:left">
+<figure class="highlight bash"><figcaption><span>Flipbookテクスチャを生成するシェルスクリプト</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成する文字列</span></span><br><span class="line"><span class="built_in">readonly</span> CHARS=$(<span class="built_in">echo</span> &#123;a..z&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成するフォント</span></span><br><span class="line"><span class="built_in">readonly</span> FONT=<span class="string">&quot;MOONRUNE.TTF&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字の画像を生成</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$CHARS</span> | tr <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;\n&#x27;</span>  | xargs -I&#123;&#125; convert -background none -fill white -size 64x64 -gravity center -font /usr/share/fonts/<span class="variable">$FONT</span> label:&#123;&#125; &#123;&#125;.png</span><br><span class="line"></span><br><span class="line"><span class="comment"># 各文字のファイル名を配列に格納</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> <span class="variable">$CHARS</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    files+=(<span class="variable">$char</span>.png)</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一枚にまとめる</span></span><br><span class="line">montage -quality 100 -geometry +0+0 -label <span class="string">&quot;&quot;</span> -background none  <span class="variable">$&#123;files[@]&#125;</span> runes.png</span><br><span class="line"></span><br><span class="line">rm <span class="variable">$&#123;files[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3><span id="背景">背景</span></h3><p>背景の制作にはHoudini Engine for Unrealを活用しました。<br>2ソフト間で背景モデルデータを同期し、Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果を確認するという方法でモデリング、インスタンスの配置、マテリアルの適用、ライティングを並行して進めました。<br>柱のモデルや各マテリアルはMegascansのアセットを使用しました。</p>
-<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/houdiniengine-houdini.jpg" alt="Houdini側の作業画面"><figcaption class="image-caption">Houdini側の作業画面</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/houdiniengine-ue.jpg" alt="UE側の作業画面"><figcaption class="image-caption">UE側の作業画面</figcaption></figure><p></p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/houdiniengine-houdini.webp" alt="Houdini側の作業画面"><figcaption class="image-caption">Houdini側の作業画面</figcaption></figure><br><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/houdiniengine-ue.webp" alt="UE側の作業画面"><figcaption class="image-caption">UE側の作業画面</figcaption></figure><p></p>
+<h3><span id="予備動作">予備動作</span></h3><p>魔法エフェクトの出現、爆発の発生に緩急や整合性が無いと感じたため、予備動作となる演出を追加しました。<br>魔法エフェクトの出現前にはチリチリと飛び散る火花を追加しました。</p>
+<video muted autoplay loop>
+<source src="/portfolio/images/magic-initial.mp4" type="video/webm">
+<p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+</video>
+<br>
+<p>爆発の前には「溜め」の表現として像の赤熱、迸る火花、ルーン文字の凝縮、カメラ揺れを追加しました。</p>
+<video muted autoplay loop>
+<source src="/portfolio/images/magic-charge.mp4" type="video/webm">
+<p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+</video>
 <h3><span id="ポストプロセス">ポストプロセス</span></h3><p>ゲームでの演出の想定のため、映像編集ソフトでの後処理は行わずCine Camera ActorのPost Processでシネマティックな空気感になるよう調整を行いました。</p>
 <table>
 <thead>
@@ -213,14 +253,6 @@ Houdiniのスモークシミュレーション
 </tr>
 </thead>
 <tbody><tr>
-<td>露出</td>
-<td>やや暗め</td>
-</tr>
-<tr>
-<td>F値</td>
-<td>4.0</td>
-</tr>
-<tr>
 <td>色温度</td>
 <td>低め</td>
 </tr>
@@ -241,7 +273,7 @@ Houdiniのスモークシミュレーション
 <td></td>
 </tr>
 </tbody></table>
-<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp-off.webp"><img no-lazy class="photo round" src="/portfolio/images/pp-on.webp"></div><script>function rcc50(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc50()}void 0===rccCalled&&rcc50();var rccCalled=!0</script>
+<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp_off.webp"><img no-lazy class="photo round" src="/portfolio/images/pp_on.webp"></div><script>function rcc5(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc5()}void 0===rccCalled&&rcc5();var rccCalled=!0</script>
 <br>
 <br>
 <hr>
@@ -487,7 +519,7 @@ Building Generator(旧作)
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/node-pyro-stage.drawio.png" alt="LOP階層"><figcaption class="image-caption">LOP階層</figcaption></figure><p></p>
 <p>レンダリングのやり直しは時間が掛るため、Houdini側では最低限の質感設定とライティングのみ行い、色味はDaVinci Resolve側で調整しています。</p>
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/resolve-node.drawio.webp" alt="DaVinci ResolveのColorページ"><figcaption class="image-caption">DaVinci ResolveのColorページ</figcaption></figure><p></p>
-<div class="twentytwenty-container embeded-twentytwenty" style="max-width:1080px"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-before.webp" data-width="1080" data-height="1080"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-after.webp" data-width="1080" data-height="1080"></div><script>function rcc9(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc9()}void 0===rccCalled&&rcc9();var rccCalled=!0</script>
+<div class="twentytwenty-container embeded-twentytwenty" style="max-width:1080px"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-before.webp" data-width="1080" data-height="1080"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-after.webp" data-width="1080" data-height="1080"></div><script>function rcc66(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc66()}void 0===rccCalled&&rcc66();var rccCalled=!0</script>
 <div>
 </div>
 </div>
