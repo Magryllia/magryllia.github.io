@@ -5,7 +5,7 @@ date: 2022-09-23 20:32:23
 
 ## Explosion
 <!-- {% youtube mruCBrgPKAM %} -->
-<iframe class="video" src="https://www.youtube.com/embed/mruCBrgPKAM?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/i1r740jeZoE?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### 概要
 <table>
@@ -22,14 +22,28 @@ date: 2022-09-23 20:32:23
 
 古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。
 エフェクトを含めて映像作品となるように背景・ライティング等の画作りまで気を配りました。
-VAT（頂点アニメーションテクスチャ）のシェーダを用いてNiagaraだけではできなかった物理演算と
+複数のエフェクトが連続するため、エフェクト間の整合性が取れるよう工夫しました。
+VAT（頂点アニメーションテクスチャ）のシェーダを用いてUEだけではできなかった物理演算と
 パーティクルシステムの組み合わせの表現を実現しました。
+
+### 制作過程
+本作は以下の順序で制作しました。
+
+1. [天使像の破片エフェクト](#天使像の破片エフェクト)
+2. [爆発エフェクト](#爆発エフェクト)
+3. [魔法エフェクト](#魔法エフェクト)
+4. [背景](#背景)
+5. [予備動作](#予備動作)
+6. [ポストプロセス](#ポストプロセス)
+
 
 ### 天使像の破片エフェクト
 
+本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。
+そのため、まずこのエフェクトの制作から着手しました。
+
 #### Niagaraの問題点とHoudiniの活用による解決
 
-本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。
 Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。
 そこで、Houdiniを活用し以下の方法で解決しました。
 - VATを活用し1つのメッシュで複数の破片を表現する。
@@ -115,7 +129,7 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 
 #### 物理演算とパーティクルシステムの組み合わせ
 
-読み込んだ物理演算をすべて再生するのではなく、途中でNigaraで作る中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。
+読み込んだ物理演算をすべて再生するのではなく、途中でNigaraで作った中央を旋回するアニメーションに切り替え、最終的に点群情報に付加された初期位置に戻します。
 
 ![](/portfolio/images/niagara-trans.drawio.webp)
 
@@ -130,55 +144,9 @@ HoudiniでExportした点群をパーティクルとしてNiagaraで読み込み
 <img class="nomargin" src="/portfolio/images/angel-relbY.drawio.png">
 </div>
 
-### 魔法エフェクト
-
-空中で魔法が揺らいでいる様子を表現するため、シェーダーで文字パーティクルのUVやLineの太さにノイズを加えています。
-
-<video muted autoplay loop>
-    <source src="/portfolio/images/magic.mp4" type="video/webm">
-    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
-</video>
-<br>
-
-ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。
-このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。
-このスクリプトの生成する文字列やフォントの指定を変えるだけで何種類ものFlipbookテクスチャのパターンが作成できるため、素早いプロトタイプの作成が行えました。
-
-<figure>
-<img src="/portfolio/images/runes.webp" width="200px" />
-<figcapture>
-生成されたルーン文字のFlipbookテクスチャ
-</figcapture>
-</figure>
-<br style="clear:left;">
-
-```bash Flipbookテクスチャを生成するシェルスクリプト
-#!/bin/bash
-
-# 生成する文字列
-readonly CHARS=$(echo {a..z})
-
-# 生成するフォント
-readonly FONT="MOONRUNE.TTF"
-
-# 各文字の画像を生成
-echo $CHARS | tr ' ' '\n'  | xargs -I{} convert -background none -fill white -size 64x64 -gravity center -font /usr/share/fonts/$FONT label:{} {}.png
-
-# 各文字のファイル名を配列に格納
-for char in $CHARS
-do
-    files+=($char.png)
-done
-
-# 一枚にまとめる
-montage -quality 100 -geometry +0+0 -label "" -background none  ${files[@]} runes.png
-
-rm ${files[@]}
-```
-
 ### 爆発エフェクト
 
-**爆発エフェクトの画像**
+天使像の破片が飛び散る瞬間に出現するエフェクトです。
 このエフェクトは衝撃波と煙の二種類で構成されています。
 
 <div class="flexbox">
@@ -206,30 +174,110 @@ rm ${files[@]}
 </figcaption>
 </figure>
 
+
+### 魔法エフェクト
+
+ルーン文字を生成しながら二重らせん状に動いていくエフェクトです。
+空中で魔法が揺らいでいる様子を表現するため、シェーダーで文字パーティクルのUVやLineの太さにノイズを加えています。
+
+<div class="flexbox">
+    <figure>
+        <video muted autoplay loop>
+            <source src="/portfolio/images/magic-turn.mp4" type="video/webm">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+        <figcaption>
+            魔法エフェクト全体像
+        </figcaption>
+    </figure>
+    <figure>
+        <video muted autoplay loop>
+            <source src="/portfolio/images/magic.mp4" type="video/webm">
+            <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        </video>
+        <figcaption>
+            魔法エフェクトが揺らいでいる様子
+        </figcaption>
+    </figure>
+</div>
+<br>
+
+ルーン文字のエフェクトはルーン文字のフォントが一覧になっているFlipbookテクスチャからランダムに文字を表示させています。
+このテクスチャはシェルスクリプトを記述して自動で生成できるようにしました。
+このスクリプトの生成する文字列やフォントの指定を変えるだけで何種類ものFlipbookテクスチャのパターンが作成できるため、素早いプロトタイプの作成が行えました。
+
+<figure>
+    <img src="/portfolio/images/runes.webp" width="200px" />
+    <figcapture>
+    生成されたルーン文字のFlipbookテクスチャ
+    </figcapture>
+</figure>
+<br style="clear:left;">
+
+```bash Flipbookテクスチャを生成するシェルスクリプト
+#!/bin/bash
+
+# 生成する文字列
+readonly CHARS=$(echo {a..z})
+
+# 生成するフォント
+readonly FONT="MOONRUNE.TTF"
+
+# 各文字の画像を生成
+echo $CHARS | tr ' ' '\n'  | xargs -I{} convert -background none -fill white -size 64x64 -gravity center -font /usr/share/fonts/$FONT label:{} {}.png
+
+# 各文字のファイル名を配列に格納
+for char in $CHARS
+do
+    files+=($char.png)
+done
+
+# 一枚にまとめる
+montage -quality 100 -geometry +0+0 -label "" -background none  ${files[@]} runes.png
+
+rm ${files[@]}
+```
+
 ### 背景
 
 背景の制作にはHoudini Engine for Unrealを活用しました。
 2ソフト間で背景モデルデータを同期し、Houdiniでモデルを作成しつつUE5にてリアルタイムでその結果を確認するという方法でモデリング、インスタンスの配置、マテリアルの適用、ライティングを並行して進めました。
 柱のモデルや各マテリアルはMegascansのアセットを使用しました。
 
-![Houdini側の作業画面](/portfolio/images/houdiniengine-houdini.jpg)
-![UE側の作業画面](/portfolio/images/houdiniengine-ue.jpg)
+![Houdini側の作業画面](/portfolio/images/houdiniengine-houdini.webp)
+![UE側の作業画面](/portfolio/images/houdiniengine-ue.webp)
+
+### 予備動作
+
+魔法エフェクトの出現、爆発の発生に緩急や整合性が無いと感じたため、予備動作となる演出を追加しました。
+魔法エフェクトの出現前にはチリチリと飛び散る火花を追加しました。
+
+<video muted autoplay loop>
+    <source src="/portfolio/images/magic-initial.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+</video>
+<br>
+
+爆発の前には「溜め」の表現として像の赤熱、迸る火花、ルーン文字の凝縮、カメラ揺れを追加しました。
+
+<video muted autoplay loop>
+    <source src="/portfolio/images/magic-charge.mp4" type="video/webm">
+    <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+</video>
 
 ### ポストプロセス
 
 ゲームでの演出の想定のため、映像編集ソフトでの後処理は行わずCine Camera ActorのPost Processでシネマティックな空気感になるよう調整を行いました。
 
 
-| 設定項目     |          |
-| ------------ | -------- |
-| 露出         | やや暗め |
-| F値          | 4.0      |
-| 色温度       | 低め     |
-| 彩度         | 低め     |
-| コントラスト | 低め     |
-| ビネット     | 弱め     |
+| 設定項目     |      |
+| ------------ | ---- |
+| 色温度       | 低め |
+| 彩度         | 低め |
+| コントラスト | 低め |
+| ビネット     | 弱め |
 <br>
-{% twtw /portfolio/images/pp-off.webp /portfolio/images/pp-on.webp %}
+{% twtw /portfolio/images/pp_off.webp /portfolio/images/pp_on.webp %}
 
 <br>
 <br>
