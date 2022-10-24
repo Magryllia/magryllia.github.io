@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/HandWritingStyle/</loc>
+        <lastmod>2022-10-24T15:37:33.847Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/blog/convert-webp/</loc>
         <lastmod>2022-08-13T06:07:33.158Z</lastmod>
         <changefreq>weekly</changefreq>
