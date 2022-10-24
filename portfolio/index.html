@@ -10,7 +10,7 @@
 概要
 
     使用ソフト
-    Unreal Engine 5Houdini
+    Unreal Engine 5HoudiniDaVinci Resolve
 
 
     制作期間
@@ -19,7 +19,7 @@
 
 
 
-古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。エフェクトを含めて映像作品となるように背景・ライティング等の画作りまで気を配りま">
+古代遺跡で遭遇する不可思議な現象をテーマにエフェクトを制作しました。エフェクトを含めて映像作品となるように背景・ライテ">
 <meta name="author" content="大城（Magryllia）">
 <meta property="og:title" content="Portfolio">
 <meta property="og:site_name" content="GRAPHILIA">
@@ -81,11 +81,11 @@
 <section class="wrapper">
 <div class="content">
 <h2><span id="explosion">Explosion</span></h2>
-<iframe class="video" src="https://www.youtube.com/embed/i1r740jeZoE?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/FZOZe2eet5Q?controls=1&color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h3><span id="概要">概要</span></h3><table>
 <tr>
 <td>使用ソフト</td>
-<td>Unreal Engine 5<br>Houdini</td>
+<td>Unreal Engine 5<br>Houdini<br>DaVinci Resolve</td>
 </tr>
 <tr>
 <td>制作期間</td>
@@ -101,13 +101,13 @@
 <li><a href="#%E9%AD%94%E6%B3%95%E3%82%A8%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88">魔法エフェクト</a></li>
 <li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
 <li><a href="#%E4%BA%88%E5%82%99%E5%8B%95%E4%BD%9C">予備動作</a></li>
-<li><a href="#%E3%83%9D%E3%82%B9%E3%83%88%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9">ポストプロセス</a></li>
+<li><a href="#%E3%82%B3%E3%83%B3%E3%83%9D%E3%82%B8%E3%83%83%E3%83%88">コンポジット</a></li>
 </ol>
 <h3><span id="天使像の破片エフェクト">天使像の破片エフェクト</span></h3><p>本作品を制作するにあたり最大の課題はNiagaraを用いて天使像の破片の物理演算の表現とパーティクルシステムの表現を組み合わせることでした。<br>そのため、まずこのエフェクトの制作から着手しました。</p>
 <h4><span id="niagaraの問題点とhoudiniの活用による解決">Niagaraの問題点とHoudiniの活用による解決</span></h4><p>Niagaraは仕様上、一つのエミッタシステムに破片のような複数の形状のメッシュを割り当てることはできず、破片が飛び散るような複雑な物理演算も不向きです。<br>そこで、Houdiniを活用し以下の方法で解決しました。</p>
 <ul>
-<li>VATを活用し1つのメッシュで複数の破片を表現する。</li>
-<li>物理演算を事前に計算し、その点群データをNiagaraで読み込み復元する。</li>
+<li>VATを活用し1つのメッシュで複数の破片を表現する。（→<a href="#vat%E3%81%A7%E3%81%AE%E7%A0%B4%E7%89%87%E8%A1%A8%E7%8F%BE">VATでの破片表現</a>）</li>
+<li>物理演算を事前に計算し、その点群データをNiagaraで読み込み復元する。（→<a href="#%E7%89%A9%E7%90%86%E6%BC%94%E7%AE%97">物理演算</a>）</li>
 </ul>
 <h4><span id="vatでの破片表現">VATでの破片表現</span></h4><p>Niagaraでパーティクルとして破片を表示させるため、VATを用いて同一のメッシュで各破片を表現する手法を取りました。<br>フレームごとに1つずつ破片を表示するアニメーションをつけたVATシェーダー付きメッシュを作成し、Niagaraでシェーダーのフレーム番号のパラメータを変更することで各破片を表現しました。</p>
 <figure>
@@ -239,41 +239,17 @@ Houdiniのスモークシミュレーション
 <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
 <br>
-<p>爆発の前には「溜め」の表現として像の赤熱、迸る火花、ルーン文字の凝縮、カメラ揺れを追加しました。</p>
+<p>爆発の前には溜めの表現として像の赤熱、迸る火花、ルーン文字の凝縮、カメラ揺れを追加しました。<br>この溜めが開放され爆発する気持ちよさが感じられるように意識しました。</p>
 <video muted autoplay loop>
 <source src="/portfolio/images/magic-charge.mp4" type="video/webm">
 <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
 </video>
-<h3><span id="ポストプロセス">ポストプロセス</span></h3><p>ゲームでの演出の想定のため、映像編集ソフトでの後処理は行わずCine Camera ActorのPost Processでシネマティックな空気感になるよう調整を行いました。</p>
-<table>
-<thead>
-<tr>
-<th>設定項目</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>色温度</td>
-<td>低め</td>
-</tr>
-<tr>
-<td>彩度</td>
-<td>低め</td>
-</tr>
-<tr>
-<td>コントラスト</td>
-<td>低め</td>
-</tr>
-<tr>
-<td>ビネット</td>
-<td>弱め</td>
-</tr>
-<tr>
-<td><br></td>
-<td></td>
-</tr>
-</tbody></table>
-<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp_off.webp"><img no-lazy class="photo round" src="/portfolio/images/pp_on.webp"></div><script>function rcc5(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc5()}void 0===rccCalled&&rcc5();var rccCalled=!0</script>
+<h3><span id="コンポジット">コンポジット</span></h3><p>コンポジットはDaVinci Resolveで行いました。<br>白飛びや色の飽和を抑え、暖色寄りの色合いに調整しました。</p>
+<p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/ueburst-ppnodes.webp" alt="DaVinci Resolveカラーページ"><figcaption class="image-caption">DaVinci Resolveカラーページ</figcaption></figure><p></p>
+<br>
+<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp_off.webp"><img no-lazy class="photo round" src="/portfolio/images/pp_on.webp"></div><script>function rcc38(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc38()}void 0===rccCalled&&rcc38();var rccCalled=!0</script>
+<br>
+<div class="twentytwenty-container embeded-twentytwenty"><img no-lazy class="photo round" src="/portfolio/images/pp_off2.webp"><img no-lazy class="photo round" src="/portfolio/images/pp_on2.webp"></div><script>function rcc19(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc19()}void 0===rccCalled&&rcc19();var rccCalled=!0</script>
 <br>
 <br>
 <hr>
@@ -519,7 +495,7 @@ Building Generator(旧作)
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/node-pyro-stage.drawio.png" alt="LOP階層"><figcaption class="image-caption">LOP階層</figcaption></figure><p></p>
 <p>レンダリングのやり直しは時間が掛るため、Houdini側では最低限の質感設定とライティングのみ行い、色味はDaVinci Resolve側で調整しています。</p>
 <p></p><figure><img src="/assets/loading/02.webp" data-original="/portfolio/images/resolve-node.drawio.webp" alt="DaVinci ResolveのColorページ"><figcaption class="image-caption">DaVinci ResolveのColorページ</figcaption></figure><p></p>
-<div class="twentytwenty-container embeded-twentytwenty" style="max-width:1080px"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-before.webp" data-width="1080" data-height="1080"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-after.webp" data-width="1080" data-height="1080"></div><script>function rcc66(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc66()}void 0===rccCalled&&rcc66();var rccCalled=!0</script>
+<div class="twentytwenty-container embeded-twentytwenty" style="max-width:1080px"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-before.webp" data-width="1080" data-height="1080"><img no-lazy class="photo round" src="/portfolio/images/pyro-comp-after.webp" data-width="1080" data-height="1080"></div><script>function rcc86(){"undefined"!=typeof $?function(e){for(var t,n,s=["/js/twentytwenty.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js","https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"],c=["https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"],a=0,a=0;a<c.length;a++)(t=e.createElement("link")).rel="stylesheet",t.href=c[a],t.type="text/css",t.media="all",(n=e.getElementsByTagName("link")[0]).parentNode.insertBefore(t,n);for(a=0;a<s.length;a++)(t=e.createElement("script")).type="text/javascript",t.src=s[a],(n=e.getElementsByTagName("script")[0]).parentNode.insertBefore(t,n)}(document):setTimeout(function(){reloadCall()},100)}function reloadCall(){rcc86()}void 0===rccCalled&&rcc86();var rccCalled=!0</script>
 <div>
 </div>
 </div>
