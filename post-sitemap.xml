@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/GlitchNoiseShader/</loc>
+        <lastmod>2022-10-27T14:38:52.455Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/CubicSentinel/</loc>
         <lastmod>2022-10-27T14:34:43.432Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -83,14 +91,6 @@
     <url>
         <loc>http://www.magryllia.com/works/Dither/</loc>
         <lastmod>2022-10-27T14:33:38.229Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/GlitchNoiseShader/</loc>
-        <lastmod>2022-10-27T14:33:23.002Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
