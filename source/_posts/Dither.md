@@ -13,4 +13,4 @@ cover_index: /assets/Dither/01.webp
 ## TOOLS USED
 Blender
 
-![hoge](/assets/Dither/01.webp)
+![](/assets/Dither/01.webp)

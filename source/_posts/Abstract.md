@@ -12,4 +12,4 @@ JSplacementを使ってみた
 ## TOOLS USED
 Blender, JSplacement
 
-![hoge](/assets/Abstract/01.webp)
+![](/assets/Abstract/01.webp)

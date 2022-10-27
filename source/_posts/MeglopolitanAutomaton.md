@@ -13,4 +13,4 @@ ProcessingとBlenderを組み合わせてみた
 ## TOOLS USED
 Blender, Processing
 
-![hoge](/assets/MegalopolitanAutomaton/01.webp)
+![](/assets/MegalopolitanAutomaton/01.webp)

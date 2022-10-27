@@ -14,4 +14,4 @@ Animation Nodes習作
 ## TOOLS USED
 Blender, Animation Nodes
 
-![hoge](/assets/TypoMotion/01.webp)
+![](/assets/TypoMotion/01.webp)

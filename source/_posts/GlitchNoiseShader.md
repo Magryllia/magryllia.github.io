@@ -13,5 +13,5 @@ EEVEEで作ったグリッチノイズシェーダー
 ## TOOLS USED
 Blender
 
-![hoge](/assets/GlitchNoiseShader/01.webp)
+![](/assets/GlitchNoiseShader/01.webp)
 ---

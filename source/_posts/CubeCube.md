@@ -13,4 +13,4 @@ Animation Nodes練習一作目
 ## TOOLS USED
 Blender, Animation Nodes
 
-![hoge](/assets/CubeCube/CubeCube01.webp)
+![](/assets/CubeCube/CubeCube01.webp)

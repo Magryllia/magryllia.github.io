@@ -12,4 +12,4 @@ Houdini習作（一作目）
 ## TOOLS USED
 Houdini
 
-![hoge](/assets/Temple/01.webp)
+![](/assets/Temple/01.webp)

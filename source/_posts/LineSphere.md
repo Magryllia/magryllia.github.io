@@ -13,4 +13,4 @@ Processing習作
 ## TOOLS USED
 Processing
 
-![hoge](/assets/LineSphere/02.webp)
+![](/assets/LineSphere/02.webp)

@@ -13,4 +13,4 @@ Animation Nodes練習2作目
 ## TOOLS USED
 Blender, Animation Nodes
 
-![hoge](/assets/UnderConstruction/02.webp)
+![](/assets/UnderConstruction/02.webp)

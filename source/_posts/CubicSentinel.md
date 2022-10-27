@@ -13,4 +13,4 @@ Animatino Nodesとは違った面白さがある．
 ## TOOLS USED
 Blender, Sverchok
 
-![hoge](/assets/CubicSentinel/01.webp)
+![](/assets/CubicSentinel/01.webp)

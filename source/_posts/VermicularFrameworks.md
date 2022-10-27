@@ -13,5 +13,5 @@ Animation Nodes習作
 ## TOOLS USED
 Blender, Animation Nodes
 
-![hoge](/assets/VermicularFrameworks/01.webp)
+![](/assets/VermicularFrameworks/01.webp)
 ---
