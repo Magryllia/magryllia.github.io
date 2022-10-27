@@ -9,8 +9,104 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/CubicSentinel/</loc>
+        <lastmod>2022-10-27T14:34:43.432Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/UnderConstruction/</loc>
+        <lastmod>2022-10-27T14:34:27.115Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Temple/</loc>
+        <lastmod>2022-10-27T14:34:23.988Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/LineSphere/</loc>
+        <lastmod>2022-10-27T14:34:20.675Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/VermicularFrameworks/</loc>
+        <lastmod>2022-10-27T14:34:16.083Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/TypoMotion/</loc>
+        <lastmod>2022-10-27T14:34:12.115Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
+        <lastmod>2022-10-27T14:34:05.914Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Abstract/</loc>
+        <lastmod>2022-10-27T14:34:00.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/CubeCube/</loc>
+        <lastmod>2022-10-27T14:33:47.898Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Dither/</loc>
+        <lastmod>2022-10-27T14:33:38.229Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/GlitchNoiseShader/</loc>
+        <lastmod>2022-10-27T14:33:23.002Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/Matrix/</loc>
+        <lastmod>2022-10-27T14:32:43.608Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/HandWritingStyle/</loc>
-        <lastmod>2022-10-24T15:37:33.847Z</lastmod>
+        <lastmod>2022-10-25T15:40:46.073Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -185,14 +281,6 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Abstract/</loc>
-        <lastmod>2021-02-28T03:26:37.739Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.magryllia.com/works/Iris/</loc>
         <lastmod>2021-02-28T03:24:37.532Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -217,88 +305,8 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/UnderConstruction/</loc>
-        <lastmod>2021-02-16T00:02:10.203Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.magryllia.com/works/ObakeHoudini/</loc>
         <lastmod>2021-02-14T04:14:48.999Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/Temple/</loc>
-        <lastmod>2021-02-14T04:08:37.873Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/GlitchNoiseShader/</loc>
-        <lastmod>2021-01-31T04:55:56.551Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/VermicularFrameworks/</loc>
-        <lastmod>2021-01-17T13:38:00.725Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/TypoMotion/</loc>
-        <lastmod>2021-01-10T14:37:27.362Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/CubicSentinel/</loc>
-        <lastmod>2021-01-10T14:28:53.776Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/Dither/</loc>
-        <lastmod>2021-01-04T04:54:40.814Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
-        <lastmod>2021-01-04T04:37:16.068Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/LineSphere/</loc>
-        <lastmod>2021-01-04T04:31:43.967Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/CubeCube/</loc>
-        <lastmod>2021-01-04T04:29:17.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
