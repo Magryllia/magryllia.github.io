@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/boids/</loc>
+        <lastmod>2022-10-29T03:31:45.767Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
         <lastmod>2022-10-29T02:50:06.669Z</lastmod>
         <changefreq>weekly</changefreq>
