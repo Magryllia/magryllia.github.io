@@ -7,11 +7,11 @@ cover_index: /assets/GlitchNoiseShader/450.webp
 ---
 
 ## DESCRIPTION
-EEVEEで作ったグリッチノイズシェーダー
-[Github](https://github.com/Magryllia/GlitchNoiseShader)
+グリッチノイズシェーダー
+
 
 ## TOOLS USED
-Blender
+Blender, UE4, Unity(それぞれのソフトのシェーダーで同じエフェクトを作成)
 
 ![](/assets/GlitchNoiseShader/01.webp)
 ---
