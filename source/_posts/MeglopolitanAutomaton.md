@@ -7,8 +7,9 @@ cover_index: /assets/MegalopolitanAutomaton/450.webp
 ---
 
 ## DESCRIPTION
-ProcessingとBlenderを組み合わせてみた  
-[GitHub](https://github.com/Magryllia/MegalopolitanAutomaton)
+ProcessingとBlenderを組み合わせてみた
+Cell Automatonの軌跡を元に建物を生成する
+<!-- [GitHub](https://github.com/Magryllia/MegalopolitanAutomaton) -->
 
 ## TOOLS USED
 Blender, Processing

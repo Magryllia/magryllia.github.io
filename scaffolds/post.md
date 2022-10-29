@@ -12,4 +12,4 @@ hidden:
 
 ## TOOLS USED
 
-![](/assets/{{ title }}/01.webp)
+![](01.webp)
