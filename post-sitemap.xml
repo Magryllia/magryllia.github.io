@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
+        <lastmod>2022-10-29T02:50:06.669Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/CubeCube/</loc>
+        <lastmod>2022-10-29T02:49:20.179Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/decode-error/</loc>
+        <lastmod>2022-10-29T02:42:52.382Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/ink-painting-style/</loc>
         <lastmod>2022-10-29T02:28:36.044Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -81,24 +105,8 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
-        <lastmod>2022-10-27T14:34:05.914Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.magryllia.com/works/Abstract/</loc>
         <lastmod>2022-10-27T14:34:00.872Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/CubeCube/</loc>
-        <lastmod>2022-10-27T14:33:47.898Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
