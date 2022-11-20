@@ -15,3 +15,5 @@ Cell Automatonの軌跡を元に建物を生成する
 Blender, Processing
 
 ![](/assets/MegalopolitanAutomaton/01.webp)
+
+![processingから生成したハイドフィールドテクスチャ](/assets/MegalopolitanAutomaton/cell.webp)

@@ -3,7 +3,7 @@ menu:
   Home: /
   Blog: /categories/blog
   About: /about
-  Portfolio: /portfolio
+  # Portfolio: /portfolio
   #Archives: /archives
 
 # Default post title
