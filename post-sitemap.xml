@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://www.magryllia.com/works/niagara-fluids/</loc>
+        <lastmod>2023-06-17T05:55:02.755Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.magryllia.com/works/TypoMotion/</loc>
+        <lastmod>2023-06-17T05:42:57.625Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
         <lastmod>2022-11-01T14:21:04.447Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -99,14 +115,6 @@
     <url>
         <loc>http://www.magryllia.com/works/VermicularFrameworks/</loc>
         <lastmod>2022-10-27T14:34:16.083Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.magryllia.com/works/TypoMotion/</loc>
-        <lastmod>2022-10-27T14:34:12.115Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
