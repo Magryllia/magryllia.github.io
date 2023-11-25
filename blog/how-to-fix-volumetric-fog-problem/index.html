@@ -4,14 +4,17 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<meta name="description" content="起こっている問題ExponentioalHeightFogのVolumetricFogを有効化したのに全体的にFogが濃くなるだけで、ライトシャフトができない…
+結論Directional Lightの設定でCast Ray Traced Shadowsが有効化されていたことが原因だった
+無効化する">
 <meta name="author" content="大城（Magryllia）">
-<meta property="og:title" content="GRAPHILIA">
+<meta property="og:title" content="【UE5】Volumetric Fogを有効化してもライトシャフト（ゴッドレイ）ができないときの対処法">
 <meta property="og:site_name" content="GRAPHILIA">
 <meta property="og:image" content="">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@magryllia">
-<meta property="og:url" content="http://www.magryllia.com/categories/blog/index.html">
-<title>blog - GRAPHILIA</title>
+<meta property="og:url" content="http://www.magryllia.com/blog/how-to-fix-volumetric-fog-problem/index.html">
+<title>【UE5】Volumetric Fogを有効化してもライトシャフト（ゴッドレイ）ができないときの対処法 - GRAPHILIA</title>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/main.css">
 <!--[if lt IE 9]>
@@ -54,38 +57,28 @@
 </div>
 </header>
 <section class="main clearfix">
-<section class="wrapper">
-<div class="content archives">
-<div class="archive-title">blog</div>
-<ul class="archive-list">
-<li>
-<a href="/blog/AutoSave/">【Houdini】起動時に自動でオートセーブを有効にする</a>
-</li>
-<li>
-<a href="/blog/AttributeTransfer/">【Houdini】Attribute Transferで転送した値がボケない時の対処法</a>
-</li>
-<li>
-<a href="/blog/H264-BlockNoise/">【DaVinci Resolve】H.264エンコードでブロックノイズが出たときの対処法</a>
-</li>
-<li>
-<a href="/blog/HoudiniExpressionEditor/">【Houdini】日本語入りのVEXでHoudini Expression Editorを使ってエラーが出たときの対処法</a>
-</li>
-<li>
-<a href="/blog/Moprh_UVLayout/">【Houdini】UV Layout SOPでジオメトリを綺麗に敷き詰めてモーフさせる</a>
-</li>
-<li>
-<a href="/blog/Remove_Inline_Points/">【Houdini】エッジ上のポイントを削除する(Facetノード)</a>
-</li>
-<li>
-<a href="/blog/VDBMorphSDF/">【Houdini】VDB Morph SDFでトポロジー無視のモーフィングを行う</a>
-</li>
-<li>
-<a href="/blog/convert-webp/">連番画像からWebpへの変換とリサイズを行うシェルスクリプトを作った</a>
-</li>
-<li>
-<a href="/blog/how-to-fix-volumetric-fog-problem/">【UE5】Volumetric Fogを有効化してもライトシャフト（ゴッドレイ）ができないときの対処法</a>
-</li>
+<section class="top" style="background:url('')">
+<div class="wrapper content_header clearfix">
+<div class="work_nav">
+<ul class="btn clearfix">
+<li><a class="previous disabled"></a></li>
+<li><a href="/" class="grid" data-title="Portfolio"></a></li>
+<li><a class="next disabled"></a></li>
 </ul>
+</div>
+<h1 class="title">【UE5】Volumetric Fogを有効化してもライトシャフト（ゴッドレイ）ができないときの対処法</h1>
+</div>
+</section>
+<section class="wrapper">
+<div class="content">
+<h2><span id="起こっている問題">起こっている問題</span></h2><p>ExponentioalHeightFogのVolumetricFogを有効化したのに全体的にFogが濃くなるだけで、ライトシャフトができない…<br><img src="/assets/loading/02.webp" data-original="/blog/how-to-fix-volumetric-fog-problem/2023-11-25T141219.png"></p>
+<h2><span id="結論">結論</span></h2><p>Directional Lightの設定でCast Ray Traced Shadowsが有効化されていたことが原因だった<br><img src="/assets/loading/02.webp" data-original="/blog/how-to-fix-volumetric-fog-problem/2023-11-25T141419.png"></p>
+<p>無効化すると無事ライトシャフトが作られた<br><img src="/assets/loading/02.webp" data-original="/blog/how-to-fix-volumetric-fog-problem/2023-11-25T141621.png"></p>
+<div class="tags">
+<a href="/tags/UE/">UE</a>
+</div>
+<div>
+</div>
 </div>
 </section>
 </section>

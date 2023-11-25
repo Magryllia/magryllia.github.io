@@ -9,15 +9,15 @@
 
 
     <url>
-        <loc>http://www.magryllia.com/categories/works/</loc>
-        <lastmod>2023-06-17T05:55:02.755Z</lastmod>
+        <loc>http://www.magryllia.com/categories/blog/</loc>
+        <lastmod>2023-11-25T05:27:34.907Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/categories/blog/</loc>
-        <lastmod>2022-08-13T06:07:33.158Z</lastmod>
+        <loc>http://www.magryllia.com/categories/works/</loc>
+        <lastmod>2023-06-17T05:55:02.755Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
