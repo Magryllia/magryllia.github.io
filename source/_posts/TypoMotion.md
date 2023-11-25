@@ -8,7 +8,6 @@ cover_index: /assets/TypoMotion/450.webp
 
 ## DESCRIPTION
 Animation Nodes習作  
-わりとお気に入り  
 [GitHub](https://github.com/Magryllia/TypoMotion01)
 
 ## TOOLS USED
