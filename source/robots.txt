@@ -1,3 +1,0 @@
-User-Agent:*
-Disallow:
-Sitemap:https://magryllia.com/sitemap.xml

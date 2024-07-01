@@ -1,7 +1,7 @@
 # Header
 menu:
     Home: /
-    Blog: /categories/blog
+    # Blog: /categories/blog
     About: /about
     # Portfolio: /portfolio
     #Archives: /archives
