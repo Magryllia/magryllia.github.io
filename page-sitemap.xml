@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://www.magryllia.com/</loc>
+        <loc>https://magryllia.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
@@ -10,7 +10,7 @@
     
     
     <url>
-        <loc>http://www.magryllia.com/about/</loc>
+        <loc>https://magryllia.github.io/about/</loc>
         <lastmod>2023-03-04T02:39:15.546Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -19,7 +19,7 @@
     
     
     <url>
-        <loc>http://www.magryllia.com/portfolio/</loc>
+        <loc>https://magryllia.github.io/portfolio/</loc>
         <lastmod>2022-10-25T14:54:58.373Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

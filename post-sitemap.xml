@@ -2,14 +2,30 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://www.magryllia.com/</loc>
+        <loc>https://magryllia.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
 
     <url>
-        <loc>http://www.magryllia.com/blog/how-to-fix-volumetric-fog-problem/</loc>
+        <loc>https://magryllia.github.io/works/set-me-free/</loc>
+        <lastmod>2024-07-01T23:54:12.354Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://magryllia.github.io/works/metatron/</loc>
+        <lastmod>2024-07-01T14:42:05.643Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://magryllia.github.io/blog/how-to-fix-volumetric-fog-problem/</loc>
         <lastmod>2023-11-25T05:27:34.907Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -17,7 +33,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/niagara-fluids/</loc>
+        <loc>https://magryllia.github.io/works/niagara-fluids/</loc>
         <lastmod>2023-06-17T05:55:02.755Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -25,7 +41,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/TypoMotion/</loc>
+        <loc>https://magryllia.github.io/works/TypoMotion/</loc>
         <lastmod>2023-06-17T05:42:57.625Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -33,7 +49,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/MeglopolitanAutomaton/</loc>
+        <loc>https://magryllia.github.io/works/MeglopolitanAutomaton/</loc>
         <lastmod>2022-11-01T14:21:04.447Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -41,7 +57,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/boids/</loc>
+        <loc>https://magryllia.github.io/works/boids/</loc>
         <lastmod>2022-10-29T03:31:45.767Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -49,7 +65,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/CubeCube/</loc>
+        <loc>https://magryllia.github.io/works/CubeCube/</loc>
         <lastmod>2022-10-29T02:49:20.179Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -57,7 +73,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/decode-error/</loc>
+        <loc>https://magryllia.github.io/works/decode-error/</loc>
         <lastmod>2022-10-29T02:42:52.382Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -65,7 +81,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/ink-painting-style/</loc>
+        <loc>https://magryllia.github.io/works/ink-painting-style/</loc>
         <lastmod>2022-10-29T02:28:36.044Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -73,7 +89,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Matrix/</loc>
+        <loc>https://magryllia.github.io/works/Matrix/</loc>
         <lastmod>2022-10-29T02:24:58.277Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -81,7 +97,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/GlitchNoiseShader/</loc>
+        <loc>https://magryllia.github.io/works/GlitchNoiseShader/</loc>
         <lastmod>2022-10-27T14:38:52.455Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -89,7 +105,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/CubicSentinel/</loc>
+        <loc>https://magryllia.github.io/works/CubicSentinel/</loc>
         <lastmod>2022-10-27T14:34:43.432Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -97,7 +113,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/UnderConstruction/</loc>
+        <loc>https://magryllia.github.io/works/UnderConstruction/</loc>
         <lastmod>2022-10-27T14:34:27.115Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -105,7 +121,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Temple/</loc>
+        <loc>https://magryllia.github.io/works/Temple/</loc>
         <lastmod>2022-10-27T14:34:23.988Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -113,7 +129,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/LineSphere/</loc>
+        <loc>https://magryllia.github.io/works/LineSphere/</loc>
         <lastmod>2022-10-27T14:34:20.675Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -121,7 +137,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/VermicularFrameworks/</loc>
+        <loc>https://magryllia.github.io/works/VermicularFrameworks/</loc>
         <lastmod>2022-10-27T14:34:16.083Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -129,7 +145,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Abstract/</loc>
+        <loc>https://magryllia.github.io/works/Abstract/</loc>
         <lastmod>2022-10-27T14:34:00.872Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -137,7 +153,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Dither/</loc>
+        <loc>https://magryllia.github.io/works/Dither/</loc>
         <lastmod>2022-10-27T14:33:38.229Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -145,7 +161,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/HandWritingStyle/</loc>
+        <loc>https://magryllia.github.io/works/HandWritingStyle/</loc>
         <lastmod>2022-10-25T15:40:46.073Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -153,7 +169,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/convert-webp/</loc>
+        <loc>https://magryllia.github.io/blog/convert-webp/</loc>
         <lastmod>2022-08-13T06:07:33.158Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -161,7 +177,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/HoudiniExpressionEditor/</loc>
+        <loc>https://magryllia.github.io/blog/HoudiniExpressionEditor/</loc>
         <lastmod>2022-08-13T05:52:33.748Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -169,7 +185,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/H264-BlockNoise/</loc>
+        <loc>https://magryllia.github.io/blog/H264-BlockNoise/</loc>
         <lastmod>2022-08-13T05:52:03.775Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -177,7 +193,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/ScrapAndBuild/</loc>
+        <loc>https://magryllia.github.io/works/ScrapAndBuild/</loc>
         <lastmod>2022-07-30T04:37:02.984Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -185,7 +201,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/Remove_Inline_Points/</loc>
+        <loc>https://magryllia.github.io/blog/Remove_Inline_Points/</loc>
         <lastmod>2022-07-29T10:26:08.378Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -193,7 +209,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/PyroFlower/</loc>
+        <loc>https://magryllia.github.io/works/PyroFlower/</loc>
         <lastmod>2022-04-02T14:35:47.996Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -201,7 +217,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/VellumFlower/</loc>
+        <loc>https://magryllia.github.io/works/VellumFlower/</loc>
         <lastmod>2022-03-20T07:20:58.867Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -209,7 +225,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/ReactionDiffusion/</loc>
+        <loc>https://magryllia.github.io/works/ReactionDiffusion/</loc>
         <lastmod>2022-03-20T07:13:23.178Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -217,7 +233,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/ZeroGravity/</loc>
+        <loc>https://magryllia.github.io/works/ZeroGravity/</loc>
         <lastmod>2022-03-20T07:13:17.609Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -225,7 +241,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Room/</loc>
+        <loc>https://magryllia.github.io/works/Room/</loc>
         <lastmod>2022-01-22T03:11:47.156Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -233,7 +249,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Zenith/</loc>
+        <loc>https://magryllia.github.io/works/Zenith/</loc>
         <lastmod>2021-07-11T02:44:16.983Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -241,7 +257,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/InteriorMapping/</loc>
+        <loc>https://magryllia.github.io/works/InteriorMapping/</loc>
         <lastmod>2021-07-11T02:44:14.943Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -249,7 +265,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/GlassRibbon/</loc>
+        <loc>https://magryllia.github.io/works/GlassRibbon/</loc>
         <lastmod>2021-07-04T08:22:54.149Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -257,7 +273,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Apart/</loc>
+        <loc>https://magryllia.github.io/works/Apart/</loc>
         <lastmod>2021-06-12T10:09:25.754Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -265,7 +281,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Dither02/</loc>
+        <loc>https://magryllia.github.io/works/Dither02/</loc>
         <lastmod>2021-06-02T15:01:24.500Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -273,7 +289,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/OilPainting/</loc>
+        <loc>https://magryllia.github.io/works/OilPainting/</loc>
         <lastmod>2021-06-02T15:01:21.066Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -281,7 +297,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/CellShading/</loc>
+        <loc>https://magryllia.github.io/works/CellShading/</loc>
         <lastmod>2021-06-02T15:01:19.769Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -289,7 +305,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/Moprh_UVLayout/</loc>
+        <loc>https://magryllia.github.io/blog/Moprh_UVLayout/</loc>
         <lastmod>2021-06-02T14:43:56.129Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -297,7 +313,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/BetterHarderStronger/</loc>
+        <loc>https://magryllia.github.io/works/BetterHarderStronger/</loc>
         <lastmod>2021-05-29T09:25:22.070Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -305,7 +321,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/VDBMorphSDF/</loc>
+        <loc>https://magryllia.github.io/blog/VDBMorphSDF/</loc>
         <lastmod>2021-03-04T14:57:18.538Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -313,7 +329,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/morph/</loc>
+        <loc>https://magryllia.github.io/works/morph/</loc>
         <lastmod>2021-03-02T14:49:57.715Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -321,7 +337,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/Iris/</loc>
+        <loc>https://magryllia.github.io/works/Iris/</loc>
         <lastmod>2021-02-28T03:24:37.532Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -329,7 +345,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/AutoSave/</loc>
+        <loc>https://magryllia.github.io/blog/AutoSave/</loc>
         <lastmod>2021-02-21T10:00:33.263Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -337,7 +353,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/blog/AttributeTransfer/</loc>
+        <loc>https://magryllia.github.io/blog/AttributeTransfer/</loc>
         <lastmod>2021-02-20T10:25:17.554Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -345,7 +361,7 @@
     </url>
 
     <url>
-        <loc>http://www.magryllia.com/works/ObakeHoudini/</loc>
+        <loc>https://magryllia.github.io/works/ObakeHoudini/</loc>
         <lastmod>2021-02-14T04:14:48.999Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -3,22 +3,22 @@
 
 
     <sitemap>
-        <loc>http://www.magryllia.com/post-sitemap.xml</loc>
-        <lastmod>2023-11-25T05:27:34.907Z</lastmod>
+        <loc>https://magryllia.github.io/post-sitemap.xml</loc>
+        <lastmod>2024-07-01T23:54:12.354Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://www.magryllia.com/page-sitemap.xml</loc>
+        <loc>https://magryllia.github.io/page-sitemap.xml</loc>
         <lastmod>2023-03-04T02:39:15.546Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://www.magryllia.com/category-sitemap.xml</loc>
-        <lastmod>2023-11-25T05:27:34.907Z</lastmod>
+        <loc>https://magryllia.github.io/category-sitemap.xml</loc>
+        <lastmod>2024-07-01T23:54:12.354Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://www.magryllia.com/tag-sitemap.xml</loc>
+        <loc>https://magryllia.github.io/tag-sitemap.xml</loc>
         <lastmod>2023-11-25T05:27:34.907Z</lastmod>
     </sitemap>
 
