@@ -9,7 +9,7 @@ hidden:
 
 ## DESCRIPTION
 UV Layout SOPの応用  
-[作り方とプロジェクトファイル](https://www.magryllia.com/blog/Moprh_UVLayout/)
+[作り方とプロジェクトファイル](https://www.magryllia.github.io/blog/Moprh_UVLayout/)
 
 ## TOOLS USED
 Houdini
