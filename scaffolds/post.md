@@ -3,7 +3,7 @@ title: {{ title }}
 date: {{ date }}
 tags: 
 categories: works
-cover_index: /assets/{{ title }}/450.webp
+cover_index: /assets/{{ title }}/{{ title }}_450.webp
 hidden: 
 ---
 
@@ -12,4 +12,4 @@ hidden:
 
 ## TOOLS USED
 
-![](01.webp)
+![]({{ title }}.webp)
